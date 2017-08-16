@@ -1,0 +1,11 @@
+{
+  "name": "my-library",
+  "engines": {
+    "node": "6.11.0"
+  },
+  "scripts": {
+    "build": "cd client && yarn install && yarn build && cd ..",
+    "deploy": "cp -a client/build/. public/",
+    "postinstall": "npm rebuild node-sass && yarn build && yarn deploy && echo 'Client built!'"
+  }
+}
