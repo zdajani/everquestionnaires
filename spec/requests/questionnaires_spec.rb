@@ -24,9 +24,13 @@ RSpec.describe "Questionnaires", type: :request do
   describe "POST /questionnaire" do
     it 'creates a new questionnaire' do 
       post questionnaires_path, params: { questionnaire: build(:questionnaire).attributes }
-    
       expect(response).to have_http_status(:created)
-      expect(Questionnaire.find(json["id"])).to be_present
+    end
+    
+    it "renders a JSON response with errors for the new questionnaire" do
+      questionnaire = build(:questionnaire, title: "").attributes
+      post questionnaires_path, params: { questionnaire: questionnaire }
+      expect(response).to have_http_status(:unprocessable_entity)
     end
   end
 end

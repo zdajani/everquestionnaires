@@ -18,43 +18,21 @@ RSpec.describe QuestionnairesController, type: :controller do
   # QuestionnairesController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  describe "GET #index" do
-    it "returns a success response" do
-      questionnaire = Questionnaire.create! valid_attributes
-      get :index, params: {}, session: valid_session
-      expect(response).to be_success
-    end
-  end
-
-  describe "GET #show" do
-    it "returns a success response" do
-      questionnaire = Questionnaire.create! valid_attributes
-      get :show, params: {id: questionnaire.to_param}, session: valid_session
-      expect(response).to be_success
-    end
-  end
 
   describe "POST #create" do
     context "with valid params" do
-      it "creates a new Questionnaire" do
+      it "creates a new questionnaire" do
         expect {
           post :create, params: {questionnaire: valid_attributes}, session: valid_session
         }.to change(Questionnaire, :count).by(1)
       end
-
-      it "renders a JSON response with the new questionnaire" do
-        post :create, params: {questionnaire: valid_attributes}, session: valid_session
-        expect(response).to have_http_status(:created)
-        expect(response.content_type).to eq('application/json')
-        expect(response.location).to eq(questionnaire_url(Questionnaire.last))
-      end
     end
 
     context "with invalid params" do
-      it "renders a JSON response with errors for the new questionnaire" do
-        post :create, params: {questionnaire: invalid_attributes}, session: valid_session
-        expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.content_type).to eq('application/json')
+      it "does not create a new questionnaire" do
+        expect {
+          post :create, params: {questionnaire: invalid_attributes}, session: valid_session
+        }.to_not change(Questionnaire, :count)
       end
     end
   end
@@ -67,5 +45,4 @@ RSpec.describe QuestionnairesController, type: :controller do
       }.to change(Questionnaire, :count).by(-1)
     end
   end
-
 end
