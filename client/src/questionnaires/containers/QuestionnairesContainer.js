@@ -10,7 +10,7 @@ export class QuestionnairesContainer extends Component {
   componentDidMount(){
     this.props.fetchQuestionnaires();
   }
-  //fix this to deal with when there is no questionnaires and is not loading
+  // note: fix this to deal with when there is no questionnaires and is not loading
   render() {
     return (
       <div>

@@ -12,7 +12,7 @@ Questionnaire.create([{title: 'Harry Potter Trivia'}, {title: 'Name The Movie'}]
 questionnaire = Questionnaire.create(title: 'Cat breeds')
 questionnaire.questions.create([
   { name: "Ragdoll traits",
-  label: "name ragdoll trails" },
+  label: "describe ragdoll traits"  },
   { name: "Persian traits",
-  label: "name persian trails" }
+  label: "describe persian traits"  }
 ])
