@@ -10,7 +10,11 @@ class QuestionnairesController < ApplicationController
 
   # GET /questionnaires/1
   def show
-    render json: @questionnaire
+    if @questionnaire.questions.exists? 
+      render json: @questionnaire.to_json(include: {questions: { only: ['name', 'label', 'id' ]}})
+    else
+      render json: @questionnaire
+    end
   end
 
   # POST /questionnaires
