@@ -1,8 +1,5 @@
 import _ from 'lodash';
-import { 
-  FETCH_QUESTIONNAIRE, 
-  FETCH_QUESTIONNAIRE_SUCCESS, 
-  FETCH_QUESTIONNAIRE_FAILURE } from './actionTypes';
+import * as types from './actionTypes';
   
 const initialState = {
   isLoading: false, 
@@ -10,14 +7,14 @@ const initialState = {
   errorMessage: null
 };
 
-export default function(state = initialState, action) {
+export function fetchQuestionnaireReducer(state = initialState, action) {
   switch (action.type) {
-    case FETCH_QUESTIONNAIRE:
+    case types.FETCH_QUESTIONNAIRE:
       return {
         ...state, 
         isLoading: true
       }
-    case FETCH_QUESTIONNAIRE_SUCCESS:
+    case types.FETCH_QUESTIONNAIRE_SUCCESS:
       const questionnaire = () => (
          action.payload.questions ? {
            ...action.payload, 
@@ -31,7 +28,31 @@ export default function(state = initialState, action) {
         data: questionnaire(),
         errorMessage: null
       }
-    case FETCH_QUESTIONNAIRE_FAILURE:
+    case types.FETCH_QUESTIONNAIRE_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        errorMessage: action.payload
+      }
+    default: 
+      return state;
+    }
+};
+
+export function createQuestionnaireReducer(state = initialState, action) {
+  switch (action.type) {
+    case types.CREATE_QUESTIONNAIRE:
+      return {
+        ...state, 
+        isLoading: true
+      }
+    case types.CREATE_QUESTIONNAIRE_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        errorMessage: null
+      }
+    case types.CREATE_QUESTIONNAIRE_FAILURE:
       return {
         ...state,
         isLoading: false,

@@ -19,6 +19,13 @@ export const questions = {
   }
 };
 
+export const questionnaire = {
+  title: "Cat breeds"
+};
+
+
+
+
 export const formattedData = {
   id: 1,
   title: "Cat breeds",
@@ -43,4 +50,9 @@ export const apiData = {
        label: "describe persian traits" 
      }
   ]
+};
+
+export const questionnaireWithQuestions = {
+  title: apiData.title,
+  questions: apiData.questions
 };

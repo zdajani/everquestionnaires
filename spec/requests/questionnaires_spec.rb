@@ -46,6 +46,21 @@ RSpec.describe "Questionnaires", type: :request do
       expect(response).to have_http_status(:created)
     end
     
+    it 'creates a new questionnaire with questions' do 
+      questions = attributes_for_list(:question, 2)
+      
+      params = { questionnaire: { 
+          title: build(:questionnaire).title, 
+          questions_attributes: questions
+        }
+      }
+
+      post questionnaires_path(params)
+  
+      expect(response).to have_http_status(:created)
+    end
+      
+    
     it "renders a JSON response with errors for the new questionnaire" do
       questionnaire = build(:questionnaire, title: "").attributes
       post questionnaires_path(questionnaire: questionnaire)

@@ -20,7 +20,7 @@ class QuestionnairesController < ApplicationController
   # POST /questionnaires
   def create
     @questionnaire = Questionnaire.new(questionnaire_params)
-
+    
     if @questionnaire.save
       render json: @questionnaire, status: :created, location: @questionnaire
     else
@@ -41,6 +41,6 @@ class QuestionnairesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def questionnaire_params
-      params.require(:questionnaire).permit(:title)
+      params.require(:questionnaire).permit(:title, questions_attributes:[:name, :label, :id])
     end
 end

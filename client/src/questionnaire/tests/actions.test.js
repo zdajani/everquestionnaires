@@ -4,11 +4,12 @@ import expect from 'expect';
 import * as actions from '../actions';
 import * as types from '../actionTypes';
 import moxios from 'moxios';
-import { apiData } from './testData';
+import { apiData, questionnaire } from './testData';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const questionnaireId = 1;
+
 
 describe('async actions', () => {
   beforeEach(() => {
@@ -52,7 +53,7 @@ describe('async actions', () => {
         const request = moxios.requests.mostRecent();
         request.respondWith({
           status: 400,
-          response: { error: "something went wrong"}
+          response: { error: "Bad request"}
         });
       });  
     });
@@ -66,6 +67,57 @@ describe('async actions', () => {
       const store = mockStore({});
       
       return store.dispatch(actions.fetchQuestionnaire(questionnaireId)).then(() => {
+        expect(store.getActions()).toEqual(expectedActions);
+      });
+    });
+  });
+  
+  describe('createQuestionnaire success', () => {
+    beforeEach(() => {
+      //mocking axois request
+      moxios.wait(() => {
+        const request = moxios.requests.mostRecent();
+        request.respondWith({
+          status: 200
+        });
+      });  
+    });
+    
+    it('creates CREATE_QUESTIONNAIRE_SUCCESS when done', () => {
+      const expectedActions = [
+        { type: types.CREATE_QUESTIONNAIRE },
+        { type: types.CREATE_QUESTIONNAIRE_SUCCESS  
+      }];
+
+      const store = mockStore({});
+      
+      return store.dispatch(actions.createQuestionnaire(questionnaire)).then(() => {
+        expect(store.getActions()).toEqual(expectedActions);
+      });
+    });
+  });
+  
+  describe('createQuestionnaire failure', () => {
+    beforeEach(() => {
+      //mocking axois request
+      moxios.wait(() => {
+        const request = moxios.requests.mostRecent();
+        request.respondWith({
+          status: 400,
+          response: { error: "Bad request"}
+        });
+      });  
+    });
+    
+    it('creates CREATE_QUESTIONNAIRE_FAILURE when done', () => {
+      const expectedActions = [
+        { type: types.CREATE_QUESTIONNAIRE },
+        { type: types.CREATE_QUESTIONNAIRE_FAILURE, payload: "Bad request" }
+      ];
+
+      const store = mockStore({});
+      
+      return store.dispatch(actions.createQuestionnaire(questionnaire)).then(() => {
         expect(store.getActions()).toEqual(expectedActions);
       });
     });
