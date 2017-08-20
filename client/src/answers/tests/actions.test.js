@@ -4,24 +4,12 @@ import expect from 'expect';
 import * as actions from '../actions';
 import * as types from '../actionTypes';
 import moxios from 'moxios';
+import { createAnswersData } from './testData';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-const data = { questionnaires: [{
-  id: 1, 
-  title: "Lord of the Rings",
-  created_at: "2017-08-15T18:24:26.586Z",
-  updated_at: "2017-08-15T18:24:26.586Z"
-},
-{
-   id: 2, 
-   title: "Lord of the Flies",
-   created_at: "2017-08-15T18:24:26.586Z",
-   updated_at: "2017-08-15T18:24:26.586Z"
- }] }
-
-describe('questionnaires async actions', () => {
+describe('answers async actions', () => {
   beforeEach(() => {
       moxios.install();
     });
@@ -30,53 +18,52 @@ describe('questionnaires async actions', () => {
       moxios.uninstall();
     });
     
-  describe('fetchQuestionnaires success', () => {
+  describe('createAnswers success', () => {
     beforeEach(() => {
       //mocking axois request
       moxios.wait(() => {
         const request = moxios.requests.mostRecent();
         request.respondWith({
-          status: 200,
-          response: data
+          status: 200
         });
       });  
     });
     
-    it('creates FETCH_QUESTIONNAIRES_SUCCESS when done', () => {
+    it('creates CREATE_ANSWERS_SUCCESS when done', () => {
       const expectedActions = [
-        { type: types.FETCH_QUESTIONNAIRES },
-        { type: types.FETCH_QUESTIONNAIRES_SUCCESS, payload: data  
+        { type: types.CREATE_ANSWERS },
+        { type: types.CREATE_ANSWERS_SUCCESS  
       }];
 
       const store = mockStore({});
       
-      return store.dispatch(actions.fetchQuestionnaires()).then(() => {
+      return store.dispatch(actions.createAnswers(createAnswersData)).then(() => {
         expect(store.getActions()).toEqual(expectedActions);
       });
     });
   });
   
-  describe('fetchQuestionnaires failure', () => {
+  describe('createQuestionnaire failure', () => {
     beforeEach(() => {
       //mocking axois request
       moxios.wait(() => {
         const request = moxios.requests.mostRecent();
         request.respondWith({
           status: 400,
-          response: { error: "something went wrong"}
+          response: { error: "Bad request"}
         });
       });  
     });
     
-    it('creates FETCH_QUESTIONNAIRES_FAILURE when done', () => {
+    it('creates CREATE_QUESTIONNAIRE_FAILURE when done', () => {
       const expectedActions = [
-        { type: types.FETCH_QUESTIONNAIRES },
-        { type: types.FETCH_QUESTIONNAIRES_FAILURE, payload: "Bad request" }
+        { type: types.CREATE_ANSWERS },
+        { type: types.CREATE_ANSWERS_FAILURE, payload: "Bad request" }
       ];
 
       const store = mockStore({});
       
-      return store.dispatch(actions.fetchQuestionnaires()).then(() => {
+      return store.dispatch(actions.createAnswers(createAnswersData)).then(() => {
         expect(store.getActions()).toEqual(expectedActions);
       });
     });

@@ -11,7 +11,7 @@ const mockStore = configureMockStore(middlewares);
 const questionnaireId = 1;
 
 
-describe('async actions', () => {
+describe('questionnaire async actions', () => {
   beforeEach(() => {
       moxios.install();
   });

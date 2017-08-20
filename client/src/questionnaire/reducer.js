@@ -39,6 +39,7 @@ export function fetchQuestionnaireReducer(state = initialState, action) {
     }
 };
 
+// todo: split up the two reducers
 export function createQuestionnaireReducer(state = initialState, action) {
   switch (action.type) {
     case types.CREATE_QUESTIONNAIRE:
