@@ -14,11 +14,11 @@ const questionnaireId = 1;
 describe('async actions', () => {
   beforeEach(() => {
       moxios.install();
-    });
+  });
 
-    afterEach(() => {
-      moxios.uninstall();
-    });
+  afterEach(() => {
+    moxios.uninstall();
+  });
     
   describe('fetchQuestionnaire success', () => {
     beforeEach(() => {

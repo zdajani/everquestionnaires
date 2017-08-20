@@ -1,18 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom'
 import _ from 'lodash';
-import Questionnaire from './Questionnaire';
 
-const QuestionnairesList = ({ questionnaires }) => (
-  <ul>
-    { _.map(questionnaires, questionnaire => 
-      <Questionnaire
-        key={questionnaire.id}
-        {...questionnaire}
-      />
-    )}
-  </ul>
-);
+const QuestionnairesList = ({ questionnaires }) => {
+  const renderQuestionnaires = (() =>  {
+    return _.map(questionnaires, questionnaire => {
+      return (
+        <li key={questionnaire.id}>
+          <Link to={`questionnaires/${questionnaire.id}`}>
+            {questionnaire.title}
+          </Link>
+        </li>
+      )
+    });
+  })
+  
+  return (
+      <ul>
+      { renderQuestionnaires() }
+     </ul>    
+  );
+}
 
 QuestionnairesList.propTypes = {
   questionnaires: PropTypes.objectOf(PropTypes.shape({

@@ -20,8 +20,10 @@ export function fetchQuestionnaire(id) {
   };
 }
 
-export function createQuestionnaire(values) {
-  const request = axios.post('/api/questionnaires', values);
+export function createQuestionnaire({title, questions}) {
+  const request = axios.post('/api/questionnaires', { 
+    questionnaire: {title, questions_attributes: questions }
+  });
   
   return (dispatch) => {
     dispatch({ type: types.CREATE_QUESTIONNAIRE });

@@ -19,6 +19,7 @@ class QuestionnairesController < ApplicationController
 
   # POST /questionnaires
   def create
+    #not: implement uniqness verification on questions when adding them like below
     @questionnaire = Questionnaire.new(questionnaire_params)
     
     if @questionnaire.save

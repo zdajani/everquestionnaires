@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 import Question from '../../question/components/Question';
 
-//only need access to title for now
 const Questionnaire = ({ title, questions }) => (
   <ul>
     {title}

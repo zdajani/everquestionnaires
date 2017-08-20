@@ -4,9 +4,10 @@ import { Provider } from 'react-redux'
 import { Route, Switch } from 'react-router-dom';
 import { ConnectedRouter } from 'react-router-redux'
 
-import { store, history } from './configureStore'
-import QuestionnairesContainer from './questionnaires/containers/QuestionnairesContainer'
-import QuestionnaireContainer from './questionnaire/containers/QuestionnaireContainer'
+import { store, history } from './configureStore';
+import QuestionnairesContainer from './questionnaires/containers/QuestionnairesContainer';
+import QuestionnaireContainer from './questionnaire/containers/QuestionnaireContainer';
+import QuestionnaireFormContainer from './questionnaire/containers/QuestionnaireFormContainer';
 
 import './index.css';
 // import App from './App';
@@ -17,6 +18,7 @@ ReactDOM.render(
     <ConnectedRouter history={history}>
       <div>
         <Switch> 
+          <Route path="/questionnaires/new" component={QuestionnaireFormContainer}/>
           <Route path="/questionnaires/:id" component={QuestionnaireContainer}/>
           <Route path="/questionnaires" component={QuestionnairesContainer}/>
         </Switch> 

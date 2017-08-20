@@ -27,4 +27,5 @@ client side - cd client && yarn test
 
 * Deployment instructions
 
-* ...
+* note:
+- not testing redux-form connected components

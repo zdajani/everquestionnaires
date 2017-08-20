@@ -43,7 +43,11 @@ describe('Questionnaire container', () => {
     const match = {params: 5}
     // using mount for Full DOM rendering to make sure 
     //the component doesn't crash 
-    const mountedComponent = mount(<QuestionnaireContainer store={store} isLoading={false} fetchQuestionnaire={fetchQuestionnaireSpy} match={match}/>);
+    const mountedComponent = mount(<QuestionnaireContainer 
+      store={store} 
+      isLoading={false} 
+      fetchQuestionnaire={fetchQuestionnaireSpy} 
+      match={match}/>);
     
     expect(mountedComponent).toBePresent();
   });
@@ -88,7 +92,11 @@ describe('Questionnaire container', () => {
     });
     
     it('does not render Questionnaire component', () => {  
-      expect(container).not.toContainReact( <Questionnaire title={formattedData.title} questions={formattedData.questions}/>);
+      expect(container).not.toContainReact( 
+        <Questionnaire 
+          title={formattedData.title} 
+          questions={formattedData.questions}/>
+        );
     });
   });
 });

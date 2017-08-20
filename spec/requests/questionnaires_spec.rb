@@ -59,8 +59,7 @@ RSpec.describe "Questionnaires", type: :request do
   
       expect(response).to have_http_status(:created)
     end
-      
-    
+        
     it "renders a JSON response with errors for the new questionnaire" do
       questionnaire = build(:questionnaire, title: "").attributes
       post questionnaires_path(questionnaire: questionnaire)
