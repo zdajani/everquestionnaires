@@ -8,14 +8,12 @@ RSpec.describe UsersController, type: :controller do
   let(:valid_attributes) {
     attributes_for(:user)
   }
-
-  let(:valid_session) { {} }
   
   describe "POST #create" do
     context "with valid params" do
-      it "creates a new User" d
+      it "creates a new User" do
         expect {
-          post :create, params: {user: valid_attributes}, session: valid_session
+          post :create, params: {user: valid_attributes}
         }.to change(User, :count).by(1)
       end
     end

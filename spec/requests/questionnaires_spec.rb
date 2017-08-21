@@ -24,9 +24,11 @@ RSpec.describe "Questionnaires", type: :request do
     
     it 'returns a specific questionnaire and its questions' do
       questionnaire = create(:questionnaire_with_questions) 
+    
       get questionnaire_path(questionnaire.id)
       
       expect(response).to have_http_status(:success)
+      
       # use with_indifferent_access to account for difference in hashs
       # to_a.map(&:serializable_hash) returns the attributes for questions
       # instead of an instance of the object itself 

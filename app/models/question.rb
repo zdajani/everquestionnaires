@@ -1,5 +1,5 @@
 class Question < ApplicationRecord
-  belongs_to :questionnaire
+  belongs_to :questionnaire 
   has_many :answers
   
   validates :questionnaire, presence: true
