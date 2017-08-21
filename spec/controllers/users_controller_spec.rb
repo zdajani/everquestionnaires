@@ -6,14 +6,14 @@ RSpec.describe UsersController, type: :controller do
   # User. As you add validations to User, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    build(:user).attributes
+    attributes_for(:user)
   }
 
   let(:valid_session) { {} }
   
   describe "POST #create" do
     context "with valid params" do
-      it "creates a new User" do
+      it "creates a new User" d
         expect {
           post :create, params: {user: valid_attributes}, session: valid_session
         }.to change(User, :count).by(1)

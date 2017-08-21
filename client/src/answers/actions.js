@@ -2,8 +2,11 @@ import axios from 'axios';
 import * as types from './actionTypes';
 
 export function createAnswers({answers}) {
-  const request = axios.post('/api/answers', { 
-     answers 
+  const request = axios({
+    method: 'post',
+    url: '/api/answers',
+    data: { answers },
+    headers: {'Authorization': `Bearer ${localStorage.authToken}`}
   });
   
   return (dispatch) => {

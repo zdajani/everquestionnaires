@@ -9,14 +9,17 @@ import { createAnswersData } from './testData';
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
+localStorage.authToken = "1234"
 describe('answers async actions', () => {
   beforeEach(() => {
+      localStorage.authToken = "1234"
       moxios.install();
-    });
+  });
 
-    afterEach(() => {
-      moxios.uninstall();
-    });
+  afterEach(() => {
+    localStorage.clear()
+    moxios.uninstall();
+  });
     
   describe('createAnswers success', () => {
     beforeEach(() => {

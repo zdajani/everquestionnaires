@@ -10,13 +10,14 @@ const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const questionnaireId = 1;
 
-
 describe('questionnaire async actions', () => {
   beforeEach(() => {
-      moxios.install();
+    localStorage.authToken = "1234"
+    moxios.install();
   });
 
   afterEach(() => {
+    localStorage.clear()
     moxios.uninstall();
   });
     
