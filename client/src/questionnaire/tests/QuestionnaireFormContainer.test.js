@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import ConnectedQuestionnaireFormContainer, { QuestionnaireFormContainer } from '../containers/QuestionnaireFormContainer';
 import QuestionnaireForm from '../components/QuestionnaireForm';
-import {questionnaireWithQuestions} from './testData'
+import { questionnaireWithQuestions } from './testData'
 
 import { reducer as formReducer } from 'redux-form'
 import { createStore, combineReducers } from 'redux'
@@ -21,7 +21,7 @@ const setup = () => {
 }
 
 
-describe('Questionnaires container', () => {
+describe('QuestionnairesForm container', () => {
   it('renders without crashing', () => {  
     const store = createStore(combineReducers({ form: formReducer }))
     const createQuestionnaireSpy = jest.fn();

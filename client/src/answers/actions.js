@@ -2,8 +2,8 @@ import axios from 'axios';
 import * as types from './actionTypes';
 
 export function createAnswers({answers}) {
-  const request = axios.post('/api/questionnaires', { 
-    questionnaire: { answers }
+  const request = axios.post('/api/answers', { 
+     answers 
   });
   
   return (dispatch) => {

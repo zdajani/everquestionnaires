@@ -1,25 +1,24 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchQuestionnaire } from '../actions';
-import Questionnaire from '../components/Questionnaire'
-import Loading from '../../commonComponents/Loading'
+import Loading from '../../commonComponents/Loading';
+import AnswersFormContainer from '../../answers/containers/AnswersFormContainer';
 
 export class QuestionnaireContainer extends Component {
   componentDidMount(){
     const { id } = this.props.match.params;
     this.props.fetchQuestionnaire(id);
   }
-  //note: fix this to deal with when there is no questions
+  
   render() {
     const {isLoading, questionnaire } = this.props
     return (
       <div>
         { (isLoading || !questionnaire) ? 
           <Loading /> : 
-          <Questionnaire 
-            title={questionnaire.title} 
-            questions={questionnaire.questions} /> }
+          <AnswersFormContainer questionnaire={questionnaire} />
+        }
       </div>
     );
   }
@@ -36,7 +35,6 @@ QuestionnaireContainer.propTypes = {
     }))
   })
 };
-
 
 function mapStateToProps(state) {
   return { questionnaire: state.questionnaire.data, isLoading: state.questionnaire.isLoading };

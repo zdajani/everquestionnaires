@@ -2,9 +2,9 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import configureMockStore from 'redux-mock-store';
 import ConnectedQuestionnaireContainer, { QuestionnaireContainer } from '../containers/QuestionnaireContainer';
-import Questionnaire from '../components/Questionnaire';
 import Loading from '../../commonComponents/Loading';
 import { formattedData } from './testData';
+import AnswersFormContainer from '../../answers/containers/AnswersFormContainer';
 
 const middlewares = [];
 const mockStore = configureMockStore(middlewares);
@@ -71,8 +71,7 @@ describe('Questionnaire container', () => {
     it('renders Questionnaire component', () => {   
       const isloading = false; 
       const { container } = setup(formattedData, isloading);     
-      // this also checks that the props are passed down
-      expect(container).toContainReact( <Questionnaire title={formattedData.title} questions={formattedData.questions}/>);
+      expect(container.find(AnswersFormContainer).length).toEqual(1)
     });
     
     it('does not render Loading component', () => {    
@@ -92,11 +91,7 @@ describe('Questionnaire container', () => {
     });
     
     it('does not render Questionnaire component', () => {  
-      expect(container).not.toContainReact( 
-        <Questionnaire 
-          title={formattedData.title} 
-          questions={formattedData.questions}/>
-        );
+      expect(container.find(AnswersFormContainer).length).toEqual(0);
     });
   });
 });

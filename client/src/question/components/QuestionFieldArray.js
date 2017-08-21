@@ -5,7 +5,7 @@ import renderField from '../../commonComponents/Field';
 const QuestionFieldArray = ({ fields }) => (
   <ul>
     <li>
-      <button type="button" onClick={() => fields.push({})}>Add Question</button>
+      <button type="button" onClick={() => fields.push()}>Add Question</button>
     </li>
     {fields.map((question, index) => (
       <li key={index}>
@@ -31,6 +31,5 @@ const QuestionFieldArray = ({ fields }) => (
     ))}
   </ul>
 );
-
 
 export default QuestionFieldArray;

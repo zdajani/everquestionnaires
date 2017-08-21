@@ -17,9 +17,9 @@ const QuestionnairesList = ({ questionnaires }) => {
   })
   
   return (
-      <ul>
+    <ul>
       { renderQuestionnaires() }
-     </ul>    
+    </ul>    
   );
 }
 
