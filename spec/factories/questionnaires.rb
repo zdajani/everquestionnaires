@@ -1,7 +1,8 @@
 FactoryGirl.define do
   factory :questionnaire do
     title { Faker::LordOfTheRings.character }
-    
+    association :user
+        
     factory :questionnaire_with_questions do
       transient do
         questions_count 2

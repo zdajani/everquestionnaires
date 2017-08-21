@@ -39,12 +39,10 @@ RSpec.describe "Questionnaires", type: :request do
   end
   
   describe "POST /questionnaire" do
-    it 'creates a new questionnaire' do 
-      questionnaire = build(:questionnaire).attributes
-      post questionnaires_path(questionnaire: questionnaire)
-      
-      expect(response).to have_http_status(:created)
-    end
+    let(:headers) {
+      user = create(:user)
+      authorize_user_header(user)
+    }
     
     it 'creates a new questionnaire with questions' do 
       questions = attributes_for_list(:question, 2)
@@ -55,14 +53,14 @@ RSpec.describe "Questionnaires", type: :request do
         }
       }
 
-      post questionnaires_path(params)
+      post questionnaires_path, params: params, headers: headers
   
       expect(response).to have_http_status(:created)
     end
         
     it "renders a JSON response with errors for the new questionnaire" do
       questionnaire = build(:questionnaire, title: "").attributes
-      post questionnaires_path(questionnaire: questionnaire)
+      post questionnaires_path, params: {questionnaire: questionnaire}, headers: headers
       
       expect(response).to have_http_status(:unprocessable_entity)
     end

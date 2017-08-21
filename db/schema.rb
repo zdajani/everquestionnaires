@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170820034350) do
+ActiveRecord::Schema.define(version: 20170821023032) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,13 +20,17 @@ ActiveRecord::Schema.define(version: 20170820034350) do
     t.text "response"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["question_id"], name: "index_answers_on_question_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
   end
 
   create_table "questionnaires", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_questionnaires_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -38,6 +42,15 @@ ActiveRecord::Schema.define(version: 20170820034350) do
     t.index ["questionnaire_id"], name: "index_questions_on_questionnaire_id"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "answers", "questions"
+  add_foreign_key "answers", "users"
+  add_foreign_key "questionnaires", "users"
   add_foreign_key "questions", "questionnaires"
 end
