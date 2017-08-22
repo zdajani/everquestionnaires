@@ -18,9 +18,9 @@ RSpec.describe AnswersController, type: :controller do
         question_id: questions[1].id, 
         response: answers[1].response
       }]
-      
+
       expect {
-        post :create, params: {answers: answers_array}
+        post :create, params: {answers: answers_array, questionnaire_id: questions[0].questionnaire.id}
       }.to change(Answer, :count).by(2)
     end
   end
