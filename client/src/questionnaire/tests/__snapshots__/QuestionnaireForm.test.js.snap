@@ -1,0 +1,788 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QuestionnaireForm renders self with props 1`] = `
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
+>
+  <ReduxForm
+    handleSubmit={[Function]}
+    reset={[Function]}
+    submitting={false}
+  >
+    <Connect(Form(Component))
+      destroyOnUnmount={true}
+      enableReinitialize={false}
+      forceUnregisterOnUnmount={false}
+      form="QuestionnaireForm"
+      getFormState={[Function]}
+      handleSubmit={[Function]}
+      keepDirtyOnReinitialize={false}
+      persistentSubmitErrors={false}
+      pure={true}
+      reset={[Function]}
+      shouldAsyncValidate={[Function]}
+      shouldValidate={[Function]}
+      submitting={false}
+      touchOnBlur={true}
+      touchOnChange={false}
+      validate={[Function]}
+    >
+      <Form(Component)
+        anyTouched={false}
+        array={
+          Object {
+            "insert": [Function],
+            "move": [Function],
+            "pop": [Function],
+            "push": [Function],
+            "remove": [Function],
+            "removeAll": [Function],
+            "shift": [Function],
+            "splice": [Function],
+            "swap": [Function],
+            "unshift": [Function],
+          }
+        }
+        arrayInsert={[Function]}
+        arrayMove={[Function]}
+        arrayPop={[Function]}
+        arrayPush={[Function]}
+        arrayRemove={[Function]}
+        arrayRemoveAll={[Function]}
+        arrayShift={[Function]}
+        arraySplice={[Function]}
+        arraySwap={[Function]}
+        arrayUnshift={[Function]}
+        asyncValidating={false}
+        autofill={[Function]}
+        blur={[Function]}
+        change={[Function]}
+        clearAsyncError={[Function]}
+        clearSubmit={[Function]}
+        clearSubmitErrors={[Function]}
+        destroy={[Function]}
+        destroyOnUnmount={true}
+        dirty={false}
+        dispatch={[Function]}
+        enableReinitialize={false}
+        focus={[Function]}
+        forceUnregisterOnUnmount={false}
+        form="QuestionnaireForm"
+        getFormState={[Function]}
+        handleSubmit={[Function]}
+        initialize={[Function]}
+        initialized={false}
+        invalid={true}
+        keepDirtyOnReinitialize={false}
+        persistentSubmitErrors={false}
+        pristine={true}
+        pure={true}
+        registerField={[Function]}
+        registeredFields={
+          Object {
+            "questions": Object {
+              "count": 1,
+              "name": "questions",
+              "type": "FieldArray",
+            },
+            "title": Object {
+              "count": 1,
+              "name": "title",
+              "type": "Field",
+            },
+          }
+        }
+        reset={[Function]}
+        setSubmitFailed={[Function]}
+        setSubmitSucceeded={[Function]}
+        shouldAsyncValidate={[Function]}
+        shouldValidate={[Function]}
+        startAsyncValidation={[Function]}
+        startSubmit={[Function]}
+        stopAsyncValidation={[Function]}
+        stopSubmit={[Function]}
+        submit={[Function]}
+        submitFailed={false}
+        submitSucceeded={false}
+        submitting={false}
+        syncErrors={
+          Object {
+            "questions": Object {
+              "_error": "At least one question must be entered",
+            },
+            "title": "Required",
+          }
+        }
+        syncWarnings={Object {}}
+        touch={[Function]}
+        touchOnBlur={true}
+        touchOnChange={false}
+        unregisterField={[Function]}
+        untouch={[Function]}
+        updateSyncErrors={[Function]}
+        updateSyncWarnings={[Function]}
+        valid={false}
+        validExceptSubmit={false}
+        validate={[Function]}
+        values={Object {}}
+      >
+        <Component
+          anyTouched={false}
+          array={
+            Object {
+              "insert": [Function],
+              "move": [Function],
+              "pop": [Function],
+              "push": [Function],
+              "remove": [Function],
+              "removeAll": [Function],
+              "shift": [Function],
+              "splice": [Function],
+              "swap": [Function],
+              "unshift": [Function],
+            }
+          }
+          asyncValidate={[Function]}
+          asyncValidating={false}
+          autofill={[Function]}
+          blur={[Function]}
+          change={[Function]}
+          clearAsyncError={[Function]}
+          clearSubmit={[Function]}
+          clearSubmitErrors={[Function]}
+          destroy={[Function]}
+          dirty={false}
+          dispatch={[Function]}
+          form="QuestionnaireForm"
+          handleSubmit={[Function]}
+          initialize={[Function]}
+          initialized={false}
+          invalid={true}
+          pristine={true}
+          pure={true}
+          reset={[Function]}
+          submit={[Function]}
+          submitFailed={false}
+          submitSucceeded={false}
+          submitting={false}
+          touch={[Function]}
+          untouch={[Function]}
+          valid={false}
+          validate={[Function]}
+        >
+          <form
+            onSubmit={[Function]}
+          >
+            <Field
+              component={[Function]}
+              label="Questionnaire Title"
+              name="title"
+              type="text"
+            >
+              <Connect(ConnectedField)
+                _reduxForm={
+                  Object {
+                    "anyTouched": false,
+                    "array": Object {
+                      "insert": [Function],
+                      "move": [Function],
+                      "pop": [Function],
+                      "push": [Function],
+                      "remove": [Function],
+                      "removeAll": [Function],
+                      "shift": [Function],
+                      "splice": [Function],
+                      "swap": [Function],
+                      "unshift": [Function],
+                    },
+                    "arrayInsert": [Function],
+                    "arrayMove": [Function],
+                    "arrayPop": [Function],
+                    "arrayPush": [Function],
+                    "arrayRemove": [Function],
+                    "arrayRemoveAll": [Function],
+                    "arrayShift": [Function],
+                    "arraySplice": [Function],
+                    "arraySwap": [Function],
+                    "arrayUnshift": [Function],
+                    "asyncErrors": undefined,
+                    "asyncValidate": [Function],
+                    "asyncValidating": false,
+                    "autofill": [Function],
+                    "blur": [Function],
+                    "change": [Function],
+                    "clearAsyncError": [Function],
+                    "clearSubmit": [Function],
+                    "clearSubmitErrors": [Function],
+                    "destroy": [Function],
+                    "destroyOnUnmount": true,
+                    "dirty": false,
+                    "dispatch": [Function],
+                    "enableReinitialize": false,
+                    "error": undefined,
+                    "focus": [Function],
+                    "forceUnregisterOnUnmount": false,
+                    "form": "QuestionnaireForm",
+                    "getFormState": [Function],
+                    "getValues": [Function],
+                    "handleSubmit": [Function],
+                    "initialValues": undefined,
+                    "initialize": [Function],
+                    "initialized": false,
+                    "invalid": true,
+                    "keepDirtyOnReinitialize": false,
+                    "persistentSubmitErrors": false,
+                    "pristine": true,
+                    "pure": true,
+                    "register": [Function],
+                    "registerField": [Function],
+                    "registerInnerOnSubmit": [Function],
+                    "registeredFields": Object {
+                      "questions": Object {
+                        "count": 1,
+                        "name": "questions",
+                        "type": "FieldArray",
+                      },
+                      "title": Object {
+                        "count": 1,
+                        "name": "title",
+                        "type": "Field",
+                      },
+                    },
+                    "reset": [Function],
+                    "sectionPrefix": undefined,
+                    "setSubmitFailed": [Function],
+                    "setSubmitSucceeded": [Function],
+                    "shouldAsyncValidate": [Function],
+                    "shouldValidate": [Function],
+                    "startAsyncValidation": [Function],
+                    "startSubmit": [Function],
+                    "stopAsyncValidation": [Function],
+                    "stopSubmit": [Function],
+                    "submit": [Function],
+                    "submitFailed": false,
+                    "submitSucceeded": false,
+                    "submitting": false,
+                    "syncErrors": Object {
+                      "questions": Object {
+                        "_error": "At least one question must be entered",
+                      },
+                      "title": "Required",
+                    },
+                    "syncWarnings": Object {},
+                    "touch": [Function],
+                    "touchOnBlur": true,
+                    "touchOnChange": false,
+                    "triggerSubmit": undefined,
+                    "unregister": [Function],
+                    "unregisterField": [Function],
+                    "untouch": [Function],
+                    "updateSyncErrors": [Function],
+                    "updateSyncWarnings": [Function],
+                    "valid": false,
+                    "validExceptSubmit": false,
+                    "validate": [Function],
+                    "values": Object {},
+                    "warning": undefined,
+                  }
+                }
+                component={[Function]}
+                label="Questionnaire Title"
+                name="title"
+                normalize={[Function]}
+                type="text"
+              >
+                <ConnectedField
+                  _reduxForm={
+                    Object {
+                      "anyTouched": false,
+                      "array": Object {
+                        "insert": [Function],
+                        "move": [Function],
+                        "pop": [Function],
+                        "push": [Function],
+                        "remove": [Function],
+                        "removeAll": [Function],
+                        "shift": [Function],
+                        "splice": [Function],
+                        "swap": [Function],
+                        "unshift": [Function],
+                      },
+                      "arrayInsert": [Function],
+                      "arrayMove": [Function],
+                      "arrayPop": [Function],
+                      "arrayPush": [Function],
+                      "arrayRemove": [Function],
+                      "arrayRemoveAll": [Function],
+                      "arrayShift": [Function],
+                      "arraySplice": [Function],
+                      "arraySwap": [Function],
+                      "arrayUnshift": [Function],
+                      "asyncErrors": undefined,
+                      "asyncValidate": [Function],
+                      "asyncValidating": false,
+                      "autofill": [Function],
+                      "blur": [Function],
+                      "change": [Function],
+                      "clearAsyncError": [Function],
+                      "clearSubmit": [Function],
+                      "clearSubmitErrors": [Function],
+                      "destroy": [Function],
+                      "destroyOnUnmount": true,
+                      "dirty": false,
+                      "dispatch": [Function],
+                      "enableReinitialize": false,
+                      "error": undefined,
+                      "focus": [Function],
+                      "forceUnregisterOnUnmount": false,
+                      "form": "QuestionnaireForm",
+                      "getFormState": [Function],
+                      "getValues": [Function],
+                      "handleSubmit": [Function],
+                      "initialValues": undefined,
+                      "initialize": [Function],
+                      "initialized": false,
+                      "invalid": true,
+                      "keepDirtyOnReinitialize": false,
+                      "persistentSubmitErrors": false,
+                      "pristine": true,
+                      "pure": true,
+                      "register": [Function],
+                      "registerField": [Function],
+                      "registerInnerOnSubmit": [Function],
+                      "registeredFields": Object {
+                        "questions": Object {
+                          "count": 1,
+                          "name": "questions",
+                          "type": "FieldArray",
+                        },
+                        "title": Object {
+                          "count": 1,
+                          "name": "title",
+                          "type": "Field",
+                        },
+                      },
+                      "reset": [Function],
+                      "sectionPrefix": undefined,
+                      "setSubmitFailed": [Function],
+                      "setSubmitSucceeded": [Function],
+                      "shouldAsyncValidate": [Function],
+                      "shouldValidate": [Function],
+                      "startAsyncValidation": [Function],
+                      "startSubmit": [Function],
+                      "stopAsyncValidation": [Function],
+                      "stopSubmit": [Function],
+                      "submit": [Function],
+                      "submitFailed": false,
+                      "submitSucceeded": false,
+                      "submitting": false,
+                      "syncErrors": Object {
+                        "questions": Object {
+                          "_error": "At least one question must be entered",
+                        },
+                        "title": "Required",
+                      },
+                      "syncWarnings": Object {},
+                      "touch": [Function],
+                      "touchOnBlur": true,
+                      "touchOnChange": false,
+                      "triggerSubmit": undefined,
+                      "unregister": [Function],
+                      "unregisterField": [Function],
+                      "untouch": [Function],
+                      "updateSyncErrors": [Function],
+                      "updateSyncWarnings": [Function],
+                      "valid": false,
+                      "validExceptSubmit": false,
+                      "validate": [Function],
+                      "values": Object {},
+                      "warning": undefined,
+                    }
+                  }
+                  asyncValidating={false}
+                  component={[Function]}
+                  dirty={false}
+                  dispatch={[Function]}
+                  label="Questionnaire Title"
+                  name="title"
+                  normalize={[Function]}
+                  pristine={true}
+                  syncError="Required"
+                  type="text"
+                >
+                  <renderField
+                    input={
+                      Object {
+                        "name": "title",
+                        "onBlur": [Function],
+                        "onChange": [Function],
+                        "onDragStart": [Function],
+                        "onDrop": [Function],
+                        "onFocus": [Function],
+                        "value": "",
+                      }
+                    }
+                    label="Questionnaire Title"
+                    meta={
+                      Object {
+                        "active": false,
+                        "asyncValidating": false,
+                        "autofilled": false,
+                        "dirty": false,
+                        "dispatch": [Function],
+                        "error": "Required",
+                        "form": "QuestionnaireForm",
+                        "initial": undefined,
+                        "invalid": true,
+                        "pristine": true,
+                        "submitFailed": false,
+                        "submitting": false,
+                        "touched": false,
+                        "valid": false,
+                        "visited": false,
+                        "warning": undefined,
+                      }
+                    }
+                    type="text"
+                  >
+                    <div>
+                      <label>
+                        Questionnaire Title
+                      </label>
+                      <div>
+                        <input
+                          name="title"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onDragStart={[Function]}
+                          onDrop={[Function]}
+                          onFocus={[Function]}
+                          placeholder="Questionnaire Title"
+                          type="text"
+                          value=""
+                        />
+                      </div>
+                    </div>
+                  </renderField>
+                </ConnectedField>
+              </Connect(ConnectedField)>
+            </Field>
+            <FieldArray
+              component={[Function]}
+              name="questions"
+            >
+              <Connect(ConnectedFieldArray)
+                _reduxForm={
+                  Object {
+                    "anyTouched": false,
+                    "array": Object {
+                      "insert": [Function],
+                      "move": [Function],
+                      "pop": [Function],
+                      "push": [Function],
+                      "remove": [Function],
+                      "removeAll": [Function],
+                      "shift": [Function],
+                      "splice": [Function],
+                      "swap": [Function],
+                      "unshift": [Function],
+                    },
+                    "arrayInsert": [Function],
+                    "arrayMove": [Function],
+                    "arrayPop": [Function],
+                    "arrayPush": [Function],
+                    "arrayRemove": [Function],
+                    "arrayRemoveAll": [Function],
+                    "arrayShift": [Function],
+                    "arraySplice": [Function],
+                    "arraySwap": [Function],
+                    "arrayUnshift": [Function],
+                    "asyncErrors": undefined,
+                    "asyncValidate": [Function],
+                    "asyncValidating": false,
+                    "autofill": [Function],
+                    "blur": [Function],
+                    "change": [Function],
+                    "clearAsyncError": [Function],
+                    "clearSubmit": [Function],
+                    "clearSubmitErrors": [Function],
+                    "destroy": [Function],
+                    "destroyOnUnmount": true,
+                    "dirty": false,
+                    "dispatch": [Function],
+                    "enableReinitialize": false,
+                    "error": undefined,
+                    "focus": [Function],
+                    "forceUnregisterOnUnmount": false,
+                    "form": "QuestionnaireForm",
+                    "getFormState": [Function],
+                    "getValues": [Function],
+                    "handleSubmit": [Function],
+                    "initialValues": undefined,
+                    "initialize": [Function],
+                    "initialized": false,
+                    "invalid": true,
+                    "keepDirtyOnReinitialize": false,
+                    "persistentSubmitErrors": false,
+                    "pristine": true,
+                    "pure": true,
+                    "register": [Function],
+                    "registerField": [Function],
+                    "registerInnerOnSubmit": [Function],
+                    "registeredFields": Object {
+                      "questions": Object {
+                        "count": 1,
+                        "name": "questions",
+                        "type": "FieldArray",
+                      },
+                      "title": Object {
+                        "count": 1,
+                        "name": "title",
+                        "type": "Field",
+                      },
+                    },
+                    "reset": [Function],
+                    "sectionPrefix": undefined,
+                    "setSubmitFailed": [Function],
+                    "setSubmitSucceeded": [Function],
+                    "shouldAsyncValidate": [Function],
+                    "shouldValidate": [Function],
+                    "startAsyncValidation": [Function],
+                    "startSubmit": [Function],
+                    "stopAsyncValidation": [Function],
+                    "stopSubmit": [Function],
+                    "submit": [Function],
+                    "submitFailed": false,
+                    "submitSucceeded": false,
+                    "submitting": false,
+                    "syncErrors": Object {
+                      "questions": Object {
+                        "_error": "At least one question must be entered",
+                      },
+                      "title": "Required",
+                    },
+                    "syncWarnings": Object {},
+                    "touch": [Function],
+                    "touchOnBlur": true,
+                    "touchOnChange": false,
+                    "triggerSubmit": undefined,
+                    "unregister": [Function],
+                    "unregisterField": [Function],
+                    "untouch": [Function],
+                    "updateSyncErrors": [Function],
+                    "updateSyncWarnings": [Function],
+                    "valid": false,
+                    "validExceptSubmit": false,
+                    "validate": [Function],
+                    "values": Object {},
+                    "warning": undefined,
+                  }
+                }
+                component={[Function]}
+                name="questions"
+              >
+                <ConnectedFieldArray
+                  _reduxForm={
+                    Object {
+                      "anyTouched": false,
+                      "array": Object {
+                        "insert": [Function],
+                        "move": [Function],
+                        "pop": [Function],
+                        "push": [Function],
+                        "remove": [Function],
+                        "removeAll": [Function],
+                        "shift": [Function],
+                        "splice": [Function],
+                        "swap": [Function],
+                        "unshift": [Function],
+                      },
+                      "arrayInsert": [Function],
+                      "arrayMove": [Function],
+                      "arrayPop": [Function],
+                      "arrayPush": [Function],
+                      "arrayRemove": [Function],
+                      "arrayRemoveAll": [Function],
+                      "arrayShift": [Function],
+                      "arraySplice": [Function],
+                      "arraySwap": [Function],
+                      "arrayUnshift": [Function],
+                      "asyncErrors": undefined,
+                      "asyncValidate": [Function],
+                      "asyncValidating": false,
+                      "autofill": [Function],
+                      "blur": [Function],
+                      "change": [Function],
+                      "clearAsyncError": [Function],
+                      "clearSubmit": [Function],
+                      "clearSubmitErrors": [Function],
+                      "destroy": [Function],
+                      "destroyOnUnmount": true,
+                      "dirty": false,
+                      "dispatch": [Function],
+                      "enableReinitialize": false,
+                      "error": undefined,
+                      "focus": [Function],
+                      "forceUnregisterOnUnmount": false,
+                      "form": "QuestionnaireForm",
+                      "getFormState": [Function],
+                      "getValues": [Function],
+                      "handleSubmit": [Function],
+                      "initialValues": undefined,
+                      "initialize": [Function],
+                      "initialized": false,
+                      "invalid": true,
+                      "keepDirtyOnReinitialize": false,
+                      "persistentSubmitErrors": false,
+                      "pristine": true,
+                      "pure": true,
+                      "register": [Function],
+                      "registerField": [Function],
+                      "registerInnerOnSubmit": [Function],
+                      "registeredFields": Object {
+                        "questions": Object {
+                          "count": 1,
+                          "name": "questions",
+                          "type": "FieldArray",
+                        },
+                        "title": Object {
+                          "count": 1,
+                          "name": "title",
+                          "type": "Field",
+                        },
+                      },
+                      "reset": [Function],
+                      "sectionPrefix": undefined,
+                      "setSubmitFailed": [Function],
+                      "setSubmitSucceeded": [Function],
+                      "shouldAsyncValidate": [Function],
+                      "shouldValidate": [Function],
+                      "startAsyncValidation": [Function],
+                      "startSubmit": [Function],
+                      "stopAsyncValidation": [Function],
+                      "stopSubmit": [Function],
+                      "submit": [Function],
+                      "submitFailed": false,
+                      "submitSucceeded": false,
+                      "submitting": false,
+                      "syncErrors": Object {
+                        "questions": Object {
+                          "_error": "At least one question must be entered",
+                        },
+                        "title": "Required",
+                      },
+                      "syncWarnings": Object {},
+                      "touch": [Function],
+                      "touchOnBlur": true,
+                      "touchOnChange": false,
+                      "triggerSubmit": undefined,
+                      "unregister": [Function],
+                      "unregisterField": [Function],
+                      "untouch": [Function],
+                      "updateSyncErrors": [Function],
+                      "updateSyncWarnings": [Function],
+                      "valid": false,
+                      "validExceptSubmit": false,
+                      "validate": [Function],
+                      "values": Object {},
+                      "warning": undefined,
+                    }
+                  }
+                  arrayInsert={[Function]}
+                  arrayMove={[Function]}
+                  arrayPop={[Function]}
+                  arrayPush={[Function]}
+                  arrayRemove={[Function]}
+                  arrayRemoveAll={[Function]}
+                  arrayShift={[Function]}
+                  arraySplice={[Function]}
+                  arraySwap={[Function]}
+                  arrayUnshift={[Function]}
+                  component={[Function]}
+                  dirty={false}
+                  length={0}
+                  name="questions"
+                  pristine={true}
+                  rerenderOnEveryChange={false}
+                  syncError="At least one question must be entered"
+                >
+                  <QuestionFieldArray
+                    fields={
+                      Object {
+                        "_isFieldArray": true,
+                        "forEach": [Function],
+                        "get": [Function],
+                        "getAll": [Function],
+                        "insert": [Function],
+                        "length": 0,
+                        "map": [Function],
+                        "move": [Function],
+                        "name": "questions",
+                        "pop": [Function],
+                        "push": [Function],
+                        "reduce": [Function],
+                        "remove": [Function],
+                        "removeAll": [Function],
+                        "shift": [Function],
+                        "swap": [Function],
+                        "unshift": [Function],
+                      }
+                    }
+                    meta={
+                      Object {
+                        "dirty": false,
+                        "error": "At least one question must be entered",
+                        "form": "QuestionnaireForm",
+                        "invalid": true,
+                        "pristine": true,
+                        "submitFailed": undefined,
+                        "submitting": undefined,
+                        "valid": false,
+                        "warning": undefined,
+                      }
+                    }
+                  >
+                    <ul>
+                      <li>
+                        <button
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Add Question
+                        </button>
+                      </li>
+                    </ul>
+                  </QuestionFieldArray>
+                </ConnectedFieldArray>
+              </Connect(ConnectedFieldArray)>
+            </FieldArray>
+            <div>
+              <button
+                disabled={false}
+                type="submit"
+              >
+                Submit
+              </button>
+              <button
+                disabled={true}
+                onClick={[Function]}
+                type="button"
+              >
+                Clear Values
+              </button>
+            </div>
+          </form>
+        </Component>
+      </Form(Component)>
+    </Connect(Form(Component))>
+  </ReduxForm>
+</Provider>
+`;

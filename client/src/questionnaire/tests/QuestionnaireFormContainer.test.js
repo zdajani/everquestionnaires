@@ -1,12 +1,13 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
 import ConnectedQuestionnaireFormContainer, { QuestionnaireFormContainer } from '../containers/QuestionnaireFormContainer';
-import QuestionnaireForm from '../components/QuestionnaireForm';
-import { questionnaireWithQuestions } from './testData'
+import ConntectedQuestionnaireForm from '../components/QuestionnaireForm';
+import { questionnaireWithQuestions } from './testData';
 
-import { reducer as formReducer } from 'redux-form'
-import { createStore, combineReducers } from 'redux'
-import { Provider } from 'react-redux'
+import { reducer as formReducer } from 'redux-form';
+import { createStore, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
 
 const setup = () => {
   const createQuestionnaireSpy = jest.fn();
@@ -32,12 +33,12 @@ describe('QuestionnairesForm container', () => {
          createQuestionnaire={createQuestionnaireSpy}/>
       </Provider>);
 
-      expect(mountedContainer).toBePresent();
+      expect(toJson(mountedContainer)).toMatchSnapshot();
   });
   
   it('renders QuestionnaireForm component', () => {  
     const { container } = setup()
-    expect(container.find(QuestionnaireForm).length).toEqual(1)
+    expect(toJson(container.find(ConntectedQuestionnaireForm))).toMatchSnapshot();
   });
   
   it('calls createQuestionnaire on handleFormSubmit', () => {    

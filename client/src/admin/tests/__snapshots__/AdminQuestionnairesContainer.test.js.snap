@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AdminQuestionnaires container renders without crashing 1`] = `
+<AdminQuestionnairesContainer
+  fetchAdminQuestionnaires={[Function]}
+  isLoading={false}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <div>
+    <Loading>
+      <div
+        className="loadingScreen"
+      >
+        ...Loading
+      </div>
+    </Loading>
+  </div>
+</AdminQuestionnairesContainer>
+`;
+
+exports[`AdminQuestionnaires container when questionnaires data is available renders self with questionnaires props 1`] = `
+<AdminQuestionnairesContainer
+  fetchAdminQuestionnaires={[Function]}
+  isLoading={false}
+  questionnaires={
+    Object {
+      "1": Object {
+        "id": 1,
+        "title": "Cat breeds",
+      },
+      "2": Object {
+        "id": 2,
+        "title": "Cat breeds Questionnaire Part 2",
+      },
+    }
+  }
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "notify": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "unsubscribe": null,
+    }
+  }
+/>
+`;

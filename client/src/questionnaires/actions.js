@@ -11,6 +11,7 @@ export function fetchQuestionnaires() {
     dispatch({ type: types.FETCH_QUESTIONNAIRES });
     
     return request.then(response => {
+      console.log(response)
       dispatch({ 
         type: types.FETCH_QUESTIONNAIRES_SUCCESS, 
         payload: response.data

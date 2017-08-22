@@ -7,8 +7,12 @@ RSpec.describe "admin", type: :request do
       questionOne = questionnaire.questions[0]
       questionTwo = questionnaire.questions[1]
     
-      answerOne = create(:answer, question_id: questionOne.id )
-      answerTwo = create(:answer, question_id: questionTwo.id)
+      answerOne = create(:answer, 
+      question_id: questionOne.id,
+      questionnaire_id: questionnaire.id )
+      answerTwo = create(:answer, 
+      question_id: questionTwo.id,
+      questionnaire_id: questionnaire.id)
       headers = authorize_user_header(questionnaire.user)
       
       get questionnaire_responses_path(questionnaire.id)

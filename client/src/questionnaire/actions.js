@@ -28,10 +28,6 @@ export function createQuestionnaire({title, questions}) {
     headers: {'Authorization': `Bearer ${localStorage.authToken}`}
   });
   
-  // const request = axios.post('/api/questionnaires', { 
-  //   questionnaire: {title, questions_attributes: questions }
-  // });
-  // 
   return (dispatch) => {
     dispatch({ type: types.CREATE_QUESTIONNAIRE });
     

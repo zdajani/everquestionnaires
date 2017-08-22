@@ -1,18 +1,40 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-
-Questionnaire.create([{title: 'Harry Potter Trivia'}, {title: 'Name The Movie'}])
-
-questionnaire = Questionnaire.create(title: 'Cat breeds')
-questionnaire.questions.create([
-  { name: "Ragdoll traits",
-  label: "describe ragdoll traits"  },
-  { name: "Persian traits",
-  label: "describe persian traits"  }
+users = User.create([
+  {
+    username: "HarryP",
+    password: "password"
+  },
+  {
+    username: "HermioneG",
+    password: "password"
+  }
 ])
+
+questionnaires = User.first.questionnaires.create([
+  {
+    title: "Harry Potter Trivia"
+  },
+  {
+    title: "Customer Satisfaction"
+  }
+])
+
+questionsSetOne = [{
+  name: "First book",
+  label: "Favourite scene"
+},
+{
+  name: "Characters",
+  label: "Favourite character"
+}]
+
+questionsSetTwo = [{
+  name: "Site experience",
+  label: "Is it easy to navigate?"
+},
+{
+  name: "Improvement",
+  label: "What needs to be done to make it better"
+}]
+
+questionnaires[0].questions.create(questionsSetOne)
+questionnaires[1].questions.create(questionsSetTwo)

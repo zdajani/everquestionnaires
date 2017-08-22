@@ -7,13 +7,19 @@ import {
   LOGOUT 
 } from './actionTypes';
 
+const checkToken = (token) => {
+  const jwtDecoded = jwtDecode(token);
+  var currentTime = new Date().getTime() / 1000;
+  return (
+    currentTime > jwtDecoded.exp ? null : jwtDecoded
+  );
+}
+
 const initialState = (token => ({
   isLoading: false,
-  currentUser: token ? jwtDecode(token) : null,
+  currentUser: token ? checkToken(token) : null,
   errorMessage: null
 }))(localStorage.authToken)
-//basically calling intitialstate with the argument above
-//token = localStorage.authToken
 
 export default function(state = initialState, action = {}){
   switch (action.type) {

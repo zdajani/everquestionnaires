@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Questionnaires container renders without crashing 1`] = `
+<QuestionnairesContainer
+  fetchQuestionnaires={[Function]}
+  isLoading={false}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <div>
+    <Loading>
+      <div
+        className="loadingScreen"
+      >
+        ...Loading
+      </div>
+    </Loading>
+  </div>
+</QuestionnairesContainer>
+`;
+
+exports[`Questionnaires container when questionnaires data is available renders self with questionnaires props 1`] = `
+<QuestionnairesContainer
+  fetchQuestionnaires={[Function]}
+  isLoading={false}
+  questionnaires={
+    Object {
+      "1": Object {
+        "created_at": "2017-08-15T18:24:26.586Z",
+        "id": 1,
+        "title": "Lord of the Rings",
+        "updated_at": "2017-08-15T18:24:26.586Z",
+      },
+    }
+  }
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "notify": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "unsubscribe": null,
+    }
+  }
+/>
+`;

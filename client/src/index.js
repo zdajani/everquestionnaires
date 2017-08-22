@@ -9,6 +9,9 @@ import QuestionnairesContainer from './questionnaires/containers/QuestionnairesC
 import QuestionnaireContainer from './questionnaire/containers/QuestionnaireContainer';
 import QuestionnaireFormContainer from './questionnaire/containers/QuestionnaireFormContainer';
 
+import AdminQuestionnairesContainer from './admin/containers/AdminQuestionnairesContainer';
+import AdminQuestionnaireContainer from './admin/containers/AdminQuestionnaireContainer';
+
 import Login from './auth/components/Login';
 import LogoutButton from './auth/components/LogoutButton';
 import CreateAccount from './auth/components/CreateAccount';
@@ -30,6 +33,9 @@ ReactDOM.render(
           <PrivateRoute path="/questionnaires/new" component={QuestionnaireFormContainer}/>
           <PrivateRoute path="/questionnaires/:id" component={QuestionnaireContainer}/>
           <Route path="/questionnaires" component={QuestionnairesContainer}/>
+          
+          <PrivateRoute path="/admin/questionnaires/:id" component={AdminQuestionnaireContainer}/>
+          <PrivateRoute path="/admin" component={AdminQuestionnairesContainer}/>
         </Switch> 
       </div>
     </ConnectedRouter>

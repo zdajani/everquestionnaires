@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Field component renders an input field 1`] = `
+<div>
+  <label>
+    field testing
+  </label>
+  <div>
+    <input
+      placeholder="field testing"
+      type="text"
+    />
+  </div>
+</div>
+`;

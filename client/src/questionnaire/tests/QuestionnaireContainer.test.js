@@ -1,10 +1,11 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
 import configureMockStore from 'redux-mock-store';
 import ConnectedQuestionnaireContainer, { QuestionnaireContainer } from '../containers/QuestionnaireContainer';
 import Loading from '../../commonComponents/Loading';
 import { formattedData } from './testData';
-import AnswersFormContainer from '../../answers/containers/AnswersFormContainer';
+import ConnectedAnswersFormContainer, {AnswersFormContainer} from '../../answers/containers/AnswersFormContainer';
 
 const middlewares = [];
 const mockStore = configureMockStore(middlewares);
@@ -48,8 +49,8 @@ describe('Questionnaire container', () => {
       isLoading={false} 
       fetchQuestionnaire={fetchQuestionnaireSpy} 
       match={match}/>);
-    
-    expect(mountedComponent).toBePresent();
+
+    expect(toJson(mountedComponent)).toMatchSnapshot();
   });
   
   describe('when questionnaire data is available', () => {
@@ -65,18 +66,19 @@ describe('Questionnaire container', () => {
       const { connectedContainer } = connectedSetup(store);  
 
       expect(connectedContainer.props().questionnaire).toEqual(formattedData);
-      expect(connectedContainer).toBePresent();
+      expect(toJson(connectedContainer)).toMatchSnapshot();
     });
     
-    it('renders Questionnaire component', () => {   
+    it('renders Questionnaire component with questionnaire props', () => {   
       const isloading = false; 
-      const { container } = setup(formattedData, isloading);     
-      expect(container.find(AnswersFormContainer).length).toEqual(1)
+      const { container } = setup(formattedData, isloading); 
+      
+      expect(toJson(container.find(ConnectedAnswersFormContainer))).toMatchSnapshot();    
     });
     
     it('does not render Loading component', () => {    
       const { container } = setup(formattedData);       
-  
+      
       expect(container).not.toContainReact(<Loading />);
     });
   });

@@ -5,8 +5,7 @@ import { validate } from '../validations';
 import renderField from '../../commonComponents/Field';
 import QuestionFieldArray from '../../question/components/QuestionFieldArray';
 
-
-const QuestionnaireForm = props => {
+export const QuestionnaireForm = props => {  
   const { handleSubmit, pristine, reset, submitting } = props
   return (
     <form onSubmit={handleSubmit}>

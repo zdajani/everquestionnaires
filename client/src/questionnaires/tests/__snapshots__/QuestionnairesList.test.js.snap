@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QuestionnairesList component renders a list of questionnaire links 1`] = `
+<ul>
+  <li>
+    <Link
+      replace={false}
+      to="questionnaires/1"
+    >
+      Lord of the Rings
+    </Link>
+  </li>
+  <li>
+    <Link
+      replace={false}
+      to="questionnaires/2"
+    >
+      Lord of the Flies
+    </Link>
+  </li>
+</ul>
+`;
+
+exports[`QuestionnairesList component renders self with questionnaires props 1`] = `
+<ul>
+  <li>
+    <Link
+      replace={false}
+      to="questionnaires/1"
+    >
+      Lord of the Rings
+    </Link>
+  </li>
+  <li>
+    <Link
+      replace={false}
+      to="questionnaires/2"
+    >
+      Lord of the Flies
+    </Link>
+  </li>
+</ul>
+`;

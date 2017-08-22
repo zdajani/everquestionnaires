@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QuestionnaireForm renders self without crashing 1`] = `
+<ul>
+  <li>
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+      Add Question
+    </button>
+  </li>
+</ul>
+`;

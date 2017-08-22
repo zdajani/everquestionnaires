@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
 import Question from '../components/Question';
 import { formattedData } from './testData';
-
 
 const setup = (question = formattedData) => {
   const component = shallow(
@@ -15,9 +15,14 @@ const setup = (question = formattedData) => {
 }
 
 describe('Question component', () => {
-  it('should render name and label', () => {
+  it('renders self with question props ', () => {
     const { component } = setup();
-    expect(component.text()).toContain(formattedData.name)
-    expect(component.text()).toContain(formattedData.label)
+    expect(component.instance().props).toEqual({ 
+      name: formattedData.name, 
+      label:formattedData.label,
+      id:  formattedData.id
+    }); 
+    
+    expect(toJson(component)).toMatchSnapshot();
   });
 });

@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
-import { fetchQuestionnaires } from '../actions';
-import QuestionnairesList from '../components/QuestionnairesList'
+import { fetchAdminQuestionnaires } from '../actions';
+import QuestionnairesList from '../../questionnaires/components/QuestionnairesList'
 import Loading from '../../commonComponents/Loading'
 
 //export class so that it can be imported alone for testing 
-export class QuestionnairesContainer extends Component {
+export class AdminQuestionnairesContainer extends Component {
   componentDidMount(){
-    this.props.fetchQuestionnaires();
+    this.props.fetchAdminQuestionnaires();
   }
   // note: fix this to deal with when there is no questionnaires and is not loading
   render() {
@@ -22,7 +22,7 @@ export class QuestionnairesContainer extends Component {
   }
 }
 
-QuestionnairesContainer.propTypes = {
+AdminQuestionnairesContainer.propTypes = {
   questionnaires: PropTypes.objectOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired
@@ -31,8 +31,9 @@ QuestionnairesContainer.propTypes = {
 
 
 function mapStateToProps(state) {
-  console.log(state)
-  return { questionnaires: state.questionnaires.data, isLoading: state.questionnaires.isLoading };
+  return { questionnaires: state.adminQuestionnaires.data, isLoading: state.adminQuestionnaires.isLoading };
 }
 
-export default connect(mapStateToProps, { fetchQuestionnaires })(QuestionnairesContainer);
+export default connect(mapStateToProps, 
+  { fetchAdminQuestionnaires }
+)(AdminQuestionnairesContainer);

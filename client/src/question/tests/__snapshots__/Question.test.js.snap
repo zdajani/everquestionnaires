@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Question component renders self with question props  1`] = `
+<div>
+  <div>
+    Ragdoll traits
+  </div>
+  <div>
+    describe ragdoll traits
+  </div>
+</div>
+`;

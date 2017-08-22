@@ -1,4 +1,5 @@
 import * as types from './actionTypes';
+import _ from 'lodash';
   
 const initialState = {
   isLoading: false, 

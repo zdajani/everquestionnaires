@@ -5,7 +5,7 @@ import { validate } from '../validations';
 
 import AnswersFieldArray from './AnswersFieldArray';
 
-const AnswersForm = props => {
+export const AnswersForm = props => {
   const { handleSubmit, submitting, questionnaire } = props
   return (
     <form onSubmit={handleSubmit}>
