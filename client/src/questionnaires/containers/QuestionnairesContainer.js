@@ -31,7 +31,6 @@ QuestionnairesContainer.propTypes = {
 
 
 function mapStateToProps(state) {
-  console.log(state)
   return { questionnaires: state.questionnaires.data, isLoading: state.questionnaires.isLoading };
 }
 

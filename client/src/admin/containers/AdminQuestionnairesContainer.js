@@ -29,7 +29,6 @@ AdminQuestionnairesContainer.propTypes = {
   }))
 };
 
-
 function mapStateToProps(state) {
   return { questionnaires: state.adminQuestionnaires.data, isLoading: state.adminQuestionnaires.isLoading };
 }

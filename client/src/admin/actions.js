@@ -33,7 +33,6 @@ export function fetchAdminQuestionnaire(id) {
     dispatch({ type: types.FETCH_ADMIN_QUESTIONNAIRE });
     
     return request.then(response => {
-      console.log(response)
       dispatch({ 
         type: types.FETCH_ADMIN_QUESTIONNAIRE_SUCCESS, 
         payload: response.data

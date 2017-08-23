@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-//todo add proptype
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchAdminQuestionnaire } from '../actions';
-// import Loading from '../../commonComponents/Loading';
-// import Table from '../../commonComponents/Table';
+import Loading from '../../commonComponents/Loading';
+import AdminQuestionnaire from '../components/AdminQuestionnaire'
+import { Redirect } from 'react-router-dom';
 
 export class AdminQuestionnaireContainer extends Component {
   componentDidMount(){
@@ -13,26 +13,60 @@ export class AdminQuestionnaireContainer extends Component {
   }
   
   render() {
-    const {isLoading, questionnaire } = this.props
+    const { questionnaireData , error} = this.props
+    const data = this.props.questionnaireData
+    if (error) {
+      return (
+        <Redirect to={{
+          pathname: '/questionnaires', 
+          state: {from: this.props.location}
+        }}/>
+      )
+    }
+    
     return (
       <div>
-        {/* <Table/> */}
-        {/* { (isLoading || !questionnaire) ? 
-          <Loading /> : 
-          <AnswersFormContainer questionnaire={questionnaire} />
-        } */}
+        { (questionnaireData && questionnaireData.questions) ? 
+          <AdminQuestionnaire 
+              questions={data.questions} 
+              questionnaire={data.questionnaire}
+              usersAnswers={data.usersAnswers}
+            />  : <Loading />
+        }
       </div>
     );
   }
 }
 
-
 function mapStateToProps(state) {
-  console.log(state.adminQuestionnaire)
   return { 
-    questionnaire: state.adminQuestionnaire.data, 
-    isLoading: state.adminQuestionnaire.isLoading };
+    questionnaireData: state.adminQuestionnaire.data,
+    isLoading: state.adminQuestionnaire.isLoading,
+    error: state.adminQuestionnaire.errorMessage };
 }
+
+AdminQuestionnaireContainer.propTypes = {
+  questionnaireData: PropTypes.shape({
+    questionnaire: PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired
+    }).isRequired,
+    questions: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired
+    }).isRequired),
+    usersAnswers: PropTypes.arrayOf(PropTypes.shape({
+      username: PropTypes.string.isRequired,
+      date: PropTypes.string.isRequired,
+      answers: PropTypes.arrayOf(PropTypes.shape({
+        id:PropTypes.number.isRequired,
+        response:PropTypes.string.isRequired,
+        question_id: PropTypes.number.isRequired
+      }).isRequired).isRequired
+    }).isRequired)
+  })
+};
 
 export default connect(mapStateToProps, 
   { fetchAdminQuestionnaire }

@@ -41,7 +41,6 @@ export function fetchAdminQuestionnaireReducer(state = initialState, action) {
         isLoading: true
       }
     case types.FETCH_ADMIN_QUESTIONNAIRE_SUCCESS:
-    console.log(action.payload)
       return {
         ...state,
         isLoading: false,

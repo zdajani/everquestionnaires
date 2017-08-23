@@ -11,7 +11,8 @@ export class AnswersFormContainer extends Component {
   }
   
   handleFormSubmit(values) {
-    this.props.createAnswers(values);
+    const id = this.props.questionnaire.id;
+    this.props.createAnswers(values, id );
   }
   
   render() {

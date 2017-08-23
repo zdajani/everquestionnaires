@@ -8,7 +8,7 @@ import QuestionFieldArray from '../../question/components/QuestionFieldArray';
 export const QuestionnaireForm = props => {  
   const { handleSubmit, pristine, reset, submitting } = props
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="container">
       <Field
         name="title"
         type="text"

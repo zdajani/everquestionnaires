@@ -1,11 +1,12 @@
 import axios from 'axios';
 import * as types from './actionTypes';
 
-export function createAnswers({answers}) {
+export function createAnswers({answers}, id) {
+  console.log(id)
   const request = axios({
     method: 'post',
     url: '/api/answers',
-    data: { answers },
+    data: { answers, questionnaire_id: id },
     headers: {'Authorization': `Bearer ${localStorage.authToken}`}
   });
   

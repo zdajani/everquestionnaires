@@ -11,6 +11,7 @@ const questions = {
   }
 };
 
+
 const questionnaire = {
   title: "Cat breeds",
   id: 1
@@ -42,3 +43,14 @@ export const apiData = [
     id: questionnaireTwo.id
   }
 ];
+
+export const questionaireFormattedData = {
+  1: { 
+    title: questionnaire.title, 
+    id: questionnaire.id
+  },
+  2: {   
+    title: questionnaireTwo.title, 
+    id: questionnaireTwo.id
+  }
+};

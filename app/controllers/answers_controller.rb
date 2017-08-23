@@ -3,7 +3,6 @@ class AnswersController < ApplicationController
   # to-do: add check for errors and create helper method for below
   def create
     answers = answer_params[:answers]
-
     answers.map do | a |
       Question.find(a[:question_id]).answers.create(
       response: a[:response], 

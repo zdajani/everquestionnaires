@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { loginUser } from '../actions';
+import './styles/Login.css';
 
 class Login extends Component {
   componentDidMount() {
@@ -32,19 +33,31 @@ class Login extends Component {
     const { handleSubmit } = this.props;
     
     return (
-      <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-        <Field 
-          label="Username:"
-          name="username"
-          component={ this.renderField }
-        />
-        <Field 
-          label="Password:"
-          name="password"
-          component={ this.renderField }
-        />
-        <button type="submit" className="btn btn-primary">Login</button>
-      </form>
+      <div className="container">
+        <div className="login-body">
+          <form className="form-signin" onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+            <h2 className="form-signin-heading">Please login</h2>
+            <Field 
+              label="Username:"
+              name="username"
+              component={ this.renderField }
+              id="inputUsername"
+            />
+            <Field 
+              label="Password:"
+              name="password"
+              component={ this.renderField }
+              type="password"
+              id="inputPassword"
+            />
+            <button 
+              type="submit" 
+              className="btn btn-lg btn-primary btn-block">
+              Login
+            </button>
+          </form>
+        </div>
+      </div>
     );
   }
 }
