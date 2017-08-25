@@ -32,14 +32,4 @@ RSpec.describe QuestionnairesController, type: :controller do
       end
     end
   end
-
-  describe "DELETE #destroy" do
-    it "destroys the requested questionnaire" do
-      questionnaire = Questionnaire.create! valid_attributes
-      
-      expect {
-        delete :destroy, params: {id: questionnaire.to_param}
-      }.to change(Questionnaire, :count).by(-1)
-    end
-  end
 end

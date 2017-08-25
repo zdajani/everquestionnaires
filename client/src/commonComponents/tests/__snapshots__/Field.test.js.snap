@@ -1,15 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Field component renders an input field 1`] = `
-<div>
-  <label>
+<div
+  className="form-group "
+>
+  <label
+    className="form-control-label"
+  >
     field testing
   </label>
-  <div>
-    <input
-      placeholder="field testing"
-      type="text"
-    />
-  </div>
+  <input
+    className="form-control"
+    placeholder="field testing"
+    type="text"
+  />
+  <div
+    className="text-help"
+  />
 </div>
 `;

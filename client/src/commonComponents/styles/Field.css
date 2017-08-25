@@ -1,0 +1,11 @@
+label.form-control-label {
+  font-size: 1.3rem;
+}
+
+.form-error {
+  color: #dc3545!important;
+}
+
+.form-control {
+  height: 4rem;
+}

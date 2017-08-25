@@ -5,7 +5,7 @@ export const createAnswersData = [
   },{
     question_id: 2,
     response: "Vivamus suscipit tortor eget felis porttitor."
-   }
+  },
 ]
 
 const questions = {

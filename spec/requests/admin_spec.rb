@@ -17,19 +17,6 @@ RSpec.describe "admin", type: :request do
       
       get questionnaire_responses_path(questionnaire.id)
       expect(response).to have_http_status(:success)
-      # binding.pry
-      # expect(json).to include({
-      #   id: questionOne.id,
-      #   name: questionOne.name,
-      #   label: questionOne.label,
-      #   answers: [{ 
-      #     response: answerOne.response,
-      #     user: {
-      #       id: answerOne.user.id,
-      #       username: answerOne.user.username
-      #     }
-      #   }]
-      # })
     end
   end
 end

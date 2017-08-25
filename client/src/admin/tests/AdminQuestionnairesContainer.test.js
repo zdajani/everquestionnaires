@@ -2,8 +2,8 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import configureMockStore from 'redux-mock-store';
-import ConnectedAdminQuestionnaireContainer, { AdminQuestionnaireContainer } from '../containers/AdminQuestionnaireContainer';
-import AdminQuestionnaire from '../../questionnaires/components/AdminQuestionnaire';
+import ConnectedAdminQuestionnairesContainer, { AdminQuestionnairesContainer } from '../containers/AdminQuestionnairesContainer';
+import Questionnaires from '../../questionnaires/components/Questionnaires'
 import Loading from '../../commonComponents/Loading';
 import { formattedData } from './testData';
 
@@ -11,20 +11,23 @@ const middlewares = []
 const mockStore = configureMockStore(middlewares);
 
 const setup = (formattedData, isLoading) => {
+  const match = {url: '/admin/questionnaires'}
   const container = shallow(
-    <AdminQuestionnaireContainer 
+    <AdminQuestionnairesContainer 
       questionnaires={formattedData} 
-      isLoading={isLoading}/>
+      isLoading={isLoading}
+      match={match}/>
   );
     
   return {
-    container
+    container,
+    match
   };
 }
 
 const connectedSetup = (store) => {
   const connectedContainer = shallow(
-      <ConnectedAdminQuestionnaireContainer store={store}/>
+      <ConnectedAdminQuestionnairesContainer store={store}/>
   );
   return {
     connectedContainer
@@ -34,25 +37,28 @@ const connectedSetup = (store) => {
 describe('AdminQuestionnaire container', () => {
   it('renders without crashing', () => {  
     const store = mockStore({
-      adminQuestionnaire: {
-        isLoading: false, 
+      adminQuestionnaires: {
+        isLoading: true, 
         data: null,
         errorMessage: null
       },
     });
     
-    const fetchAdminQuestionnaireSpy = jest.fn();
-    const mountedComponent = mount(<AdminQuestionnaireContainer 
+    const fetchAdminQuestionnairesSpy = jest.fn();
+    const match = {url: '/admin/questionnaires'}
+    
+    const mountedComponent = mount(<AdminQuestionnairesContainer 
       store={store} 
-      isLoading={false} 
-      fetchAdminQuestionnaire={fetchAdminQuestionnaireSpy}/>);
+      isLoading={true} 
+      fetchAdminQuestionnaires={fetchAdminQuestionnairesSpy} 
+      match={match} />);
     
     expect(toJson(mountedComponent)).toMatchSnapshot();
   });
   
   describe('when questionnaires data is available', () => {  
     const store = mockStore({
-      adminQuestionnaire: {
+      adminQuestionnaires: {
         isLoading: false, 
         data: formattedData,
         errorMessage: null
@@ -61,17 +67,15 @@ describe('AdminQuestionnaire container', () => {
     
     it('renders self with questionnaires props', () => {   
       const { connectedContainer } = connectedSetup(store); 
-      expect(connectedContainer).toHaveProp('questionnaire', formattedData);
+      expect(connectedContainer).toHaveProp('questionnaires', formattedData);
       expect(toJson(connectedContainer)).toMatchSnapshot();
     });
     
-    it('renders QuestionnairesList component', () => {   
+    it('renders Questionnaires component', () => {   
       const isloading = false; 
       const { container } = setup(formattedData, isloading);    
-
-      expect(container).toContainReact(
-        <AdminQuestionnaire questionnaires={formattedData} />
-      );
+      const questionnaires = container.find(Questionnaires)
+      expect(toJson(questionnaires)).toMatchSnapshot();
     });
     
     it('does not render Loading component', () => {    
@@ -92,7 +96,7 @@ describe('AdminQuestionnaire container', () => {
     
     it('does not render QuestionnairesList component', () => {  
       expect(container).not.toContainReact(
-        <AdminQuestionnaire questionnaires={formattedData} />
+        <Questionnaires questionnaires={formattedData} url='/admin/questionnaires' />
       );
     });
   });

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # to create a new user and authenticate them 
+  # create a new user and authenticate them 
   def create
     @user = User.new(user_params)
     if @user.save 

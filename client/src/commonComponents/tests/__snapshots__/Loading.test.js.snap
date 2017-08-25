@@ -2,8 +2,12 @@
 
 exports[`Loading component should render loading page 1`] = `
 <div
-  className="loadingScreen"
+  className="loading-screen"
 >
-  ...Loading
+  <img
+    alt="loadig"
+    id="loading"
+    src="https://tools.cisco.com/security/center/Resources/images/loader.gif"
+  />
 </div>
 `;

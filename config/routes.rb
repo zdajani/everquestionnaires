@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # appends api to resources - ex api/questionnaires 
   scope 'api/' do 
     resources :questionnaires do
-      resources :questions
+      resources :questions, only: [:create]
     end
     
     resources :answers, only: [:create]
@@ -13,5 +13,4 @@ Rails.application.routes.draw do
     resources :admin, only: [:index]
     get 'admin/questionnaires/:id' => 'admin#questionnaire_responses', as: 'questionnaire_responses'
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

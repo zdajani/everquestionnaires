@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import { fetchAdminQuestionnaires } from '../actions';
-import QuestionnairesList from '../../questionnaires/components/QuestionnairesList'
 import Loading from '../../commonComponents/Loading'
+import Questionnaires from '../../questionnaires/components/Questionnaires'
 
 //export class so that it can be imported alone for testing 
 export class AdminQuestionnairesContainer extends Component {
@@ -14,9 +14,9 @@ export class AdminQuestionnairesContainer extends Component {
   render() {
     return (
       <div>
-        { (this.props.isLoading || !this.props.questionnaires) ? 
-          <Loading /> : 
-          <QuestionnairesList questionnaires={this.props.questionnaires} /> }
+        { (this.props.isLoading) ? 
+          <Loading /> :
+             <Questionnaires questionnaires={this.props.questionnaires} url={this.props.match.url} /> }
       </div>
     );
   }

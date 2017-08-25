@@ -1,8 +1,8 @@
 import axios from 'axios';
 import * as types from './actionTypes';
+import { push } from 'react-router-redux';
 
 export function createAnswers({answers}, id) {
-  console.log(id)
   const request = axios({
     method: 'post',
     url: '/api/answers',
@@ -17,6 +17,7 @@ export function createAnswers({answers}, id) {
       dispatch({ 
         type: types.CREATE_ANSWERS_SUCCESS
       });
+      dispatch(push('/questionnaires'));  
     }).catch((error) => {
       dispatch({ type: types.CREATE_ANSWERS_FAILURE, payload: "Bad request"});
     })  

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const AnswersTable = ({questions, usersAnswers}) => {
   //returns questions
@@ -24,16 +25,20 @@ const AnswersTable = ({questions, usersAnswers}) => {
   }
   
   const renderAnswers = (answers) => {
-    return questions.map((question, index) => {
-      const answer = answers.find(x => x.question_id = question.id);    
+    return questions.map((question, index) => {    
+      const answer = answers.find(x => x.question_id === question.id); 
+      const response = answer ? answer.response : null
+      
       return ( 
-        renderRow(answer.response, index)
+        renderRow(response, index)
       );
     });
   }
   
-  const renderRow =(data = "", id) => {
-    return <td key={id}>{data}</td>
+  const renderRow =(data, id) => {
+    return (
+        <td key={id}>{ data }</td> 
+    )
   }
   
   return (
@@ -43,7 +48,7 @@ const AnswersTable = ({questions, usersAnswers}) => {
           <tr>
             <th>#</th>
             <th>Username</th>
-            {renderTableHeaders()}
+            { renderTableHeaders() }
             <th>Date</th>
           </tr>
         </thead>
@@ -54,5 +59,22 @@ const AnswersTable = ({questions, usersAnswers}) => {
     </div>
   )
 }
+
+AnswersTable.propTypes = {
+  questions: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired
+  }).isRequired),
+  usersAnswers: PropTypes.arrayOf(PropTypes.shape({
+    username: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    answers: PropTypes.arrayOf(PropTypes.shape({
+      id:PropTypes.number.isRequired,
+      response:PropTypes.string.isRequired,
+      question_id: PropTypes.number.isRequired
+    }).isRequired).isRequired
+  }).isRequired)
+};
 
 export default AnswersTable;

@@ -8,7 +8,9 @@ import QuestionFieldArray from '../../question/components/QuestionFieldArray';
 export const QuestionnaireForm = props => {  
   const { handleSubmit, pristine, reset, submitting } = props
   return (
+    <div className="container">
     <form onSubmit={handleSubmit} className="container">
+      <h2 className="text-center">Create Questionnaire</h2>
       <Field
         name="title"
         type="text"
@@ -17,12 +19,13 @@ export const QuestionnaireForm = props => {
       />
       <FieldArray name="questions" component={QuestionFieldArray} />
       <div>
-        <button type="submit" disabled={submitting}>Submit</button>
-        <button type="button" disabled={pristine || submitting} onClick={reset}>
+        <button type="button" className="btn btn-outline-danger btn-lg btn-block" disabled={pristine || submitting} onClick={reset}>
           Clear Values
         </button>
+        <button className="btn btn-outline-success btn-lg btn-lg btn-block" type="submit" disabled={submitting}>Submit</button>
       </div>
     </form>
+  </div>
   );
 };
 

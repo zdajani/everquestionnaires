@@ -35,9 +35,11 @@ describe('answers async actions', () => {
     it('creates CREATE_ANSWERS_SUCCESS when done', () => {
       const expectedActions = [
         { type: types.CREATE_ANSWERS },
-        { type: types.CREATE_ANSWERS_SUCCESS  
-      }];
-
+        { type: types.CREATE_ANSWERS_SUCCESS},
+        { type: '@@router/CALL_HISTORY_METHOD',
+         payload: { method: 'push', args: ['/questionnaires']} } 
+      ]
+      
       const store = mockStore({});
       
       return store.dispatch(actions.createAnswers(createAnswersData)).then(() => {

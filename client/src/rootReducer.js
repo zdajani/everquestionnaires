@@ -3,11 +3,14 @@ import { reducer as formReducer } from 'redux-form';
 import { routerReducer } from 'react-router-redux';
 
 import QuestionnairesReducer from './questionnaires/reducer';
+
 import { 
   fetchQuestionnaireReducer, 
   createQuestionnaireReducer } from './questionnaire/reducer';
+
 import answersReducer from './answers/reducer';
 import authReducer from './auth/reducer';
+
 import { 
   fetchAdminQuestionnairesReducer, 
   fetchAdminQuestionnaireReducer } from './admin/reducer';

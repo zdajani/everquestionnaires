@@ -5,7 +5,9 @@ import { push } from 'react-router-redux';
 import * as types from './actionTypes'
 
 export function loginUser({ username, password }) {
-  return dispatch => {
+  return (dispatch, getState) => {
+    const redirectUrl = getRedirectUrl(getState())
+    
     dispatch({ type: types.LOGIN_REQUEST });
     
     axios.post('/user_token', {auth: {username, password}})
@@ -15,7 +17,7 @@ export function loginUser({ username, password }) {
           type: types.AUTH_SUCCESS,
           payload: jwtDecode(res.data.jwt)
         });
-        dispatch(push('/questionnaires'))
+        dispatch(push(redirectUrl))
       }).catch((error) => {
         dispatch({ type: types.AUTH_ERROR, payload: "Bad login information" });
       })
@@ -23,8 +25,9 @@ export function loginUser({ username, password }) {
 }
 
 export function createAccount({ username, password }) {
-  console.log(username, password)
-  return dispatch => {
+  return (dispatch, getState) => {
+    const redirectUrl = getRedirectUrl(getState())
+  
     dispatch({ type: types.LOGIN_REQUEST });
     
     axios.post('api/users', {user: {username: username, password: password}})
@@ -34,7 +37,7 @@ export function createAccount({ username, password }) {
           type: types.AUTH_SUCCESS,
           payload: jwtDecode(res.data.jwt)
         });
-        dispatch(push('/questionnaires'))
+        dispatch(push(redirectUrl))
       }).catch((error) => {
         dispatch({ type: types.AUTH_ERROR, payload: "Bad login information" });
       })
@@ -45,6 +48,13 @@ export function logout() {
   delete localStorage.authToken
   return dispatch => {
     dispatch({ type: types.LOGOUT });
-    dispatch(push('/login'));
+    dispatch(push('/questionnaires'));
   }
+}
+
+const getRedirectUrl = (state) => {
+  const routerState = state.router.location.state
+  return (
+    routerState ? routerState.from : '/questionnaires'
+  );
 }

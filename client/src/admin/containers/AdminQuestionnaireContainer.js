@@ -8,7 +8,7 @@ import { Redirect } from 'react-router-dom';
 
 export class AdminQuestionnaireContainer extends Component {
   componentDidMount(){
-    const { id } = this.props.match.params;
+    const {id} = this.props.match.params
     this.props.fetchAdminQuestionnaire(id);
   }
   
@@ -18,7 +18,7 @@ export class AdminQuestionnaireContainer extends Component {
     if (error) {
       return (
         <Redirect to={{
-          pathname: '/questionnaires', 
+          pathname: '/admin/questionnaires', 
           state: {from: this.props.location}
         }}/>
       )
@@ -30,8 +30,8 @@ export class AdminQuestionnaireContainer extends Component {
           <AdminQuestionnaire 
               questions={data.questions} 
               questionnaire={data.questionnaire}
-              usersAnswers={data.usersAnswers}
-            />  : <Loading />
+              usersAnswers={data.usersAnswers}/>  : 
+          <Loading />
         }
       </div>
     );

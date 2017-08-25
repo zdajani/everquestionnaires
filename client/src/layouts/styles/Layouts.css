@@ -1,0 +1,30 @@
+body {
+  padding-top: 5rem;
+}
+.page-content {
+  padding: 3rem 1.5rem;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.title {
+  color: #00fff3;
+  font-family: Palatino;
+}
+
+.nav-link {
+  font-size: 1.3em;
+  font-family: Palatino;
+  padding-left: 3rem;
+}
+
+.logout-button {
+  color: #007bff
+}
+
+.navbar-right {
+  position: inherit;
+  right: inherit;
+}

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import * as types from './actionTypes';
+import { push } from 'react-router-redux';
 
 export function fetchQuestionnaire(id) {
   const request = axios({
@@ -23,7 +24,7 @@ export function fetchQuestionnaire(id) {
 export function createQuestionnaire({title, questions}) {
   const request = axios({
     method: 'post',
-    url: 'api/questionnaires',
+    url: '/api/questionnaires',
     data: { questionnaire: { title, questions_attributes: questions }},
     headers: {'Authorization': `Bearer ${localStorage.authToken}`}
   });
@@ -35,6 +36,7 @@ export function createQuestionnaire({title, questions}) {
       dispatch({ 
         type: types.CREATE_QUESTIONNAIRE_SUCCESS
       });
+      dispatch(push('/questionnaires'));
     }).catch((error) => {
       dispatch({ type: types.CREATE_QUESTIONNAIRE_FAILURE, payload: "Bad request"});
     })  

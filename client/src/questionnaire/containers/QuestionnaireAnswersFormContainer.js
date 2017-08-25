@@ -5,7 +5,7 @@ import { fetchQuestionnaire } from '../actions';
 import Loading from '../../commonComponents/Loading';
 import AnswersFormContainer from '../../answers/containers/AnswersFormContainer';
 
-export class QuestionnaireContainer extends Component {
+export class QuestionnaireAnswersFormContainer extends Component {
   componentDidMount(){
     const { id } = this.props.match.params;
     this.props.fetchQuestionnaire(id);
@@ -24,7 +24,7 @@ export class QuestionnaireContainer extends Component {
   }
 }
 
-QuestionnaireContainer.propTypes = {
+QuestionnaireAnswersFormContainer.propTypes = {
   questionnaire: PropTypes.shape({
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
@@ -40,4 +40,4 @@ function mapStateToProps(state) {
   return { questionnaire: state.questionnaire.data, isLoading: state.questionnaire.isLoading };
 }
 
-export default connect(mapStateToProps, { fetchQuestionnaire })(QuestionnaireContainer);
+export default connect(mapStateToProps, { fetchQuestionnaire })(QuestionnaireAnswersFormContainer);

@@ -3,7 +3,7 @@ import { shallow, mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import configureMockStore from 'redux-mock-store';
 import ConnectedQuestionnairesContainer, { QuestionnairesContainer } from '../containers/QuestionnairesContainer';
-import QuestionnairesList from '../components/QuestionnairesList';
+import Questionnaires from '../components/Questionnaires';
 import Loading from '../../commonComponents/Loading';
 
 const middlewares = []
@@ -13,18 +13,24 @@ const questionnairesData = {
   1: { id: 1, 
   title: "Lord of the Rings",
   created_at: "2017-08-15T18:24:26.586Z",
-  updated_at: "2017-08-15T18:24:26.586Z"}
+  updated_at: "2017-08-15T18:24:26.586Z" }
 }
 
 // setup to return QuestionnairesContainer not the one wrapped by connected()
 // this so to test just the rendering of the component
 const setup = (questionnairesData, isLoading) => {
+  const match = {url: '/questionnaires'}
   const container = shallow(
-      <QuestionnairesContainer questionnaires={questionnairesData} isLoading={isLoading}/>
+      <QuestionnairesContainer 
+        questionnaires={questionnairesData} 
+        isLoading={isLoading}
+        match={match}
+        />
   );
     
   return {
-    container
+    container,
+    match
   };
 }
 
@@ -50,9 +56,10 @@ describe('Questionnaires container', () => {
     });
     
     const fetchQuestionnairesSpy = jest.fn();
+    const match = {url: '/questionnaires'}
     // using mount for Full DOM rendering to make sure 
     //the component doesn't crash 
-    const mountedComponent = mount(<QuestionnairesContainer store={store} isLoading={false} fetchQuestionnaires={fetchQuestionnairesSpy}/>);
+    const mountedComponent = mount(<QuestionnairesContainer store={store} fetchQuestionnaires={fetchQuestionnairesSpy} match={match} isLoading={true}/>);
     
     expect(toJson(mountedComponent)).toMatchSnapshot();
   });
@@ -72,13 +79,11 @@ describe('Questionnaires container', () => {
       expect(toJson(connectedContainer)).toMatchSnapshot();
     });
     
-    it('renders QuestionnairesList component', () => {   
+    it('renders Questionnaires component', () => {   
       const isloading = false; 
-      const { container } = setup(questionnairesData, isloading);    
-      // this also checks that the props are passed down
-      expect(container).toContainReact(
-        <QuestionnairesList questionnaires={questionnairesData} />
-      );
+      const { container } = setup(questionnairesData, isloading);  
+      const questionnaires = container.find(Questionnaires)
+      expect(toJson(questionnaires)).toMatchSnapshot();
     });
     
     it('does not render Loading component', () => {    
@@ -97,9 +102,9 @@ describe('Questionnaires container', () => {
       expect(container).toContainReact(<Loading />);
     });
     
-    it('does not render QuestionnairesList component', () => {  
+    it('does not render Questionnaires component', () => {  
       expect(container).not.toContainReact(
-        <QuestionnairesList questionnaires={questionnairesData} />
+        <Questionnaires questionnaires={questionnairesData} url='/questionnaires'/>
       );
     });
   });

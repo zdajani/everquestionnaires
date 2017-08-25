@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { loginUser } from '../actions';
+import { Link } from 'react-router-dom';
+import renderField from '../../commonComponents/Field';
 import './styles/Login.css';
 
 class Login extends Component {
@@ -9,20 +11,6 @@ class Login extends Component {
     if (this.props.isAuthenthicated) {
       this.props.history.push("/questionnaires")
     }
-  }
-  
-  renderField(field)  {
-    const className = 'form-group';
-    return (
-      <div className= { className }>
-        <label>{field.label}</label>
-        <input
-          className="form-control"
-          type="text"
-           {...field.input}
-        />
-      </div>
-    );
   }
   
   handleFormSubmit(values) {
@@ -40,21 +28,23 @@ class Login extends Component {
             <Field 
               label="Username:"
               name="username"
-              component={ this.renderField }
+              component={ renderField }
               id="inputUsername"
             />
             <Field 
               label="Password:"
               name="password"
-              component={ this.renderField }
+              component={ renderField }
               type="password"
-              id="inputPassword"
             />
             <button 
               type="submit" 
-              className="btn btn-lg btn-primary btn-block">
+              className="btn btn-lg btn-success btn-block">
               Login
             </button>
+              <Link to='/signup' className="btn btn-lg btn-primary btn-block">
+                Create Account
+              </Link>          
           </form>
         </div>
       </div>

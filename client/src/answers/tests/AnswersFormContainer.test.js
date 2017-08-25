@@ -11,9 +11,9 @@ import { Provider } from 'react-redux'
 const setup = () => {
   const createAnswerSpy = jest.fn();
   const container = shallow(
-      <AnswersFormContainer 
-        createAnswers={createAnswerSpy} 
-        questionnaire={questionnaireData} />
+    <AnswersFormContainer 
+      createAnswers={createAnswerSpy} 
+      questionnaire={questionnaireData} />
   );
     
   return {
@@ -45,6 +45,6 @@ describe('AnswersForm container', () => {
   it('calls createQuestionnaire on handleFormSubmit', () => {    
     const { container, createAnswerSpy } = setup()
     container.instance().handleFormSubmit(createAnswersData);
-    expect(createAnswerSpy).toBeCalledWith(createAnswersData)
+    expect(createAnswerSpy).toBeCalledWith(createAnswersData, 1)
   });
 });

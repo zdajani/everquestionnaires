@@ -1,14 +1,14 @@
 class QuestionnairesController < ApplicationController
-  before_action :set_questionnaire, only: [:show, :destroy]
+  before_action :set_questionnaire, only: [:show]
 
-  # GET /questionnaires
+  # get all questionnaires
   def index
     @questionnaires = Questionnaire.all
 
     render json: @questionnaires
   end
 
-  # GET /questionnaires/1
+  # a single questionnaire
   def show
     if @questionnaire.questions.exists? 
       render json: @questionnaire.to_json(include: {questions: { only: ['name', 'label', 'id' ]}})
@@ -19,7 +19,7 @@ class QuestionnairesController < ApplicationController
 
   # POST /questionnaires
   def create
-    #not: implement uniqness verification on questions when adding them like below
+    #todo: implement uniqness verification on questions when adding them like below
     @user = current_user
     @questionnaire = @user.questionnaires.build(questionnaire_params)
     
@@ -28,11 +28,6 @@ class QuestionnairesController < ApplicationController
     else
       render json: @questionnaire.errors, status: :unprocessable_entity
     end
-  end
-
-  # DELETE /questionnaires/1
-  def destroy
-    @questionnaire.destroy
   end
 
   private

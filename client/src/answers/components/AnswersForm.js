@@ -8,16 +8,18 @@ import AnswersFieldArray from './AnswersFieldArray';
 export const AnswersForm = props => {
   const { handleSubmit, submitting, questionnaire } = props
   return (
-    <form onSubmit={handleSubmit}>
-      <label>{questionnaire.title}</label>
-      <FieldArray 
-        name="answers" 
-        component={AnswersFieldArray} 
-        questions={questionnaire.questions} />
-      <div>
-        <button type="submit" disabled={submitting}>Submit</button>
-      </div>
-    </form>
+    <div className="container">
+      <form onSubmit={handleSubmit}>
+        <h2 className="card-title" >{questionnaire.title}</h2>
+        <FieldArray 
+          name="answers" 
+          component={AnswersFieldArray} 
+          questions={questionnaire.questions} />
+        <button type="submit" disabled={submitting} className="btn btn-success btn-lg btn-block">
+          Submit
+        </button>
+      </form>
+    </div>
   );
 };
 

@@ -87,8 +87,8 @@ describe('questionnaire async actions', () => {
     it('creates CREATE_QUESTIONNAIRE_SUCCESS when done', () => {
       const expectedActions = [
         { type: types.CREATE_QUESTIONNAIRE },
-        { type: types.CREATE_QUESTIONNAIRE_SUCCESS  
-      }];
+        { type: types.CREATE_QUESTIONNAIRE_SUCCESS},
+        { type: '@@router/CALL_HISTORY_METHOD', payload: { method: 'push', args: [ '/questionnaires' ] }}];
 
       const store = mockStore({});
       

@@ -2,11 +2,11 @@
 
 exports[`Question component renders self with question props  1`] = `
 <div>
-  <div>
+  <h4>
     Ragdoll traits
-  </div>
-  <div>
+  </h4>
+  <h6>
     describe ragdoll traits
-  </div>
+  </h6>
 </div>
 `;

@@ -5,11 +5,11 @@ import AnswersTable from '../components/AnswersTable'
 const AdminQuestionnaire = ({  questionnaire, questions, usersAnswers }) => {
   return (
     <div className="container-fluid">
-      <h1>{questionnaire.title}</h1>
+      <h1 className="text-center">{questionnaire.title}</h1>
       <AnswersTable   
         questions={questions}
         usersAnswers={usersAnswers} />
-    </div>    
+    </div> 
   );
 }
 

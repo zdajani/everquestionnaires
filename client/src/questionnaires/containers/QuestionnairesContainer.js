@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import { fetchQuestionnaires } from '../actions';
-import QuestionnairesList from '../components/QuestionnairesList'
+import Questionnaires from '../components/Questionnaires'
 import Loading from '../../commonComponents/Loading'
 
 //export class so that it can be imported alone for testing 
@@ -10,13 +10,13 @@ export class QuestionnairesContainer extends Component {
   componentDidMount(){
     this.props.fetchQuestionnaires();
   }
-  // note: fix this to deal with when there is no questionnaires and is not loading
+  
   render() {
     return (
       <div>
-        { (this.props.isLoading || !this.props.questionnaires) ? 
+        { (this.props.isLoading) ? 
           <Loading /> : 
-          <QuestionnairesList questionnaires={this.props.questionnaires} /> }
+          <Questionnaires questionnaires={this.props.questionnaires} url={this.props.match.url} />}
       </div>
     );
   }

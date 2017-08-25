@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 
 const Question = ({ name, label }) => (
   <div>
-    <div>
+    <h4>
       {name}
-    </div>
-    <div>
+    </h4>
+    <h6>
       {label}
-    </div>
+    </h6>
   </div>  
 );
 

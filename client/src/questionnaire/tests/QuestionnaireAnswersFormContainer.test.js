@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import configureMockStore from 'redux-mock-store';
-import ConnectedQuestionnaireContainer, { QuestionnaireContainer } from '../containers/QuestionnaireContainer';
+import ConnectedQuestionnaireAnswersFormContainer, { QuestionnaireAnswersFormContainer } from '../containers/QuestionnaireAnswersFormContainer';
 import Loading from '../../commonComponents/Loading';
 import { formattedData } from './testData';
 import ConnectedAnswersFormContainer, {AnswersFormContainer} from '../../answers/containers/AnswersFormContainer';
@@ -11,7 +11,7 @@ const middlewares = [];
 const mockStore = configureMockStore(middlewares);
 
 const setup = (formattedData, isLoading) => {
-  const container = shallow(<QuestionnaireContainer
+  const container = shallow(<QuestionnaireAnswersFormContainer
      questionnaire={formattedData} 
      isLoading={isLoading}/>
   );
@@ -23,7 +23,7 @@ const setup = (formattedData, isLoading) => {
 
 const connectedSetup = (store) => {
   const connectedContainer = shallow(
-      <ConnectedQuestionnaireContainer store={store}/>
+      <ConnectedQuestionnaireAnswersFormContainer store={store}/>
   );
   return {
     connectedContainer
@@ -44,7 +44,7 @@ describe('Questionnaire container', () => {
     const match = {params: 5}
     // using mount for Full DOM rendering to make sure 
     //the component doesn't crash 
-    const mountedComponent = mount(<QuestionnaireContainer 
+    const mountedComponent = mount(<QuestionnaireAnswersFormContainer 
       store={store} 
       isLoading={false} 
       fetchQuestionnaire={fetchQuestionnaireSpy} 

@@ -3,7 +3,12 @@
 exports[`Questionnaires container renders without crashing 1`] = `
 <QuestionnairesContainer
   fetchQuestionnaires={[Function]}
-  isLoading={false}
+  isLoading={true}
+  match={
+    Object {
+      "url": "/questionnaires",
+    }
+  }
   store={
     Object {
       "clearActions": [Function],
@@ -18,13 +23,33 @@ exports[`Questionnaires container renders without crashing 1`] = `
   <div>
     <Loading>
       <div
-        className="loadingScreen"
+        className="loading-screen"
       >
-        ...Loading
+        <img
+          alt="loadig"
+          id="loading"
+          src="https://tools.cisco.com/security/center/Resources/images/loader.gif"
+        />
       </div>
     </Loading>
   </div>
 </QuestionnairesContainer>
+`;
+
+exports[`Questionnaires container when questionnaires data is available renders Questionnaires component 1`] = `
+<Questionnaires
+  questionnaires={
+    Object {
+      "1": Object {
+        "created_at": "2017-08-15T18:24:26.586Z",
+        "id": 1,
+        "title": "Lord of the Rings",
+        "updated_at": "2017-08-15T18:24:26.586Z",
+      },
+    }
+  }
+  url="/questionnaires"
+/>
 `;
 
 exports[`Questionnaires container when questionnaires data is available renders self with questionnaires props 1`] = `

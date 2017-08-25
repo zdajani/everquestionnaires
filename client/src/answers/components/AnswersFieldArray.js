@@ -16,26 +16,37 @@ class AnswersFieldArray extends Component {
       questions: props.questions
     }
   }
-  
   render(){
     const fields = this.props.fields;
+    const { error, submitFailed } = this.props.meta
+    
     const questions = this.state.questions
     return(
-      <ul>
+      <div>
+        <div className="form-group">
+          {submitFailed &&
+          error &&
+          <div className="alert alert-danger">
+              {error}
+          </div>}
+        </div>
+    
         {fields.map((answer, index) => (      
-          <li key={index}>
-            <Question 
-              name={questions[(fields.get(index)).question_id].name} 
-              label={questions[(fields.get(index)).question_id].label} />
-            <Field
-              name={`${answer}.response`}
-              type="text"
-              component={renderField}
-              label="Response"
-            />
-          </li>
+          <div key={index}>
+            <div className="form-group">
+              <Question 
+                name={questions[(fields.get(index)).question_id].name} 
+                label={questions[(fields.get(index)).question_id].label} />
+              <Field
+                name={`${answer}.response`}
+                type="textArea"
+                component={renderField}
+                isTextArea={true}
+              />
+            </div>
+          </div>
         ))}
-      </ul>
+        </div>
     );
   }
 }

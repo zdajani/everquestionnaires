@@ -1,9 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AdminQuestionnaires container renders without crashing 1`] = `
+exports[`AdminQuestionnaire container renders without crashing 1`] = `
 <AdminQuestionnairesContainer
   fetchAdminQuestionnaires={[Function]}
-  isLoading={false}
+  isLoading={true}
+  match={
+    Object {
+      "url": "/admin/questionnaires",
+    }
+  }
   store={
     Object {
       "clearActions": [Function],
@@ -18,16 +23,38 @@ exports[`AdminQuestionnaires container renders without crashing 1`] = `
   <div>
     <Loading>
       <div
-        className="loadingScreen"
+        className="loading-screen"
       >
-        ...Loading
+        <img
+          alt="loadig"
+          id="loading"
+          src="https://tools.cisco.com/security/center/Resources/images/loader.gif"
+        />
       </div>
     </Loading>
   </div>
 </AdminQuestionnairesContainer>
 `;
 
-exports[`AdminQuestionnaires container when questionnaires data is available renders self with questionnaires props 1`] = `
+exports[`AdminQuestionnaire container when questionnaires data is available renders Questionnaires component 1`] = `
+<Questionnaires
+  questionnaires={
+    Object {
+      "1": Object {
+        "id": 1,
+        "title": "Cat breeds",
+      },
+      "2": Object {
+        "id": 2,
+        "title": "Cat breeds Questionnaire Part 2",
+      },
+    }
+  }
+  url="/admin/questionnaires"
+/>
+`;
+
+exports[`AdminQuestionnaire container when questionnaires data is available renders self with questionnaires props 1`] = `
 <AdminQuestionnairesContainer
   fetchAdminQuestionnaires={[Function]}
   isLoading={false}
