@@ -25,12 +25,12 @@ With the following core features:
          create-rails-app
 
 * versions
-Ruby 2.4.1
-Rails 5.1.3
-node 6.11
+- Ruby 2.4.1
+- Rails 5.1.3
+- node 6.11
 
 ## How to run
-- On command line in root folder bundle 
+- On command line in root folder 
 ```
 bundle install
 cd && yarn
@@ -47,7 +47,7 @@ rake start
 - http://localhost:3000/ for site
 - http://localhost:3001/api for api 
 
-## How to run the test suite
+## How to run the test suites
 - Rails test in root folder
 ```
 rspec
@@ -59,11 +59,11 @@ cd client && yarn test
 ## Notes on site
 - Need to signup or login to answer and create questions and see responses
 - After seeding there are two users already:
-username: admin
-password: password
+* username: admin
+* password: password
 
-username: user
-password: password
+* username: user
+* password: password
 
 - Admin pages only show questionnaires the currently logged in user created
 - A user can answer a questionnaire as many times as they want, but only one 
