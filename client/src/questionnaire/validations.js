@@ -1,5 +1,4 @@
 export const validate = values => {
-  // note: need to add validation for uniqueness
   const errors = {}
   if (!values.title) {
     errors.title = 'Required'
@@ -14,15 +13,25 @@ export const validate = values => {
       if (!question || !question.name) {
         questionErrors.name = 'Required'
         questionsArrayErrors[questionIndex] = questionErrors
-      }
+      } else {
+          const dubplicate = values.questions.filter(
+            x => x.name && x.name.toLowerCase() === question.name.toLowerCase()
+          );
+           if (dubplicate.length > 1)  {
+            questionErrors.name = 'Name must be unique'
+             questionsArrayErrors[questionIndex] = questionErrors
+           }
+        }
       if (!question || !question.label) {
         questionErrors.label = 'Required'
         questionsArrayErrors[questionIndex] = questionErrors
       }
+    
+      if (questionsArrayErrors.length) {
+        errors.questions = questionsArrayErrors
+      }
     })
-    if (questionsArrayErrors.length) {
-      errors.questions = questionsArrayErrors
-    }
   }
+  console.log(errors)
   return errors
 }
