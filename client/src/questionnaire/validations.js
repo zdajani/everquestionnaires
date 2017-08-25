@@ -32,6 +32,5 @@ export const validate = values => {
       }
     })
   }
-  console.log(errors)
   return errors
 }

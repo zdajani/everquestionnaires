@@ -10,7 +10,7 @@ exports[`QuestionnairesList component renders self with questionnaires props 1`]
     className="container"
   >
     <div
-      className="row"
+      className="row questionnaires"
     >
       <div
         className="card"

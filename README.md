@@ -3,8 +3,7 @@ everQuestionnaires
 ## Synopsis
 
 A basic questionnaire site using Rails Api with React and Redux
-This README would normally document whatever steps are necessary to get the
-application up and running.
+and using create-react-app
 
 With the following core features: 
 
