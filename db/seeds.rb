@@ -1,10 +1,10 @@
 users = User.create([
   {
-    username: "HarryP",
+    username: "admin",
     password: "password"
   },
   {
-    username: "HermioneG",
+    username: "user",
     password: "password"
   }
 ])

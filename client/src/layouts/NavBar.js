@@ -38,7 +38,7 @@ class NavBar extends Component {
             Admin Page
           </NavLink>
         </div>
-        <div className="nav-item navbar-right">
+        <div className="nav-item">
           {this.props.isAuthenthicated ? this.renderLogoutButton() : this.renderLoginLink()}
         </div>
       </nav>

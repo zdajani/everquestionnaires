@@ -39,7 +39,7 @@ const QuestionnairesList = ({ questionnaires, url, isAdminPage }) => {
   return (
     <div className="album text-muted">
         <div className="container">
-          <div className="row">
+          <div className="row questionnaires">
             { renderQuestionnaires() }
           </div>
         </div>

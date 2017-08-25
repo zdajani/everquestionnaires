@@ -8,8 +8,8 @@ const renderField = ({ input, label, type, meta: { touched, error }, isTextArea 
       {label &&  <label className="form-control-label">{label}</label>}
       
       {isTextArea ?
-         <textArea {...input} placeholder={label} type="text" className="form-control"/> : 
-         <input {...input} placeholder={label} type="text" className="form-control" />}
+         <textArea {...input} placeholder={label} type={type} className="form-control"/> : 
+         <input {...input} placeholder={label} type={type} className="form-control" />}
       
       <div className='text-help'>
         {touched && error && <span className="form-error">{error}</span>}

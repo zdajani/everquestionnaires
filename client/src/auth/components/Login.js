@@ -29,22 +29,21 @@ class Login extends Component {
               label="Username:"
               name="username"
               component={ renderField }
-              id="inputUsername"
             />
             <Field 
               label="Password:"
               name="password"
-              component={ renderField }
               type="password"
+              component={ renderField }
             />
             <button 
               type="submit" 
               className="btn btn-lg btn-success btn-block">
               Login
             </button>
-              <Link to='/signup' className="btn btn-lg btn-primary btn-block">
-                Create Account
-              </Link>          
+            <Link to='/signup' className="btn btn-lg btn-primary btn-block">
+              Create Account
+            </Link>          
           </form>
         </div>
       </div>
