@@ -5,9 +5,10 @@ import { formattedData } from './testData';
 import toJson from 'enzyme-to-json';
 
 //initialize with props if none are given
-const setup = (props = formattedData) => {
+
+const setup = (questionnaires =formattedData, url = '/questionnaires' ) => {
   const component = shallow(
-    <QuestionnairesList questionnaires={props} url='/questionnaires'  />
+    <QuestionnairesList questionnaires={questionnaires} url={url}   />
   );
   
   return {
@@ -21,6 +22,15 @@ describe('QuestionnairesList component', () => {
   it('renders self with questionnaires props', () => {
     expect(component.instance().props).toEqual(
       {questionnaires: formattedData, url:'/questionnaires'}
+    );
+     
+    expect(toJson(component)).toMatchSnapshot();
+  });
+  
+  it('renders admin urls if admin url is given as prop', () => {
+    const { component } = setup(formattedData, '/admin');
+    expect(component.instance().props).toEqual(
+      {questionnaires: formattedData, url:'/admin'}
     );
      
     expect(toJson(component)).toMatchSnapshot();

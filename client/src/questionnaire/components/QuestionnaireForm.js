@@ -29,7 +29,6 @@ export const QuestionnaireForm = props => {
   );
 };
 
-
 QuestionnaireForm.propTypes = {
   pristine: PropTypes.bool,
 	handleSubmit: PropTypes.func.isRequired,

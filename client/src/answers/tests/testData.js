@@ -1,8 +1,10 @@
-export const createAnswersData = [
+export const answersData = [
   { 
+    id: 1,
     question_id: 1,
     response: "Pellentesque in ipsum id orci porta dapibus."
   },{
+    id: 2,
     question_id: 2,
     response: "Vivamus suscipit tortor eget felis porttitor."
   },
@@ -29,4 +31,13 @@ export const questionnaireData = {
   questions: questions
 };
 
+export const answersTableData = {
+  questionnaire: questions[1],
+  questions: [questions[1],questions[2]],
+  usersAnswers: [{
+    username: 'user1',
+    date: "2017-08-18T00:02:54.066Z",
+    answers: answersData
+  }]
+};
 

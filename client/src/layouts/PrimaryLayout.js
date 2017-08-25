@@ -50,5 +50,4 @@ function mapStateToProps(state) {
   return { isAuthenthicated: state.auth.currentUser };
 }
 
-
 export default connect(mapStateToProps, null)(PrimaryLayout);

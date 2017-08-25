@@ -2,6 +2,75 @@
 
 exports[`QuestionnairesList component renders a list of questionnaire links 1`] = `undefined`;
 
+exports[`QuestionnairesList component renders admin urls if admin url is given as prop 1`] = `
+<div
+  className="album text-muted"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="row questionnaires"
+    >
+      <div
+        className="card"
+      >
+        <Link
+          replace={false}
+          to="/admin/1"
+        >
+          <h4
+            className="card-title"
+          >
+             
+            Lord of the Rings
+             Questionnaire
+          </h4>
+        </Link>
+        <div
+          className="questionnaires-list-buttons"
+        >
+          <Link
+            className="btn btn-info btn-lg"
+            replace={false}
+            to="/admin/1"
+          >
+            Take Questionnaire
+          </Link>
+        </div>
+      </div>
+      <div
+        className="card"
+      >
+        <Link
+          replace={false}
+          to="/admin/2"
+        >
+          <h4
+            className="card-title"
+          >
+             
+            Lord of the Flies
+             Questionnaire
+          </h4>
+        </Link>
+        <div
+          className="questionnaires-list-buttons"
+        >
+          <Link
+            className="btn btn-info btn-lg"
+            replace={false}
+            to="/admin/2"
+          >
+            Take Questionnaire
+          </Link>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`QuestionnairesList component renders self with questionnaires props 1`] = `
 <div
   className="album text-muted"

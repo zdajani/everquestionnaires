@@ -4,7 +4,7 @@ import expect from 'expect';
 import * as actions from '../actions';
 import * as types from '../actionTypes';
 import moxios from 'moxios';
-import { createAnswersData } from './testData';
+import { answersData } from './testData';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -42,7 +42,7 @@ describe('answers async actions', () => {
       
       const store = mockStore({});
       
-      return store.dispatch(actions.createAnswers(createAnswersData)).then(() => {
+      return store.dispatch(actions.createAnswers(answersData)).then(() => {
         expect(store.getActions()).toEqual(expectedActions);
       });
     });
@@ -68,7 +68,7 @@ describe('answers async actions', () => {
 
       const store = mockStore({});
       
-      return store.dispatch(actions.createAnswers(createAnswersData)).then(() => {
+      return store.dispatch(actions.createAnswers(answersData)).then(() => {
         expect(store.getActions()).toEqual(expectedActions);
       });
     });

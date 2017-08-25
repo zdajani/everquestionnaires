@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AnswersTable from '../components/AnswersTable'
+import AnswersTable from '../../answers/components/AnswersTable'
 
 const AdminQuestionnaire = ({  questionnaire, questions, usersAnswers }) => {
   return (

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { logout } from '../auth/actions';
 import { NavLink } from 'react-router-dom';
 
-class NavBar extends Component {
+export class NavBar extends Component {
    renderLogoutButton() {
      return (
        <button onClick={this.props.logout} className="nav-link logout-button btn btn-link">Logout</button>
@@ -46,5 +46,6 @@ class NavBar extends Component {
     )
   }
 }
+
 
 export default connect(null, { logout })(NavBar);

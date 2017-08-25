@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import ConnectedAnswersFormContainer, { AnswersFormContainer } from '../containers/AnswersFormContainer';
 import AnswersForm from '../components/AnswersForm';
-import { createAnswersData, questionnaireData } from './testData';
+import { answersData, questionnaireData } from './testData';
 
 import { reducer as formReducer } from 'redux-form'
 import { createStore, combineReducers } from 'redux'
@@ -44,7 +44,7 @@ describe('AnswersForm container', () => {
   
   it('calls createQuestionnaire on handleFormSubmit', () => {    
     const { container, createAnswerSpy } = setup()
-    container.instance().handleFormSubmit(createAnswersData);
-    expect(createAnswerSpy).toBeCalledWith(createAnswersData, 1)
+    container.instance().handleFormSubmit(answersData);
+    expect(createAnswerSpy).toBeCalledWith(answersData, 1)
   });
 });
