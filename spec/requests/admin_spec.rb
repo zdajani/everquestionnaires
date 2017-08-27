@@ -13,9 +13,10 @@ RSpec.describe "admin", type: :request do
       answerTwo = create(:answer, 
       question_id: questionTwo.id,
       questionnaire_id: questionnaire.id)
+      
       headers = authorize_user_header(questionnaire.user)
       
-      get questionnaire_responses_path(questionnaire.id)
+      get questionnaire_responses_path(questionnaire.id), headers: headers
       expect(response).to have_http_status(:success)
     end
   end

@@ -1,4 +1,5 @@
 class AdminController < ApplicationController  
+  before_action :authenticate_user
   # get all questionnaires a user created 
   def index
     @questionnaires = current_user.questionnaires
@@ -8,15 +9,15 @@ class AdminController < ApplicationController
 
   # returns a single questionnaire's with questions and answers with user
   def questionnaire_responses
-    if questionnaire = Questionnaire.where(id: params[:id]).first
+    if questionnaire = current_user.questionnaires.find(params[:id])
     
-      questionnaire_data = { 
+      @questionnaire_data = { 
         questionnaire: questionnaire, 
-        questions: questionnaire.questions.select('id', 'name', 'label'),
-        usersAnswers: Answer.format_for_api(questionnaire)
-        }
+        questions: questionnaire.questions,
+        usersAnswers: questionnaire.answers_data
+      }.to_json
       
-      render json: questionnaire_data.to_json
+      render json: @questionnaire_data
     else
       render status: :not_found
     end

@@ -11,7 +11,9 @@ class QuestionnairesController < ApplicationController
   # a single questionnaire
   def show
     if @questionnaire.questions.exists? 
-      render json: @questionnaire.to_json(include: {questions: { only: ['name', 'label', 'id' ]}})
+      render json: @questionnaire.to_json(include: { 
+        questions: { only: ['name', 'label', 'id' ]}
+      })
     else
       render json: @questionnaire
     end
@@ -20,8 +22,7 @@ class QuestionnairesController < ApplicationController
   # POST /questionnaires
   def create
     #todo: implement uniqness verification on questions when adding them like below
-    @user = current_user
-    @questionnaire = @user.questionnaires.build(questionnaire_params)
+    @questionnaire = current_user.questionnaires.build(questionnaire_params)
     
     if @questionnaire.save
       render json: @questionnaire, status: :created, location: @questionnaire
