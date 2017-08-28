@@ -3,23 +3,21 @@ require 'rails_helper'
 RSpec.describe "Questionnaires", type: :request do
   describe "GET /questionnaires" do
     it "returns all questionnaires" do
-      create_list(:questionnaire, 10)
+      create_list(:questionnaire, 5)
       get questionnaires_path
 
       expect(response).to have_http_status(:success)
-      expect(json.size).to eq(10)
+      expect(json.size).to eq(5)
     end
   end
   
   describe "GET /questionnaire" do
     it 'returns a specific questionnaire' do
-   
       questionnaire = create(:questionnaire) 
-      get questionnaire_path(questionnaire.id)
-  
+      get questionnaire_path(questionnaire.id)  
+      
       expect(response).to have_http_status(:success)
-      # need to account for difference in date structure
-      expect(json.except('created_at', 'updated_at')).to eq(questionnaire.attributes.except('created_at', 'updated_at')) 
+      expect(response.body).to eq(questionnaire.to_json) 
     end
     
     it 'returns a specific questionnaire and its questions' do

@@ -13,10 +13,9 @@ class AdminController < ApplicationController
     
       @questionnaire_data = { 
         questionnaire: questionnaire, 
-        questions: questionnaire.questions,
+        questions: questionnaire.questions.select('id','name', 'label'),
         usersAnswers: questionnaire.answers_data
-      }.to_json
-      
+      }
       render json: @questionnaire_data
     else
       render status: :not_found

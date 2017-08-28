@@ -12,8 +12,8 @@ import QuestionnaireFormContainer from '../questionnaire/containers/Questionnair
 import AdminQuestionnairesContainer from '../admin/containers/AdminQuestionnairesContainer';
 import AdminQuestionnaireContainer from '../admin/containers/AdminQuestionnaireContainer';
 
-import Login from '../auth/components/Login';
-import CreateAccount from '../auth/components/CreateAccount';
+import LoginContainer from '../auth/containers/LoginContainer';
+import CreateAccountContainer from '../auth/containers/CreateAccountContainer';
 import PrivateRoute from '../auth/components/PrivateRoute';
 
 class PrimaryLayout extends Component {
@@ -26,8 +26,8 @@ class PrimaryLayout extends Component {
           <Switch>
             <Route path="/questionnaires" exact component={QuestionnairesContainer} />
             
-            <Route path="/login" component={Login}/>
-            <Route path="/signup" component={CreateAccount}/>
+            <Route path="/login" component={LoginContainer}/>
+            <Route path="/signup" component={CreateAccountContainer}/>
             
             <PrivateRoute path="/questionnaires/new" component={QuestionnaireFormContainer}/>
             <PrivateRoute path="/questionnaires/:id" component={QuestionnaireAnswersFormContainer}/>

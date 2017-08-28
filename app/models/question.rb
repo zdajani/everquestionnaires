@@ -3,6 +3,7 @@ class Question < ApplicationRecord
   has_many :answers
   
   validates :questionnaire, presence: true
-  validates :name, presence: true
-  validates :name, uniqueness: { scope: :questionnaire_id, case_sensitive: true }
+  validates :name, presence: true, uniqueness: { 
+    scope: :questionnaire_id, 
+    case_sensitive: true }
 end

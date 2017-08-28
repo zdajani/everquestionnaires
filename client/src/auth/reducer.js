@@ -1,4 +1,6 @@
 import jwtDecode from 'jwt-decode';
+import _ from 'lodash';
+import { LOCATION_CHANGE } from 'react-router-redux';
 
 import { 
   LOGIN_REQUEST, 
@@ -32,18 +34,25 @@ export default function(state = initialState, action = {}){
       return {
         ...state,
         isLoading: false,
-        errorMessage: action.payload
+        errorMessage: _.values(action.payload)
       }
     case AUTH_SUCCESS:
       return {
+        ...state,
         isLoading: false,
         currentUser: action.payload,
         errorMessage: null
       }
     case LOGOUT:
       return {
+        ...state,
         isLoading: false,
         currentUser: null,
+        errorMessage: null
+      }
+    case LOCATION_CHANGE:
+      return {
+        ...state,
         errorMessage: null
       }
     default:

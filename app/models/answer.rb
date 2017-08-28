@@ -3,8 +3,5 @@ class Answer < ApplicationRecord
   belongs_to :user
   belongs_to :questionnaire
   
-  validates :question, presence: true
-  validates :response, presence: true
-  validates :user, presence: true
-  validates :questionnaire, presence: true
+  validates :response, :question, :user, :questionnaire, presence: true
 end

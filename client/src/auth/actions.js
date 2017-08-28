@@ -4,14 +4,15 @@ import { push } from 'react-router-redux';
 
 import * as types from './actionTypes'
 
-export function loginUser({ username, password }) {
+export function authenticateUser({ username, password }, isLogin) {
+
+
   return (dispatch, getState) => {
     const redirectUrl = getRedirectUrl(getState())
     
     dispatch({ type: types.LOGIN_REQUEST });
     
-    axios.post('/user_token', {auth: {username, password}})
-      .then(res => {
+    getApiResponse(username, password, isLogin).then(res => {
         localStorage.authToken = res.data.jwt
         dispatch({
           type: types.AUTH_SUCCESS,
@@ -19,30 +20,11 @@ export function loginUser({ username, password }) {
         });
         dispatch(push(redirectUrl))
       }).catch((error) => {
-        dispatch({ type: types.AUTH_ERROR, payload: "Bad login information" });
+        dispatch({ type: types.AUTH_ERROR, payload: getErrors(error.response.data)});
       })
   }
 }
 
-export function createAccount({ username, password }) {
-  return (dispatch, getState) => {
-    const redirectUrl = getRedirectUrl(getState())
-  
-    dispatch({ type: types.LOGIN_REQUEST });
-    
-    axios.post('api/users', {user: {username: username, password: password}})
-      .then(res => {
-        localStorage.authToken = res.data.jwt
-        dispatch({
-          type: types.AUTH_SUCCESS,
-          payload: jwtDecode(res.data.jwt)
-        });
-        dispatch(push(redirectUrl))
-      }).catch((error) => {
-        dispatch({ type: types.AUTH_ERROR, payload: "Bad login information" });
-      })
-  }
-}
 
 export function logout() {
   delete localStorage.authToken
@@ -58,3 +40,21 @@ const getRedirectUrl = (state) => {
     routerState ? routerState.from : '/questionnaires'
   );
 }
+
+const getApiResponse = (username, password, isLogin) => {
+  const apiInfo = isLogin ?  
+    { url: '/user_token', data: { auth: {username, password}}} : 
+    { url: '/api/users', data: { user: {username, password}}};
+   
+   return( 
+     axios({
+     method: 'post',
+     url: apiInfo.url,
+     data: apiInfo.data
+   })
+ );
+}
+ 
+const getErrors = (errorsResponseData) => (
+  errorsResponseData || {0: ["username or password is incorrect"]}
+);

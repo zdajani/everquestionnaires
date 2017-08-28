@@ -1,5 +1,6 @@
 class QuestionnairesController < ApplicationController
   before_action :set_questionnaire, only: [:show]
+  before_action :authenticate_user, only: [:create]
 
   # get all questionnaires
   def index
@@ -21,7 +22,6 @@ class QuestionnairesController < ApplicationController
 
   # POST /questionnaires
   def create
-    #todo: implement uniqness verification on questions when adding them like below
     @questionnaire = current_user.questionnaires.build(questionnaire_params)
     
     if @questionnaire.save
