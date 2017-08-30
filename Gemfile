@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-ruby "2.4.1"
+ruby '2.4.1'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
 
@@ -12,11 +12,12 @@ gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 gem 'bcrypt'
 gem 'jwt'
-gem 'knock'  
+gem 'knock'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  # Call 'binding.pry' anywhere in the code to stop execution and get a debugger console
+  # Call 'binding.pry' anywhere in the code to stop execution 
+  # and get a debugger console
   gem 'pry-rails'
   gem 'rspec-rails'
   # To clean up after tests - config is found in spec/support/database_cleaner

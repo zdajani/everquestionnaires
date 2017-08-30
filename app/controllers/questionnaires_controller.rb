@@ -11,10 +11,10 @@ class QuestionnairesController < ApplicationController
 
   # a single questionnaire
   def show
-    if @questionnaire.questions.exists? 
-      render json: @questionnaire.to_json(include: { 
-        questions: { only: ['name', 'label', 'id' ]}
-      })
+    if @questionnaire.questions.exists?
+      render json: @questionnaire.to_json(
+        include: { questions: { only: %w[name label id] } }
+      )
     else
       render json: @questionnaire
     end
@@ -23,7 +23,7 @@ class QuestionnairesController < ApplicationController
   # POST /questionnaires
   def create
     @questionnaire = current_user.questionnaires.build(questionnaire_params)
-    
+
     if @questionnaire.save
       render json: @questionnaire, status: :created, location: @questionnaire
     else
@@ -32,13 +32,17 @@ class QuestionnairesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_questionnaire
-      @questionnaire = Questionnaire.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def questionnaire_params
-      params.require(:questionnaire).permit(:title, questions_attributes:[:name, :label, :id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_questionnaire
+    @questionnaire = Questionnaire.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def questionnaire_params
+    params.require(:questionnaire).permit(
+      :title,
+      questions_attributes: %i[name label id]
+    )
+  end
 end

@@ -1,6 +1,7 @@
-class AdminController < ApplicationController  
+# controller for getting admin dashboard, questionnaires, and responses
+class AdminController < ApplicationController
   before_action :authenticate_user
-  # get all questionnaires a user created 
+  # get all questionnaires a user created
   def index
     @questionnaires = current_user.questionnaires
 
@@ -9,11 +10,11 @@ class AdminController < ApplicationController
 
   # returns a single questionnaire's with questions and answers with user
   def questionnaire_responses
-    if questionnaire = current_user.questionnaires.find(params[:id])
-    
-      @questionnaire_data = { 
-        questionnaire: questionnaire, 
-        questions: questionnaire.questions.select('id','name', 'label'),
+    questionnaire = current_user.questionnaires.find(params[:id])
+    if questionnaire
+      @questionnaire_data = {
+        questionnaire: questionnaire,
+        questions: questionnaire.questions.select('id', 'name', 'label'),
         usersAnswers: questionnaire.answers_data
       }
       render json: @questionnaire_data
