@@ -10,7 +10,7 @@ const AnswersTable = ({questions, usersAnswers}) => {
       )
     })
   }
-  
+
   const renderRows = () => {
     return usersAnswers.map((userAnswers, index) => {
       return (
@@ -23,24 +23,24 @@ const AnswersTable = ({questions, usersAnswers}) => {
       )
     })
   }
-  
+
   const renderAnswers = (answers) => {
-    return questions.map((question, index) => {    
-      const answer = answers.find(x => x.question_id === question.id); 
+    return questions.map((question, index) => {
+      const answer = answers.find(x => x.question_id === question.id);
       const response = answer ? answer.response : null
-      
-      return ( 
+
+      return (
         renderRow(response, index)
       );
     });
   }
-  
+
   const renderRow =(data, id) => {
     return (
-        <td key={id}>{ data }</td> 
+        <td key={id}>{ data }</td>
     )
   }
-  
+
   return (
     <div>
       <table className="table table-striped table-bordered table-responsive">

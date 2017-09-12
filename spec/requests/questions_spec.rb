@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe 'Questions', type: :request do
   describe 'POST /question' do
     it 'creates a new question' do

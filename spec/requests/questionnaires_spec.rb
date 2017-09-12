@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe 'Questionnaires', type: :request do
   describe 'GET /questionnaires' do
     it 'returns all questionnaires' do

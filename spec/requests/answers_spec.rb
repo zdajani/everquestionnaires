@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe 'Answers', type: :request do
   describe 'POST /answers' do
     it 'creates answers for questions provided' do
