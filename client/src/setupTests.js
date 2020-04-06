@@ -1,6 +1,13 @@
 import 'jest-enzyme'
+import '@testing-library/jest-dom/extend-expect'
+import 'jest-enzyme'
 
-//to deal with localStorage in tests 
+import {configure} from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
+
+configure({adapter: new Adapter()})
+
+//to deal with localStorage in tests
 //just creates a mocked one
 class LocalStorageMock {
   constructor() {

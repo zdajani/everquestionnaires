@@ -3,7 +3,7 @@ import {shallow, mount} from 'enzyme'
 import toJson from 'enzyme-to-json'
 import configureMockStore from 'redux-mock-store'
 import ConnectedQuestionnairesContainer, {QuestionnairesContainer} from '../containers/QuestionnairesContainer'
-import Questionnaires from '../components/Questionnaires'
+import Questionnaires from '../components/QuestionnairesHeader'
 import Loading from '../../shared_components/Loading'
 
 const middlewares = []

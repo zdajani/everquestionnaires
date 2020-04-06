@@ -1,23 +1,29 @@
-import React, {Component} from 'react'
+import React, {useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {fetchAdminQuestionnaires} from '../actions'
 import Loading from '../../shared_components/Loading'
-import Questionnaires from '../../questionnaires/components/Questionnaires'
+import AdminQuestionnairesHeader from '../components/AdminQuestionnairesHeader'
+import QuestionnairesList from '../../questionnaires/components/QuestionnairesList'
 
-//export class so that it can be imported alone for testing
-export class AdminQuestionnairesContainer extends Component {
-  componentDidMount(){
-    this.props.fetchAdminQuestionnaires()
-  }
-  // note: fix this to deal with when there is no questionnaires and is not loading
-  render() {
+
+export const AdminQuestionnairesContainer = props => {
+  useEffect(() => {
+    props.fetchAdminQuestionnaires()
+  }, [])
+
+  if (props.isLoading) {
+    return <Loading />
+  } else {
     return (
-      <div>
-        { (this.props.isLoading) ?
-          <Loading /> :
-          <Questionnaires questionnaires={this.props.questionnaires} url={this.props.match.url} /> }
-      </div>
+      <>
+        <AdminQuestionnairesHeader />
+        <QuestionnairesList
+          questionnaires={props.questionnaires}
+          url={props.match.url}
+          isAdminPage
+        />
+      </>
     )
   }
 }
@@ -29,9 +35,10 @@ AdminQuestionnairesContainer.propTypes = {
   }))
 }
 
-function mapStateToProps(state) {
-  return {questionnaires: state.adminQuestionnaires.data, isLoading: state.adminQuestionnaires.isLoading}
-}
+const mapStateToProps = ({adminQuestionnaires}) => ({
+  questionnaires: adminQuestionnaires.data,
+  isLoading: adminQuestionnaires.isLoading
+})
 
 export default connect(mapStateToProps,
   {fetchAdminQuestionnaires}

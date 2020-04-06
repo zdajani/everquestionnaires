@@ -1,51 +1,39 @@
-import React, {Component} from 'react'
+import React from 'react'
 import {connect} from 'react-redux'
-import {logout} from '../auth/actions'
 import {NavLink} from 'react-router-dom'
 
-export class NavBar extends Component {
-  renderLogoutButton() {
-    return (
-      <button onClick={this.props.logout} className='nav-link logout-button btn btn-link'>Logout</button>
-    )
-  }
+import {logout} from '../auth/actions'
 
-  renderLoginLink() {
-    return (
-      <NavLink to='/login' className='nav-link'>Login</NavLink>
-    )
-  }
-
-  render() {
-    return (
-      <div className='container-fluid'>
-        <nav className='navbar navbar-expand-md navbar-dark fixed-top bg-dark'>
-          <div className='navbar-brand title'>
-            <h1 className='title'>everQuestionnaires</h1>
-          </div>
-          <div className='nav-item'>
-            <NavLink to='/questionnaires' className='nav-link' activeClassName='active'>
-            Questionnaires
-            </NavLink>
-          </div>
-          <div className='nav-item'>
-            <NavLink to='/questionnaires/new' className='nav-link' activeClassName='active'>
-            Create Questionnaire
-            </NavLink>
-          </div>
-          <div className='nav-item'>
-            <NavLink to='/admin' className='nav-link' activeClassName='active'>
-            Admin Page
-            </NavLink>
-          </div>
-          <div className='nav-item'>
-            {this.props.isAuthenticated ? this.renderLogoutButton() : this.renderLoginLink()}
-          </div>
-        </nav>
+const NavBar = ({isAuthenticated, logout}) => (
+  <div className='container-fluid'>
+    <nav className='navbar navbar-expand-md navbar-dark fixed-top bg-dark'>
+      <div className='navbar-brand title'>
+        <h1 className='title'>everQuestionnaires</h1>
       </div>
-    )
-  }
-}
+      <div className='nav-item'>
+        <NavLink to='/questionnaires' className='nav-link' activeClassName='active'>
+            Questionnaires
+        </NavLink>
+      </div>
+      <div className='nav-item'>
+        <NavLink to='/questionnaires/new' className='nav-link' activeClassName='active'>
+            Create Questionnaire
+        </NavLink>
+      </div>
+      <div className='nav-item'>
+        <NavLink to='/admin' className='nav-link' activeClassName='active'>
+            Admin Page
+        </NavLink>
+      </div>
+      <div className='nav-item'>
+        {
+          isAuthenticated ?
+            <button onClick={logout} className='nav-link logout-button btn btn-link'>Logout</button> :
+            <NavLink to='/login' className='nav-link'>Login</NavLink>}
+      </div>
+    </nav>
+  </div>
+)
 
 
 export default connect(null, {logout})(NavBar)

@@ -41,7 +41,7 @@ class AnswersFieldArray extends Component {
                 />
                 <Field
                   name={`${answer}.response`}
-                  type='textArea'
+                  type='text'
                   component={renderField}
                   isTextArea={true}
                 />

@@ -1,38 +1,35 @@
-import React, {Component} from 'react'
+import React, {useEffect} from 'react'
+import {useParams} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {fetchQuestionnaire} from '../actions'
 import Loading from '../../shared_components/Loading'
 import AnswersFormContainer from '../../answers/containers/AnswersFormContainer'
 
-export class QuestionnaireAnswersFormContainer extends Component {
-  componentDidMount(){
-    const {id} = this.props.match.params
-    this.props.fetchQuestionnaire(id)
-  }
+const QuestionnaireAnswersFormContainer = props => {
+  const {id} = useParams()
 
-  render() {
-    const {isLoading, questionnaire} = this.props
-    return (
-      <div>
-        { (isLoading || !questionnaire) ?
-          <Loading /> :
-          <AnswersFormContainer questionnaire={questionnaire} />
-        }
-      </div>
-    )
-  }
+  useEffect(() => {
+    props.fetchQuestionnaire(id)
+  }, [])
+
+  return (
+    <div>
+      { (props.isLoading || !props.questionnaire) ?
+        <Loading /> :
+        <AnswersFormContainer questionnaire={props.questionnaire} />
+      }
+    </div>
+  )
 }
 
 QuestionnaireAnswersFormContainer.propTypes = {
+  fetchQuestionnaire: PropTypes.func,
+  isLoading: PropTypes.bool,
   questionnaire: PropTypes.shape({
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
-    questions: PropTypes.objectOf(PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      name: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired
-    }))
+    questions: PropTypes.object
   })
 }
 

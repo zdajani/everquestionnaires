@@ -1,25 +1,21 @@
-import React, {Component} from 'react'
+import React, {useCallback} from 'react'
+import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
+
 import QuestionnaireForm from '../components/QuestionnaireForm'
+
 import {createQuestionnaire} from '../actions'
 
-export class QuestionnaireFormContainer extends Component {
-  constructor(props) {
-    super(props)
-    this.handleFormSubmit = this.handleFormSubmit.bind(this)
-  }
-  
-  handleFormSubmit(values) {
-    this.props.createQuestionnaire(values)
-  }
+const QuestionnaireFormContainer = props => {
+  const handleFormSubmit = useCallback(values => {
+    props.createQuestionnaire(values)
+  }, [props])
 
-  render() {
-    return (
-      <div>
-        <QuestionnaireForm onSubmit={this.handleFormSubmit} />
-      </div>
-    )
-  }
+  return <QuestionnaireForm onSubmit={handleFormSubmit} />
+}
+
+QuestionnaireFormContainer.propTypes = {
+  createQuestionnaire: PropTypes.func
 }
 
 export default connect(null, {createQuestionnaire})(QuestionnaireFormContainer)

@@ -14,7 +14,7 @@ const renderField = ({input, label, type, meta: {touched, error}, isTextArea}) =
 
       {
         isTextArea ?
-          <textArea {...input} placeholder={label} type={type} className='form-control' /> :
+          <textarea {...input} placeholder={label} type={type} className='form-control' /> :
           <input {...input} placeholder={label} type={type} className='form-control' />
       }
 
