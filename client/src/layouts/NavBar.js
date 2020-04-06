@@ -39,7 +39,7 @@ export class NavBar extends Component {
             </NavLink>
           </div>
           <div className='nav-item'>
-            {this.props.isAuthenthicated ? this.renderLogoutButton() : this.renderLoginLink()}
+            {this.props.isAuthenticated ? this.renderLogoutButton() : this.renderLoginLink()}
           </div>
         </nav>
       </div>

@@ -4,19 +4,19 @@ import toJson from 'enzyme-to-json'
 import {NavBar} from '../NavBar'
 
 const logoutSpy = jest.fn()
-const isAuthenthicatedMock = {
+const isAuthenticatedMock = {
   exp: 1234566,
   sub: 1
 }
 
-const setup = (isAuthenthicated = isAuthenthicatedMock) => {
+const setup = (isAuthenticated = isAuthenticatedMock) => {
   const component = shallow(
-    <NavBar 
+    <NavBar
       logout={logoutSpy}
-      isAuthenthicated={isAuthenthicated}
+      isAuthenticated={isAuthenticated}
     />
   )
-    
+
   return {
     logoutSpy,
     component
@@ -26,29 +26,29 @@ const setup = (isAuthenthicated = isAuthenthicatedMock) => {
 describe('NavBar', () => {
   describe('when user logged in', () => {
     const {component, logoutSpy} = setup()
-    it('renders self isAuthenthicated true props', () => {  
-      expect(component.instance().props).toEqual({isAuthenthicated: isAuthenthicatedMock, logout: logoutSpy})
+    it('renders self isAuthenticated true props', () => {
+      expect(component.instance().props).toEqual({isAuthenticated: isAuthenticatedMock, logout: logoutSpy})
       expect(toJson(component)).toMatchSnapshot()
     })
-    
-    it('renders self with logout button', () => {  
+
+    it('renders self with logout button', () => {
       expect(toJson(component.find('button').first())).toMatchSnapshot()
     })
-    
-    it('calls logout on logout button', () => { 
+
+    it('calls logout on logout button', () => {
       const {component, logoutSpy} = setup()
       component.find('button').first().simulate('click')
       expect(logoutSpy.mock.calls.length).toBe(1)
     })
   })
-  
+
   describe('when user logged out', () => {
     const {component, logoutSpy} = setup(false)
-    it('renders self with isAuthenthicated false props', () => {  
-      expect(component.instance().props).toEqual({isAuthenthicated: false, logout: logoutSpy})
+    it('renders self with isAuthenticated false props', () => {
+      expect(component.instance().props).toEqual({isAuthenticated: false, logout: logoutSpy})
     })
-    
-    it('renders self with login link', () => {  
+
+    it('renders self with login link', () => {
       expect(toJson(component)).toMatchSnapshot()
     })
   })

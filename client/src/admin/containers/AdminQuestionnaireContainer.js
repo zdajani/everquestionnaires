@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {fetchAdminQuestionnaire} from '../actions'
-import Loading from '../../commonComponents/Loading'
+import Loading from '../../shared_components/Loading'
 import AdminQuestionnaire from '../components/AdminQuestionnaire'
 import {Redirect} from 'react-router-dom'
 
@@ -11,28 +11,28 @@ export class AdminQuestionnaireContainer extends Component {
     const {id} = this.props.match.params
     this.props.fetchAdminQuestionnaire(id)
   }
-  
+
   render() {
     const {questionnaireData, error} = this.props
     const data = this.props.questionnaireData
     if (error) {
       return (
         <Redirect to={{
-          pathname: '/admin/questionnaires', 
+          pathname: '/admin/questionnaires',
           state: {from: this.props.location}
         }}
         />
       )
     }
-    
+
     return (
       <div>
-        { (questionnaireData && questionnaireData.questions) ? 
-          <AdminQuestionnaire 
-            questions={data.questions} 
+        { (questionnaireData && questionnaireData.questions) ?
+          <AdminQuestionnaire
+            questions={data.questions}
             questionnaire={data.questionnaire}
             usersAnswers={data.usersAnswers}
-          /> : 
+          /> :
           <Loading />
         }
       </div>
@@ -41,7 +41,7 @@ export class AdminQuestionnaireContainer extends Component {
 }
 
 function mapStateToProps(state) {
-  return { 
+  return {
     questionnaireData: state.adminQuestionnaire.data,
     isLoading: state.adminQuestionnaire.isLoading,
     error: state.adminQuestionnaire.errorMessage}
@@ -70,6 +70,6 @@ AdminQuestionnaireContainer.propTypes = {
   })
 }
 
-export default connect(mapStateToProps, 
+export default connect(mapStateToProps,
   {fetchAdminQuestionnaire}
 )(AdminQuestionnaireContainer)

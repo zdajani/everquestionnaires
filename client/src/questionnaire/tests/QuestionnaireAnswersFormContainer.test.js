@@ -3,7 +3,7 @@ import {shallow, mount} from 'enzyme'
 import toJson from 'enzyme-to-json'
 import configureMockStore from 'redux-mock-store'
 import ConnectedQuestionnaireAnswersFormContainer, {QuestionnaireAnswersFormContainer} from '../containers/QuestionnaireAnswersFormContainer'
-import Loading from '../../commonComponents/Loading'
+import Loading from '../../shared_components/Loading'
 import {formattedData} from './testData'
 import ConnectedAnswersFormContainer, {AnswersFormContainer} from '../../answers/containers/AnswersFormContainer'
 

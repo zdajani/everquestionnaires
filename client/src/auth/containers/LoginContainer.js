@@ -8,13 +8,13 @@ class LoginContainer extends Component {
     super(props)
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
   }
-  
+
   componentDidMount() {
-    if (this.props.isAuthenthicated) 
+    if (this.props.isAuthenticated)
       this.props.history.push('/questionnaires')
-    
+
   }
-  
+
   handleFormSubmit(values) {
     const isLogin = true
     this.props.authenticateUser(values, isLogin)
@@ -30,9 +30,9 @@ class LoginContainer extends Component {
 }
 
 function mapStateToProps(state) {
-  return { 
-    errorMessage: state.auth.errorMessage,  
-    isAuthenthicated: state.auth.currentUser 
+  return {
+    errorMessage: state.auth.errorMessage,
+    isAuthenticated: state.auth.currentUser
   }
 }
 

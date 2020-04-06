@@ -3,19 +3,19 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {fetchQuestionnaires} from '../actions'
 import Questionnaires from '../components/Questionnaires'
-import Loading from '../../commonComponents/Loading'
+import Loading from '../../shared_components/Loading'
 
-//export class so that it can be imported alone for testing 
+//export class so that it can be imported alone for testing
 export class QuestionnairesContainer extends Component {
   componentDidMount(){
     this.props.fetchQuestionnaires()
   }
-  
+
   render() {
     return (
       <div>
-        { (this.props.isLoading) ? 
-          <Loading /> : 
+        { (this.props.isLoading) ?
+          <Loading /> :
           <Questionnaires questionnaires={this.props.questionnaires} url={this.props.match.url} />}
       </div>
     )

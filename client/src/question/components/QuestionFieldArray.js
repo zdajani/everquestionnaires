@@ -1,6 +1,6 @@
 import React from 'react'
 import {Field} from 'redux-form'
-import renderField from '../../commonComponents/Field'
+import renderField from '../../shared_components/Field'
 import './styles/QuestionFieldArray.css'
 
 const QuestionFieldArray = ({fields, meta: {error, submitFailed}}) => (
@@ -13,23 +13,23 @@ const QuestionFieldArray = ({fields, meta: {error, submitFailed}}) => (
         {error}
       </span>}
     </div>
-      
+
     {fields.map((question, index) => (
       <div key={index}>
-        <div className='form-group add-question-title'>      
-          <h4> Question #{index + 1}  
+        <div className='form-group add-question-title'>
+          <h4> Question #{index + 1}
             <span className='remove-button'>
-              <button type='button' 
-                title='Remove Question' 
+              <button type='button'
+                title='Remove Question'
                 onClick={() => fields.remove(index)}
                 className='btn btn-outline-danger'>
                   Remove
               </button>
-            </span> 
+            </span>
           </h4>
-        </div>  
-        
-        <div className='form-group'>          
+        </div>
+
+        <div className='form-group'>
           <Field
             name={`${question}.name`}
             type='text'
@@ -37,7 +37,7 @@ const QuestionFieldArray = ({fields, meta: {error, submitFailed}}) => (
             label='Name'
           />
         </div>
-        <div className='form-group'>      
+        <div className='form-group'>
           <Field
             name={`${question}.label`}
             type='text'
@@ -46,7 +46,7 @@ const QuestionFieldArray = ({fields, meta: {error, submitFailed}}) => (
             isTextArea={true}
           />
         </div>
-      </div>  
+      </div>
     ))}
   </div>
 )

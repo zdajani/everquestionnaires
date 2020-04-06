@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {fetchQuestionnaire} from '../actions'
-import Loading from '../../commonComponents/Loading'
+import Loading from '../../shared_components/Loading'
 import AnswersFormContainer from '../../answers/containers/AnswersFormContainer'
 
 export class QuestionnaireAnswersFormContainer extends Component {
@@ -10,13 +10,13 @@ export class QuestionnaireAnswersFormContainer extends Component {
     const {id} = this.props.match.params
     this.props.fetchQuestionnaire(id)
   }
-  
+
   render() {
     const {isLoading, questionnaire} = this.props
     return (
       <div>
-        { (isLoading || !questionnaire) ? 
-          <Loading /> : 
+        { (isLoading || !questionnaire) ?
+          <Loading /> :
           <AnswersFormContainer questionnaire={questionnaire} />
         }
       </div>

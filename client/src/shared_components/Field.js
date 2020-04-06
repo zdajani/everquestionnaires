@@ -3,7 +3,7 @@ import React from 'react'
 import './styles/Field.css'
 
 const renderField = ({input, label, type, meta: {touched, error}, isTextArea}) => {
-  const className = `form-group ${ touched && error ? 'has-danger' : '' }`
+  const className = `form-group ${touched && error ? 'has-danger' : ''}`
   return(
     <div className={className}>
       {

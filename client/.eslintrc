@@ -92,7 +92,7 @@
       1,
       "prefer-single"
     ],
-    "curly": [ // Allow omission of curly braces when block contains one indented, single-line statement--you're welcome, Bernie
+    "curly": [ // Allow omission of curly braces when block contains one indented, single-line statement
       2,
       "multi-or-nest",
       "consistent" // If the `if` has braces the `else` should too.

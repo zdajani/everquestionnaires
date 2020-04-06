@@ -1,17 +1,17 @@
 import React from 'react'
 import {Field} from 'redux-form'
-import renderField from '../../commonComponents/Field'
+import renderField from '../../shared_components/Field'
 import {required} from '../validations'
 
 const AuthFormFields = () => (
   <div>
-    <Field 
+    <Field
       label='Username:'
       name='username'
       component={renderField}
       validate={required}
     />
-    <Field 
+    <Field
       label='Password:'
       name='password'
       type='password'
@@ -19,6 +19,6 @@ const AuthFormFields = () => (
       validate={required}
     />
   </div>
-) 
+)
 
 export default AuthFormFields

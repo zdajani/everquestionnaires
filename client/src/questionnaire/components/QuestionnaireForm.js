@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {Field, FieldArray, reduxForm} from 'redux-form'
 import {validate} from '../validations'
-import renderField from '../../commonComponents/Field'
+import renderField from '../../shared_components/Field'
 import QuestionFieldArray from '../../question/components/QuestionFieldArray'
 
-export const QuestionnaireForm = props => {  
+export const QuestionnaireForm = props => {
   const {handleSubmit, pristine, reset, submitting} = props
   return (
     <div className='container'>

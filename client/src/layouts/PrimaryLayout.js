@@ -17,26 +17,26 @@ import CreateAccountContainer from '../auth/containers/CreateAccountContainer'
 import PrivateRoute from '../auth/components/PrivateRoute'
 
 class PrimaryLayout extends Component {
-  
+
   render() {
     return (
       <div>
-        <NavBar isAuthenthicated={this.props.isAuthenthicated} />
+        <NavBar isAuthenthicated={this.props.isAuthenticated} />
         <div className='page-content'>
           <Switch>
             <Route path='/questionnaires' exact component={QuestionnairesContainer} />
-            
+
             <Route path='/login' component={LoginContainer} />
             <Route path='/signup' component={CreateAccountContainer} />
-            
+
             <PrivateRoute path='/questionnaires/new' component={QuestionnaireFormContainer} />
             <PrivateRoute path='/questionnaires/:id' component={QuestionnaireAnswersFormContainer} />
             <Route path='/questionnaires' component={QuestionnairesContainer} />
-            
+
             <PrivateRoute path='/admin/questionnaires/:id' component={AdminQuestionnaireContainer} />
             <PrivateRoute path='/admin/questionnaires' component={AdminQuestionnairesContainer} />
             <Redirect from='/admin' to='/admin/questionnaires' />
-             
+
             {/* redirect to questionnaires page if route doesn't matach anything  */}
             <Redirect to='/questionnaires' />
           </Switch>
@@ -47,7 +47,7 @@ class PrimaryLayout extends Component {
 }
 
 function mapStateToProps(state) {
-  return {isAuthenthicated: state.auth.currentUser}
+  return {isAuthenticated: state.auth.currentUser}
 }
 
 export default connect(mapStateToProps, null)(PrimaryLayout)
