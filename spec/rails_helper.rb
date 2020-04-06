@@ -19,8 +19,8 @@ RSpec.configure do |config|
   # Includes factory girl methods to tests
   config.include FactoryGirl::Syntax::Methods
 
-  # includes api method helpers
-  config.include ApiHelper, type: :api
+  # # includes api method helpers
+  # config.include ApiHelper, type: :api
 
   # includes json parser for tests
   config.include Requests::JsonHelpers, type: :request
