@@ -1,16 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 import AnswersTable from '../../answers/components/AnswersTable'
 
-const AdminQuestionnaire = ({  questionnaire, questions, usersAnswers }) => {
+const AdminQuestionnaire = ({questionnaire, questions, usersAnswers}) => {
   return (
-    <div className="container-fluid">
-      <h1 className="text-center">{questionnaire.title}</h1>
+    <div className='container-fluid'>
+      <h1 className='text-center'>{questionnaire.title}</h1>
       <AnswersTable   
         questions={questions}
         usersAnswers={usersAnswers} />
     </div> 
-  );
+  )
 }
 
 AdminQuestionnaire.propTypes = {
@@ -32,6 +32,6 @@ AdminQuestionnaire.propTypes = {
       question_id: PropTypes.number.isRequired
     }).isRequired).isRequired
   }).isRequired).isRequired
-};
+}
 
-export default AdminQuestionnaire;
+export default AdminQuestionnaire

@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const AnswersTable = ({questions, usersAnswers}) => {
   //returns questions
@@ -15,7 +15,7 @@ const AnswersTable = ({questions, usersAnswers}) => {
     return usersAnswers.map((userAnswers, index) => {
       return (
         <tr key={index}>
-          <th scope="row">{index + 1}</th>
+          <th scope='row'>{index + 1}</th>
           { renderRow(userAnswers.username, userAnswers.id )}
           { renderAnswers(userAnswers.answers) }
           { renderRow(new Date(userAnswers.date).toDateString()) }
@@ -24,27 +24,27 @@ const AnswersTable = ({questions, usersAnswers}) => {
     })
   }
 
-  const renderAnswers = (answers) => {
+  const renderAnswers = answers => {
     return questions.map((question, index) => {
-      const answer = answers.find(x => x.question_id === question.id);
+      const answer = answers.find(x => x.question_id === question.id)
       const response = answer ? answer.response : null
 
       return (
         renderRow(response, index)
-      );
-    });
+      )
+    })
   }
 
   const renderRow =(data, id) => {
     return (
-        <td key={id}>{ data }</td>
+      <td key={id}>{ data }</td>
     )
   }
 
   return (
     <div>
-      <table className="table table-striped table-bordered table-responsive">
-        <thead className="thead-inverse">
+      <table className='table table-striped table-bordered table-responsive'>
+        <thead className='thead-inverse'>
           <tr>
             <th>#</th>
             <th>Username</th>
@@ -75,6 +75,6 @@ AnswersTable.propTypes = {
       question_id: PropTypes.number.isRequired
     }).isRequired).isRequired
   }).isRequired)
-};
+}
 
-export default AnswersTable;
+export default AnswersTable

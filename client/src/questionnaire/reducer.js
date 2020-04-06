@@ -1,11 +1,11 @@
-import _ from 'lodash';
-import * as types from './actionTypes';
+import _ from 'lodash'
+import * as types from './actionTypes'
   
 const initialState = {
   isLoading: false, 
   data: null,
   errorMessage: null
-};
+}
 
 export function fetchQuestionnaireReducer(state = initialState, action) {
   switch (action.type) {
@@ -16,11 +16,11 @@ export function fetchQuestionnaireReducer(state = initialState, action) {
       }
     case types.FETCH_QUESTIONNAIRE_SUCCESS:
       const questionnaire = () => (
-         action.payload.questions ? {
-           ...action.payload, 
-           questions: _.mapKeys(action.payload.questions, 'id')
-         } : action.payload
-       )
+        action.payload.questions ? {
+          ...action.payload, 
+          questions: _.mapKeys(action.payload.questions, 'id')
+        } : action.payload
+      )
       
       return {
         ...state,
@@ -35,9 +35,9 @@ export function fetchQuestionnaireReducer(state = initialState, action) {
         errorMessage: action.payload
       }
     default: 
-      return state;
-    }
-};
+      return state
+  }
+}
 
 // todo: split up the two reducers
 export function createQuestionnaireReducer(state = initialState, action) {
@@ -60,6 +60,6 @@ export function createQuestionnaireReducer(state = initialState, action) {
         errorMessage: action.payload
       }
     default: 
-      return state;
-    }
-};
+      return state
+  }
+}

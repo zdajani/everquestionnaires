@@ -1,9 +1,9 @@
-import * as types from './actionTypes';
+import * as types from './actionTypes'
 
 const initialState = {
   isLoading: false, 
   errorMessage: null
-};
+}
 
 export default function(state = initialState, action) {
   switch (action.type) {
@@ -25,6 +25,6 @@ export default function(state = initialState, action) {
         errorMessage: action.payload
       }
     default: 
-      return state;
-    }
-};
+      return state
+  }
+}

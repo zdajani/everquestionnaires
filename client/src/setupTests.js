@@ -1,4 +1,4 @@
-import 'jest-enzyme';
+import 'jest-enzyme'
 
 //to deal with localStorage in tests 
 //just creates a mocked one

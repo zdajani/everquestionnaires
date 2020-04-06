@@ -1,26 +1,26 @@
 const questions = {
   1: { 
     id: 1,
-    name: "Ragdoll traits",
-    label: "describe ragdoll traits" 
+    name: 'Ragdoll traits',
+    label: 'describe ragdoll traits' 
   },
   2: {
     id: 2,
-    name: "Persian traits",
-    label: "describe persian traits" 
+    name: 'Persian traits',
+    label: 'describe persian traits' 
   }
-};
+}
 
 
 const questionnaire = {
-  title: "Cat breeds",
+  title: 'Cat breeds',
   id: 1
-};
+}
 
 const questionnaireTwo = {
-  title: "Cat breeds Questionnaire Part 2",
+  title: 'Cat breeds Questionnaire Part 2',
   id: 2
-};
+}
 
 export const formattedData = {
   1: { 
@@ -31,7 +31,7 @@ export const formattedData = {
     title: questionnaireTwo.title, 
     id: questionnaireTwo.id
   }
-};
+}
 
 export const apiData = [
   {
@@ -42,7 +42,7 @@ export const apiData = [
     title: questionnaireTwo.title, 
     id: questionnaireTwo.id
   }
-];
+]
 
 export const questionaireFormattedData = {
   1: { 
@@ -53,4 +53,4 @@ export const questionaireFormattedData = {
     title: questionnaireTwo.title, 
     id: questionnaireTwo.id
   }
-};
+}

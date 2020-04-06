@@ -1,0 +1,113 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "node": true,
+    "jest": true
+  },
+  "plugins": [
+    "react",
+    "react-hooks"
+  ],
+  "extends": ["eslint:recommended", "plugin:react/recommended", "jest-enzyme"],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2018
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "linebreak-style": ["error", "unix"],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "no-undefined": [2], // "Disallow Use of undefined Variable" because it is a property of the global object
+    "comma-dangle": [
+      1,
+      "never"
+    ],
+    "no-console": [1], // Warn about the use of console
+    "no-dupe-keys": [2], // Disallow duplicate keys in object literals,
+    "no-invalid-regexp": [2], // Disallow invalid regex strings
+    "arrow-parens": [ // Warn about unnecessary parentheses around single arrow function parameters. (e.g., prefer `a => a` over `(a) => a`)
+      1,
+      "as-needed"
+    ],
+    "array-bracket-spacing": [ // Disallow spaces inside of brackets (e.g., `[ 'foo', 'bar' ]` errors but `['foo', 'bar']` does not)
+      2,
+      "never"
+    ],
+    "block-spacing": [ // Require spaces inside of single-line blocks (e.g., `function foo() { return true }` is fine but `function foo() {return true}` errors.)
+      2,
+      "always"
+    ],
+    "brace-style": [ // Require one-true brace style block formatting
+      2,
+      "1tbs", // Require the opening curly brace of a block to be on the same line as its corresponding statement or declaration
+      {
+        "allowSingleLine": true // Allow opening and closing braces to be on the same line
+      }
+    ],
+    "comma-spacing": [ // Disallow spaces before commas and require them after commas
+      2,
+      {
+        "before": false,
+        "after": true
+      }
+    ],
+    "comma-style": [ // Require commas to be at the ends of lines, not the beginnings
+      2,
+      "last"
+    ],
+    "quotes": [ // Require use of single quotes, though backticks are also allowed
+      2,
+      "single",
+      "avoid-escape" // Do not error when a string is using incorrect quotes as long as the string contains a quote that would have to be escaped
+    ],
+    "no-const-assign": [2], // Disallow the redefinition of variables declared using `const`.
+    "no-dupe-class-members": [2], // Disallow duplicate names for class members
+    "object-shorthand": [ // Prefer ES6 object shorthand notation
+      2,
+      "always"
+    ],
+    "prefer-const": [1], // Warn about the usage of `let` to define a variable when it is never changed after definition.
+    "react/jsx-curly-spacing": [ // Error if there are any padding spaces inside the curly braces around JSX attributes (e.g., `<Fake value={ 12 } />` would error.).
+      2,
+      "never"
+    ],
+    "react/jsx-key": [2], // Error if components that probably need `key`s don't have them.
+    "react/jsx-tag-spacing": [ // Error on certain spacing with respect to opening and closing tag angle brackets.
+      2,
+      {
+        "closingSlash": "never", // Error on: <Hello / >, <Testing>< /Testing>
+        "beforeSelfClosing": "always", // Error on: <Hello/>
+        "afterOpening": "allow-multiline" // See docs for description. Basically: error on space after <
+      }
+    ],
+    "jsx-quotes": [ // Prefer single quotes for JSX attribute values (e.g., `<a b="c" />` warns but `<a b='c' />` does not)
+      1,
+      "prefer-single"
+    ],
+    "curly": [ // Allow omission of curly braces when block contains one indented, single-line statement--you're welcome, Bernie
+      2,
+      "multi-or-nest",
+      "consistent" // If the `if` has braces the `else` should too.
+    ],
+    "indent": [
+      2,
+      2,
+      {
+        "MemberExpression": 1,
+        "SwitchCase": 1
+      }
+    ],
+    "object-curly-spacing": [2, "never"],
+    "semi": [ // Disallow semicolons at the end of lines in favor of automatic semicolon insertion
+      2,
+      "never"
+    ]
+  }
+}

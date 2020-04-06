@@ -1,11 +1,11 @@
-import * as types from './actionTypes';
-import _ from 'lodash';
+import * as types from './actionTypes'
+import _ from 'lodash'
   
 const initialState = {
   isLoading: false, 
   data: null,
   errorMessage: null
-};
+}
 
 export function fetchAdminQuestionnairesReducer(state = initialState, action) {
   switch (action.type) {
@@ -28,9 +28,9 @@ export function fetchAdminQuestionnairesReducer(state = initialState, action) {
         errorMessage: action.payload
       }
     default: 
-      return state;
-    }
-};
+      return state
+  }
+}
 
 // todo: split up the two reducers
 export function fetchAdminQuestionnaireReducer(state = initialState, action) {
@@ -54,6 +54,6 @@ export function fetchAdminQuestionnaireReducer(state = initialState, action) {
         errorMessage: action.payload
       }
     default: 
-      return state;
-    }
-};
+      return state
+  }
+}

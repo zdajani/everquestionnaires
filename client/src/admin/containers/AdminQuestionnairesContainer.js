@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux';
-import { fetchAdminQuestionnaires } from '../actions';
+import {connect} from 'react-redux'
+import {fetchAdminQuestionnaires} from '../actions'
 import Loading from '../../commonComponents/Loading'
 import Questionnaires from '../../questionnaires/components/Questionnaires'
 
 //export class so that it can be imported alone for testing 
 export class AdminQuestionnairesContainer extends Component {
   componentDidMount(){
-    this.props.fetchAdminQuestionnaires();
+    this.props.fetchAdminQuestionnaires()
   }
   // note: fix this to deal with when there is no questionnaires and is not loading
   render() {
@@ -16,9 +16,9 @@ export class AdminQuestionnairesContainer extends Component {
       <div>
         { (this.props.isLoading) ? 
           <Loading /> :
-             <Questionnaires questionnaires={this.props.questionnaires} url={this.props.match.url} /> }
+          <Questionnaires questionnaires={this.props.questionnaires} url={this.props.match.url} /> }
       </div>
-    );
+    )
   }
 }
 
@@ -27,12 +27,12 @@ AdminQuestionnairesContainer.propTypes = {
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired
   }))
-};
+}
 
 function mapStateToProps(state) {
-  return { questionnaires: state.adminQuestionnaires.data, isLoading: state.adminQuestionnaires.isLoading };
+  return {questionnaires: state.adminQuestionnaires.data, isLoading: state.adminQuestionnaires.isLoading}
 }
 
 export default connect(mapStateToProps, 
-  { fetchAdminQuestionnaires }
-)(AdminQuestionnairesContainer);
+  {fetchAdminQuestionnaires}
+)(AdminQuestionnairesContainer)

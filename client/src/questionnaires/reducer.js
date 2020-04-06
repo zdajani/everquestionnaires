@@ -1,14 +1,14 @@
-import _ from 'lodash';
+import _ from 'lodash'
 import { 
   FETCH_QUESTIONNAIRES, 
   FETCH_QUESTIONNAIRES_SUCCESS, 
-  FETCH_QUESTIONNAIRES_FAILURE } from './actionTypes';
+  FETCH_QUESTIONNAIRES_FAILURE} from './actionTypes'
   
 const initialState = {
   isLoading: false, 
   data: null,
   errorMessage: null
-};
+}
 
 export default function(state = initialState, action) {
   switch (action.type) {
@@ -31,6 +31,6 @@ export default function(state = initialState, action) {
         errorMessage: action.payload
       }
     default: 
-      return state;
-    }
-};
+      return state
+  }
+}

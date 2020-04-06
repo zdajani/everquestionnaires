@@ -1,44 +1,44 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Route, Switch, Redirect } from 'react-router-dom';
-import './styles/Layouts.css';
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {Route, Switch, Redirect} from 'react-router-dom'
+import './styles/Layouts.css'
 
-import NavBar from './NavBar';
+import NavBar from './NavBar'
 
-import QuestionnairesContainer from '../questionnaires/containers/QuestionnairesContainer';
-import QuestionnaireAnswersFormContainer from '../questionnaire/containers/QuestionnaireAnswersFormContainer';
-import QuestionnaireFormContainer from '../questionnaire/containers/QuestionnaireFormContainer';
+import QuestionnairesContainer from '../questionnaires/containers/QuestionnairesContainer'
+import QuestionnaireAnswersFormContainer from '../questionnaire/containers/QuestionnaireAnswersFormContainer'
+import QuestionnaireFormContainer from '../questionnaire/containers/QuestionnaireFormContainer'
 
-import AdminQuestionnairesContainer from '../admin/containers/AdminQuestionnairesContainer';
-import AdminQuestionnaireContainer from '../admin/containers/AdminQuestionnaireContainer';
+import AdminQuestionnairesContainer from '../admin/containers/AdminQuestionnairesContainer'
+import AdminQuestionnaireContainer from '../admin/containers/AdminQuestionnaireContainer'
 
-import LoginContainer from '../auth/containers/LoginContainer';
-import CreateAccountContainer from '../auth/containers/CreateAccountContainer';
-import PrivateRoute from '../auth/components/PrivateRoute';
+import LoginContainer from '../auth/containers/LoginContainer'
+import CreateAccountContainer from '../auth/containers/CreateAccountContainer'
+import PrivateRoute from '../auth/components/PrivateRoute'
 
 class PrimaryLayout extends Component {
   
   render() {
     return (
       <div>
-        <NavBar isAuthenthicated={this.props.isAuthenthicated}/>
-        <div className="page-content">
+        <NavBar isAuthenthicated={this.props.isAuthenthicated} />
+        <div className='page-content'>
           <Switch>
-            <Route path="/questionnaires" exact component={QuestionnairesContainer} />
+            <Route path='/questionnaires' exact component={QuestionnairesContainer} />
             
-            <Route path="/login" component={LoginContainer}/>
-            <Route path="/signup" component={CreateAccountContainer}/>
+            <Route path='/login' component={LoginContainer} />
+            <Route path='/signup' component={CreateAccountContainer} />
             
-            <PrivateRoute path="/questionnaires/new" component={QuestionnaireFormContainer}/>
-            <PrivateRoute path="/questionnaires/:id" component={QuestionnaireAnswersFormContainer}/>
-            <Route path="/questionnaires" component={QuestionnairesContainer}/>
+            <PrivateRoute path='/questionnaires/new' component={QuestionnaireFormContainer} />
+            <PrivateRoute path='/questionnaires/:id' component={QuestionnaireAnswersFormContainer} />
+            <Route path='/questionnaires' component={QuestionnairesContainer} />
             
-            <PrivateRoute path="/admin/questionnaires/:id" component={AdminQuestionnaireContainer}/>
-            <PrivateRoute path="/admin/questionnaires" component={AdminQuestionnairesContainer}/>
-            <Redirect from='/admin' to='/admin/questionnaires'/>
+            <PrivateRoute path='/admin/questionnaires/:id' component={AdminQuestionnaireContainer} />
+            <PrivateRoute path='/admin/questionnaires' component={AdminQuestionnairesContainer} />
+            <Redirect from='/admin' to='/admin/questionnaires' />
              
             {/* redirect to questionnaires page if route doesn't matach anything  */}
-            <Redirect to="/questionnaires" />
+            <Redirect to='/questionnaires' />
           </Switch>
         </div>
       </div>
@@ -47,7 +47,7 @@ class PrimaryLayout extends Component {
 }
 
 function mapStateToProps(state) {
-  return { isAuthenthicated: state.auth.currentUser };
+  return {isAuthenthicated: state.auth.currentUser}
 }
 
-export default connect(mapStateToProps, null)(PrimaryLayout);
+export default connect(mapStateToProps, null)(PrimaryLayout)

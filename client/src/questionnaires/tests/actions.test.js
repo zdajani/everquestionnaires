@@ -1,83 +1,83 @@
-import configureMockStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import * as actions from '../actions';
-import * as types from '../actionTypes';
-import moxios from 'moxios';
+import configureMockStore from 'redux-mock-store'
+import thunk from 'redux-thunk'
+import * as actions from '../actions'
+import * as types from '../actionTypes'
+import moxios from 'moxios'
 
-const middlewares = [thunk];
-const mockStore = configureMockStore(middlewares);
+const middlewares = [thunk]
+const mockStore = configureMockStore(middlewares)
 
-const data = { questionnaires: [{
+const data = {questionnaires: [{
   id: 1, 
-  title: "Lord of the Rings",
-  created_at: "2017-08-15T18:24:26.586Z",
-  updated_at: "2017-08-15T18:24:26.586Z"
+  title: 'Lord of the Rings',
+  created_at: '2017-08-15T18:24:26.586Z',
+  updated_at: '2017-08-15T18:24:26.586Z'
 },
 {
-   id: 2, 
-   title: "Lord of the Flies",
-   created_at: "2017-08-15T18:24:26.586Z",
-   updated_at: "2017-08-15T18:24:26.586Z"
- }] }
+  id: 2, 
+  title: 'Lord of the Flies',
+  created_at: '2017-08-15T18:24:26.586Z',
+  updated_at: '2017-08-15T18:24:26.586Z'
+}]}
 
 describe('questionnaires async actions', () => {
   beforeEach(() => {
-      moxios.install();
-    });
+    moxios.install()
+  })
 
-    afterEach(() => {
-      moxios.uninstall();
-    });
+  afterEach(() => {
+    moxios.uninstall()
+  })
     
   describe('fetchQuestionnaires success', () => {
     beforeEach(() => {
       //mocking axois request
       moxios.wait(() => {
-        const request = moxios.requests.mostRecent();
+        const request = moxios.requests.mostRecent()
         request.respondWith({
           status: 200,
           response: data
-        });
-      });  
-    });
+        })
+      })  
+    })
     
     it('creates FETCH_QUESTIONNAIRES_SUCCESS when done', () => {
       const expectedActions = [
-        { type: types.FETCH_QUESTIONNAIRES },
-        { type: types.FETCH_QUESTIONNAIRES_SUCCESS, payload: data  
-      }];
+        {type: types.FETCH_QUESTIONNAIRES},
+        {type: types.FETCH_QUESTIONNAIRES_SUCCESS, payload: data  
+        }]
 
-      const store = mockStore({});
+      const store = mockStore({})
       
       return store.dispatch(actions.fetchQuestionnaires()).then(() => {
-        expect(store.getActions()).toEqual(expectedActions);
-      });
-    });
-  });
+        expect(store.getActions()).toEqual(expectedActions)
+      })
+    })
+  })
   
   describe('fetchQuestionnaires failure', () => {
     beforeEach(() => {
       //mocking axois request
       moxios.wait(() => {
-        const request = moxios.requests.mostRecent();
+        const request = moxios.requests.mostRecent()
         request.respondWith({
           status: 400,
-          response: { error: "something went wrong"}
-        });
-      });  
-    });
+          response: {error: 'something went wrong'}
+        })
+      })  
+    })
     
     it('creates FETCH_QUESTIONNAIRES_FAILURE when done', () => {
       const expectedActions = [
-        { type: types.FETCH_QUESTIONNAIRES },
-        { type: types.FETCH_QUESTIONNAIRES_FAILURE, payload: "Bad request" }
-      ];
+        {type: types.FETCH_QUESTIONNAIRES},
+        {type: types.FETCH_QUESTIONNAIRES_FAILURE, payload: 'Bad request'}
+      ]
 
-      const store = mockStore({});
+      const store = mockStore({})
       
       return store.dispatch(actions.fetchQuestionnaires()).then(() => {
-        expect(store.getActions()).toEqual(expectedActions);
-      });
-    });
-  });
-});
+        expect(store.getActions()).toEqual(expectedActions)
+      })
+    })
+  })
+})

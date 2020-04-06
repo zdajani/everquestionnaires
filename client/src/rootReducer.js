@@ -1,20 +1,20 @@
-import { reducer as formReducer } from 'redux-form';
-import { combineReducers } from 'redux'
-import { connectRouter } from 'connected-react-router'
+import {reducer as formReducer} from 'redux-form'
+import {combineReducers} from 'redux'
+import {connectRouter} from 'connected-react-router'
 
 
-import QuestionnairesReducer from './questionnaires/reducer';
+import QuestionnairesReducer from './questionnaires/reducer'
 
 import {
   fetchQuestionnaireReducer,
-  createQuestionnaireReducer } from './questionnaire/reducer';
+  createQuestionnaireReducer} from './questionnaire/reducer'
 
-import answersReducer from './answers/reducer';
-import authReducer from './auth/reducer';
+import answersReducer from './answers/reducer'
+import authReducer from './auth/reducer'
 
 import {
   fetchAdminQuestionnairesReducer,
-  fetchAdminQuestionnaireReducer } from './admin/reducer';
+  fetchAdminQuestionnaireReducer} from './admin/reducer'
 
 const createRootReducer = history => combineReducers({
   form: formReducer,
@@ -25,7 +25,7 @@ const createRootReducer = history => combineReducers({
   answers: answersReducer,
   auth: authReducer,
   adminQuestionnaires: fetchAdminQuestionnairesReducer,
-  adminQuestionnaire: fetchAdminQuestionnaireReducer,
-});
+  adminQuestionnaire: fetchAdminQuestionnaireReducer
+})
 
-export default createRootReducer;
+export default createRootReducer

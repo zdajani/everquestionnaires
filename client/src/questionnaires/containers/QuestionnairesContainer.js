@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux';
-import { fetchQuestionnaires } from '../actions';
+import {connect} from 'react-redux'
+import {fetchQuestionnaires} from '../actions'
 import Questionnaires from '../components/Questionnaires'
 import Loading from '../../commonComponents/Loading'
 
 //export class so that it can be imported alone for testing 
 export class QuestionnairesContainer extends Component {
   componentDidMount(){
-    this.props.fetchQuestionnaires();
+    this.props.fetchQuestionnaires()
   }
   
   render() {
@@ -18,7 +18,7 @@ export class QuestionnairesContainer extends Component {
           <Loading /> : 
           <Questionnaires questionnaires={this.props.questionnaires} url={this.props.match.url} />}
       </div>
-    );
+    )
   }
 }
 
@@ -27,11 +27,11 @@ QuestionnairesContainer.propTypes = {
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired
   }))
-};
+}
 
 
 function mapStateToProps(state) {
-  return { questionnaires: state.questionnaires.data, isLoading: state.questionnaires.isLoading };
+  return {questionnaires: state.questionnaires.data, isLoading: state.questionnaires.isLoading}
 }
 
-export default connect(mapStateToProps, { fetchQuestionnaires })(QuestionnairesContainer);
+export default connect(mapStateToProps, {fetchQuestionnaires})(QuestionnairesContainer)

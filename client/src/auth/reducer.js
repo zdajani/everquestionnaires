@@ -1,20 +1,20 @@
-import jwtDecode from 'jwt-decode';
-import _ from 'lodash';
-import { LOCATION_CHANGE } from 'connected-react-router';
+import jwtDecode from 'jwt-decode'
+import _ from 'lodash'
+import {LOCATION_CHANGE} from 'connected-react-router'
 
 import {
   LOGIN_REQUEST,
   AUTH_ERROR,
   AUTH_SUCCESS,
   LOGOUT
-} from './actionTypes';
+} from './actionTypes'
 
-const checkToken = (token) => {
-  const jwtDecoded = jwtDecode(token);
-  var currentTime = new Date().getTime() / 1000;
+const checkToken = token => {
+  const jwtDecoded = jwtDecode(token)
+  var currentTime = new Date().getTime() / 1000
   return (
     currentTime > jwtDecoded.exp ? null : jwtDecoded
-  );
+  )
 }
 
 const initialState = (token => ({

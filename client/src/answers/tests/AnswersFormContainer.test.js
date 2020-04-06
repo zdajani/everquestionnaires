@@ -1,50 +1,50 @@
-import React from 'react';
-import { shallow, mount } from 'enzyme';
-import ConnectedAnswersFormContainer, { AnswersFormContainer } from '../containers/AnswersFormContainer';
-import AnswersForm from '../components/AnswersForm';
-import { answersData, questionnaireData } from './testData';
+import React from 'react'
+import {shallow, mount} from 'enzyme'
+import ConnectedAnswersFormContainer, {AnswersFormContainer} from '../containers/AnswersFormContainer'
+import AnswersForm from '../components/AnswersForm'
+import {answersData, questionnaireData} from './testData'
 
-import { reducer as formReducer } from 'redux-form'
-import { createStore, combineReducers } from 'redux'
-import { Provider } from 'react-redux'
+import {reducer as formReducer} from 'redux-form'
+import {createStore, combineReducers} from 'redux'
+import {Provider} from 'react-redux'
 
 const setup = () => {
-  const createAnswerSpy = jest.fn();
+  const createAnswerSpy = jest.fn()
   const container = shallow(
     <AnswersFormContainer 
       createAnswers={createAnswerSpy} 
       questionnaire={questionnaireData} />
-  );
+  )
     
   return {
     container,
     createAnswerSpy
-  };
+  }
 }
 
 describe('AnswersForm container', () => {
   it('renders without crashing', () => {  
-    const store = createStore(combineReducers({ form: formReducer }))
-    const createAnswerSpy = jest.fn();
+    const store = createStore(combineReducers({form: formReducer}))
+    const createAnswerSpy = jest.fn()
     
     const mountedContainer = mount(
       <Provider store={store}>
-       <ConnectedAnswersFormContainer 
-         questionnaire ={questionnaireData}
-         createAnswerSpy={createAnswerSpy}/>
-      </Provider>);
+        <ConnectedAnswersFormContainer 
+          questionnaire ={questionnaireData}
+          createAnswerSpy={createAnswerSpy} />
+      </Provider>)
 
-      expect(mountedContainer).toBePresent();
-  });
+    expect(mountedContainer).toBePresent()
+  })
   
   it('renders QuestionnaireForm component', () => {  
-    const { container } = setup()
+    const {container} = setup()
     expect(container.find(AnswersForm).length).toEqual(1)
-  });
+  })
   
   it('calls createQuestionnaire on handleFormSubmit', () => {    
-    const { container, createAnswerSpy } = setup()
-    container.instance().handleFormSubmit(answersData);
+    const {container, createAnswerSpy} = setup()
+    container.instance().handleFormSubmit(answersData)
     expect(createAnswerSpy).toBeCalledWith(answersData, 1)
-  });
-});
+  })
+})

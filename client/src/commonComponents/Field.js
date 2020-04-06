@@ -1,26 +1,26 @@
-import React from 'react';
+import React from 'react'
 import './styles/Field.css'
 
-const renderField = ({ input, label, type, meta: { touched, error }, isTextArea }) => {
-  const className = `form-group ${ touched && error ? 'has-danger' : '' }`;
+const renderField = ({input, label, type, meta: {touched, error}, isTextArea}) => {
+  const className = `form-group ${ touched && error ? 'has-danger' : '' }`
   return(
     <div className={className}>
       {
         label &&  (
-          <label className="form-control-label">{label}</label>
+          <label className='form-control-label'>{label}</label>
         )
       }
 
       {isTextArea ?
-         <textArea {...input} placeholder={label} type={type} className="form-control"/> :
-         <input {...input} placeholder={label} type={type} className="form-control" />}
+        <textArea {...input} placeholder={label} type={type} className='form-control' /> :
+        <input {...input} placeholder={label} type={type} className='form-control' />}
 
       <div className='text-help'>
-        {touched && error && <span className="form-error">{error}</span>}
+        {touched && error && <span className='form-error'>{error}</span>}
       </div>
     </div>
-  );
+  )
 }
 
 
-export default renderField;
+export default renderField

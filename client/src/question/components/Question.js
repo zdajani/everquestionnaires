@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-const Question = ({ name, label }) => (
+const Question = ({name, label}) => (
   <div>
     <h4>
       {name}
@@ -10,11 +10,11 @@ const Question = ({ name, label }) => (
       {label}
     </h6>
   </div>  
-);
+)
 
 Question.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired
-};
+}
 
-export default Question;
+export default Question
