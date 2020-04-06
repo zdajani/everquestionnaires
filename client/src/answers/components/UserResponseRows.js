@@ -2,7 +2,7 @@ import React, {useCallback} from 'react'
 
 const UserResponseRows = ({usersAnswers, questions})=> {
   const response = useCallback((question, answers) => {
-    const userAnswer = answers.filter(x => x.question_id === question.id)
+    const userAnswer = answers.find(x => x.question_id === question.id)
 
     return userAnswer ? userAnswer.response : null
   }, [])

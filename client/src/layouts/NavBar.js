@@ -6,10 +6,10 @@ import {logout} from '../auth/actions'
 
 export const NavBar = ({isAuthenticated, logout}) => (
   <div className='container-fluid'>
-    <nav className='navbar navbar-expand-md navbar-dark fixed-top bg-dark'>
-      <div className='navbar-brand title'>
+    <nav className='navbar navbar-expand-md navbar-dark fixed-top bg-light'>
+      {/* <div className='navbar-brand title'>
         <h1 className='title'>everQuestionnaires</h1>
-      </div>
+      </div> */}
       <div className='nav-item'>
         <NavLink to='/questionnaires' className='nav-link' activeClassName='active'>
             Questionnaires
@@ -25,7 +25,7 @@ export const NavBar = ({isAuthenticated, logout}) => (
             Admin Page
         </NavLink>
       </div>
-      <div className='nav-item'>
+      <div className='nav-item navbar-right'>
         {
           isAuthenticated ?
             <button onClick={logout} className='nav-link logout-button btn btn-link'>Logout</button> :
