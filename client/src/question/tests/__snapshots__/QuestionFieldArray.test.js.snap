@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`QuestionnaireForm renders self without crashing 1`] = `
-<div>
+<Fragment>
   <div
     className="form-group"
   >
@@ -13,5 +13,5 @@ exports[`QuestionnaireForm renders self without crashing 1`] = `
       Add Question
     </button>
   </div>
-</div>
+</Fragment>
 `;

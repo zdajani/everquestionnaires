@@ -4,7 +4,7 @@ import {NavLink} from 'react-router-dom'
 
 import {logout} from '../auth/actions'
 
-const NavBar = ({isAuthenticated, logout}) => (
+export const NavBar = ({isAuthenticated, logout}) => (
   <div className='container-fluid'>
     <nav className='navbar navbar-expand-md navbar-dark fixed-top bg-dark'>
       <div className='navbar-brand title'>

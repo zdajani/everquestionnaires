@@ -1,105 +1,57 @@
 import React from 'react'
-import {shallow, mount} from 'enzyme'
-import toJson from 'enzyme-to-json'
-import configureMockStore from 'redux-mock-store'
-import ConnectedAdminQuestionnairesContainer, {AdminQuestionnairesContainer} from '../containers/AdminQuestionnairesContainer'
-import Questionnaires from '../../questionnaires/components/QuestionnairesHeader'
+import {shallow} from 'enzyme'
+
+import {AdminQuestionnairesContainer} from '../containers/AdminQuestionnairesContainer'
+import AdminQuestionnairesHeader from '../components/AdminQuestionnairesHeader'
+import QuestionnairesList from '../../questionnaires/components/QuestionnairesList'
 import Loading from '../../shared_components/Loading'
+
 import {formattedData} from './testData'
 
-const middlewares = []
-const mockStore = configureMockStore(middlewares)
 
-const setup = (formattedData, isLoading) => {
-  const match = {url: '/admin/questionnaires'}
-  const container = shallow(
+const setup = (formattedData, isLoading) => (
+  shallow(
     <AdminQuestionnairesContainer
       questionnaires={formattedData}
       isLoading={isLoading}
-      match={match}
+      match={{url: '/admin/questionnaires'}}
     />
   )
+)
 
-  return {
-    container,
-    match
-  }
-}
-
-const connectedSetup = store => {
-  const connectedContainer = shallow(
-    <ConnectedAdminQuestionnairesContainer store={store} />
-  )
-  return {
-    connectedContainer
-  }
-}
 
 describe('AdminQuestionnaire container', () => {
-  it('renders without crashing', () => {
-    const store = mockStore({
-      adminQuestionnaires: {
-        isLoading: true,
-        data: null,
-        errorMessage: null
-      }
-    })
-
-    const fetchAdminQuestionnairesSpy = jest.fn()
-    const match = {url: '/admin/questionnaires'}
-
-    const mountedComponent = mount(<AdminQuestionnairesContainer
-      store={store}
-      isLoading={true}
-      fetchAdminQuestionnaires={fetchAdminQuestionnairesSpy}
-      match={match}
-    />)
-
-    expect(toJson(mountedComponent)).toMatchSnapshot()
-  })
-
   describe('when questionnaires data is available', () => {
-    const store = mockStore({
-      adminQuestionnaires: {
-        isLoading: false,
-        data: formattedData,
-        errorMessage: null
-      }
+    const container = setup(formattedData, false)
+
+    it('renders the AdminQuestionnairesHeader', () => {
+      expect(container.find(AdminQuestionnairesHeader)).toMatchSnapshot()
     })
 
-    it('renders self with questionnaires props', () => {
-      const {connectedContainer} = connectedSetup(store)
-      expect(connectedContainer).toHaveProp('questionnaires', formattedData)
-      expect(toJson(connectedContainer)).toMatchSnapshot()
-    })
-
-    it('renders Questionnaires component', () => {
-      const isloading = false
-      const {container} = setup(formattedData, isloading)
-      const questionnaires = container.find(Questionnaires)
-      expect(toJson(questionnaires)).toMatchSnapshot()
+    it('renders the QuestionnairesList', () => {
+      expect(container.find(QuestionnairesList)).toMatchSnapshot()
     })
 
     it('does not render Loading component', () => {
-      const {container} = setup(formattedData)
-
       expect(container).not.toContainReact(<Loading />)
     })
   })
 
   describe('when loading', () => {
-    const data = null
-    const isloading = true
-    const {container} = setup(data, isloading)
+    const container = setup(null, true)
 
     it('renders loading component', () => {
       expect(container).toContainReact(<Loading />)
     })
 
-    it('does not render QuestionnairesList component', () => {
+    it('does not render QuestionnairesListComponent', () => {
       expect(container).not.toContainReact(
-        <Questionnaires questionnaires={formattedData} url='/admin/questionnaires' />
+        <QuestionnairesList questionnaires={formattedData} url='/admin/questionnaires' />
       )
+    })
+
+    it('does not render AdminQuestionnairesHeader', () => {
+      expect(container).not.toContainReact(<AdminQuestionnairesHeader />)
     })
   })
 })

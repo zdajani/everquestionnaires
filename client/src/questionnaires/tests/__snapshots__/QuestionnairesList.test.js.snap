@@ -1,8 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`QuestionnairesList component renders a list of questionnaire links 1`] = `undefined`;
-
-exports[`QuestionnairesList component renders admin urls if admin url is given as prop 1`] = `
+exports[`QuestionnairesList component renders correct text and urls when is admin page is false 1`] = `
 <div
   className="album text-muted"
 >
@@ -14,78 +12,9 @@ exports[`QuestionnairesList component renders admin urls if admin url is given a
     >
       <div
         className="card"
+        key="1"
       >
         <Link
-          replace={false}
-          to="/admin/1"
-        >
-          <h4
-            className="card-title"
-          >
-             
-            Lord of the Rings
-             Questionnaire
-          </h4>
-        </Link>
-        <div
-          className="questionnaires-list-buttons"
-        >
-          <Link
-            className="btn btn-info btn-lg"
-            replace={false}
-            to="/admin/1"
-          >
-            Take Questionnaire
-          </Link>
-        </div>
-      </div>
-      <div
-        className="card"
-      >
-        <Link
-          replace={false}
-          to="/admin/2"
-        >
-          <h4
-            className="card-title"
-          >
-             
-            Lord of the Flies
-             Questionnaire
-          </h4>
-        </Link>
-        <div
-          className="questionnaires-list-buttons"
-        >
-          <Link
-            className="btn btn-info btn-lg"
-            replace={false}
-            to="/admin/2"
-          >
-            Take Questionnaire
-          </Link>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`QuestionnairesList component renders self with questionnaires props 1`] = `
-<div
-  className="album text-muted"
->
-  <div
-    className="container"
-  >
-    <div
-      className="row questionnaires"
-    >
-      <div
-        className="card"
-      >
-        <Link
-          replace={false}
           to="/questionnaires/1"
         >
           <h4
@@ -101,7 +30,6 @@ exports[`QuestionnairesList component renders self with questionnaires props 1`]
         >
           <Link
             className="btn btn-info btn-lg"
-            replace={false}
             to="/questionnaires/1"
           >
             Take Questionnaire
@@ -110,9 +38,9 @@ exports[`QuestionnairesList component renders self with questionnaires props 1`]
       </div>
       <div
         className="card"
+        key="2"
       >
         <Link
-          replace={false}
           to="/questionnaires/2"
         >
           <h4
@@ -128,10 +56,76 @@ exports[`QuestionnairesList component renders self with questionnaires props 1`]
         >
           <Link
             className="btn btn-info btn-lg"
-            replace={false}
             to="/questionnaires/2"
           >
             Take Questionnaire
+          </Link>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`QuestionnairesList component renders correct text and urls when is admin page is true 1`] = `
+<div
+  className="album text-muted"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="row questionnaires"
+    >
+      <div
+        className="card"
+        key="1"
+      >
+        <Link
+          to="/admin/questionnaires/1"
+        >
+          <h4
+            className="card-title"
+          >
+             
+            Lord of the Rings
+             Questionnaire
+          </h4>
+        </Link>
+        <div
+          className="questionnaires-list-buttons"
+        >
+          <Link
+            className="btn btn-info btn-lg"
+            to="/admin/questionnaires/1"
+          >
+            View Responses
+          </Link>
+        </div>
+      </div>
+      <div
+        className="card"
+        key="2"
+      >
+        <Link
+          to="/admin/questionnaires/2"
+        >
+          <h4
+            className="card-title"
+          >
+             
+            Lord of the Flies
+             Questionnaire
+          </h4>
+        </Link>
+        <div
+          className="questionnaires-list-buttons"
+        >
+          <Link
+            className="btn btn-info btn-lg"
+            to="/admin/questionnaires/2"
+          >
+            View Responses
           </Link>
         </div>
       </div>

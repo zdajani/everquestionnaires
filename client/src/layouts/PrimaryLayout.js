@@ -8,7 +8,7 @@ import CreateAccountContainer from '../auth/containers/CreateAccountContainer'
 import LoginContainer from '../auth/containers/LoginContainer'
 import NavBar from './NavBar'
 import PrivateRoute from '../auth/components/PrivateRoute'
-import QuestionnaireAnswersFormContainer from '../questionnaire/containers/QuestionnaireAnswersFormContainer'
+import AnswersFormContainer from '../answers/containers/AnswersFormContainer'
 import QuestionnaireFormContainer from '../questionnaire/containers/QuestionnaireFormContainer'
 import QuestionnairesContainer from '../questionnaires/containers/QuestionnairesContainer'
 
@@ -24,7 +24,7 @@ const PrimaryLayout = ({isAuthenticated}) => (
         <Route path='/signup' component={CreateAccountContainer} />
 
         <PrivateRoute path='/questionnaires/new' component={QuestionnaireFormContainer} />
-        <PrivateRoute path='/questionnaires/:id' component={QuestionnaireAnswersFormContainer} />
+        <PrivateRoute path='/questionnaires/:id' component={AnswersFormContainer} />
         <Route path='/questionnaires' component={QuestionnairesContainer} />
 
         <PrivateRoute path='/admin/questionnaires/:id' component={AdminQuestionnaireContainer} />

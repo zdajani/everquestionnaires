@@ -1,9 +1,9 @@
 export const validate = values => {
   const errors = {}
-  if (!values.title) 
+  if (!values.title)
     errors.title = 'Required'
-  
-  
+
+
   if (!values.questions || !values.questions.length) {
     errors.questions = {_error: 'At least one question must be entered'}
   } else {
@@ -14,10 +14,10 @@ export const validate = values => {
         questionErrors.name = 'Required'
         questionsArrayErrors[questionIndex] = questionErrors
       } else {
-        const dubplicate = values.questions.filter(
+        const duplicate = values.questions.filter(
           x => x.name && x.name.toLowerCase() === question.name.toLowerCase()
         )
-        if (dubplicate.length > 1) {
+        if (duplicate.length > 1) {
           questionErrors.name = 'Name must be unique'
           questionsArrayErrors[questionIndex] = questionErrors
         }
@@ -26,10 +26,10 @@ export const validate = values => {
         questionErrors.label = 'Required'
         questionsArrayErrors[questionIndex] = questionErrors
       }
-    
-      if (questionsArrayErrors.length) 
+
+      if (questionsArrayErrors.length)
         errors.questions = questionsArrayErrors
-      
+
     })
   }
   return errors

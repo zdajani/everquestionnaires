@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavBar when user is logged out renders correctly 1`] = `
+<div
+  className="container-fluid"
+>
+  <nav
+    className="navbar navbar-expand-md navbar-dark fixed-top bg-dark"
+  >
+    <div
+      className="navbar-brand title"
+    >
+      <h1
+        className="title"
+      >
+        everQuestionnaires
+      </h1>
+    </div>
+    <div
+      className="nav-item"
+    >
+      <NavLink
+        activeClassName="active"
+        className="nav-link"
+        to="/questionnaires"
+      >
+        Questionnaires
+      </NavLink>
+    </div>
+    <div
+      className="nav-item"
+    >
+      <NavLink
+        activeClassName="active"
+        className="nav-link"
+        to="/questionnaires/new"
+      >
+        Create Questionnaire
+      </NavLink>
+    </div>
+    <div
+      className="nav-item"
+    >
+      <NavLink
+        activeClassName="active"
+        className="nav-link"
+        to="/admin"
+      >
+        Admin Page
+      </NavLink>
+    </div>
+    <div
+      className="nav-item"
+    >
+      <NavLink
+        className="nav-link"
+        to="/login"
+      >
+        Login
+      </NavLink>
+    </div>
+  </nav>
+</div>
+`;
+
+exports[`NavBar when user logged in renders self with logout button 1`] = `
+<button
+  className="nav-link logout-button btn btn-link"
+  onClick={[MockFunction]}
+>
+  Logout
+</button>
+`;

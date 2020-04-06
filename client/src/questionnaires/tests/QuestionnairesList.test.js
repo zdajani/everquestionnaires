@@ -1,42 +1,30 @@
 import React from 'react'
 import {shallow} from 'enzyme'
+
 import QuestionnairesList from '../components/QuestionnairesList'
+
 import {formattedData} from './testData'
-import toJson from 'enzyme-to-json'
-
-//initialize with props if none are given
-
-const setup = (questionnaires =formattedData, url = '/questionnaires' ) => {
-  const component = shallow(
-    <QuestionnairesList questionnaires={questionnaires} url={url} />
-  )
-  
-  return {
-    component
-  }
-}
 
 describe('QuestionnairesList component', () => {
-  const {component} = setup()
-  
-  it('renders self with questionnaires props', () => {
-    expect(component.instance().props).toEqual(
-      {questionnaires: formattedData, url:'/questionnaires'}
+  it('renders correct text and urls when is admin page is false', () => {
+    const component = shallow(
+      <QuestionnairesList
+        questionnaires={formattedData}
+        url={'/questionnaires'}
+      />
     )
-     
-    expect(toJson(component)).toMatchSnapshot()
+
+    expect(component).toMatchSnapshot()
   })
-  
-  it('renders admin urls if admin url is given as prop', () => {
-    const {component} = setup(formattedData, '/admin')
-    expect(component.instance().props).toEqual(
-      {questionnaires: formattedData, url:'/admin'}
+
+  it('renders correct text and urls when is admin page is true', () => {
+    const component = shallow(
+      <QuestionnairesList
+        questionnaires={formattedData}
+        isAdminPage
+        url={'/admin/questionnaires'}
+      />
     )
-     
-    expect(toJson(component)).toMatchSnapshot()
-  })
-  
-  it('renders a list of questionnaire links', () => {
-    expect(toJson(component.find('ul'))).toMatchSnapshot()
+    expect(component).toMatchSnapshot()
   })
 })

@@ -6,7 +6,7 @@ import QuestionnaireForm from '../components/QuestionnaireForm'
 
 import {createQuestionnaire} from '../actions'
 
-const QuestionnaireFormContainer = props => {
+export const QuestionnaireFormContainer = props => {
   const handleFormSubmit = useCallback(values => {
     props.createQuestionnaire(values)
   }, [props])

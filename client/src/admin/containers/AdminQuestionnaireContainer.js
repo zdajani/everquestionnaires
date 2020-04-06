@@ -1,51 +1,55 @@
-import React, {Component} from 'react'
+import React, {useEffect} from 'react'
+import {useParams} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {fetchAdminQuestionnaire} from '../actions'
-import Loading from '../../shared_components/Loading'
-import AdminQuestionnaire from '../components/AdminQuestionnaire'
 import {Redirect} from 'react-router-dom'
 
-export class AdminQuestionnaireContainer extends Component {
-  componentDidMount(){
-    const {id} = this.props.match.params
-    this.props.fetchAdminQuestionnaire(id)
-  }
+import {fetchAdminQuestionnaire} from '../actions'
 
-  render() {
-    const {questionnaireData, error} = this.props
-    const data = this.props.questionnaireData
-    if (error) {
-      return (
-        <Redirect to={{
-          pathname: '/admin/questionnaires',
-          state: {from: this.props.location}
-        }}
-        />
-      )
-    }
+import Loading from '../../shared_components/Loading'
+import AdminQuestionnaire from '../components/AdminQuestionnaire'
 
+
+export const AdminQuestionnaireContainer = props => {
+  const {id} = useParams()
+
+  useEffect(() => {
+    props.fetchAdminQuestionnaire(id)
+  }, [])
+
+  const {questionnaireData, error} = props
+  const data = props.questionnaireData
+
+  if (error) {
+    return (
+      <Redirect to={{
+        pathname: '/admin/questionnaires',
+        state: {from: props.location}
+      }}
+      />
+    )
+  } else {
     return (
       <div>
-        { (questionnaireData && questionnaireData.questions) ?
-          <AdminQuestionnaire
-            questions={data.questions}
-            questionnaire={data.questionnaire}
-            usersAnswers={data.usersAnswers}
-          /> :
-          <Loading />
+        {
+          (questionnaireData && questionnaireData.questions) ?
+            <AdminQuestionnaire
+              questions={data.questions}
+              questionnaire={data.questionnaire}
+              usersAnswers={data.usersAnswers}
+            /> :
+            <Loading />
         }
       </div>
     )
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    questionnaireData: state.adminQuestionnaire.data,
-    isLoading: state.adminQuestionnaire.isLoading,
-    error: state.adminQuestionnaire.errorMessage}
-}
+const mapStateToProps = ({adminQuestionnaire}) => ({
+  questionnaireData: adminQuestionnaire.data,
+  isLoading: adminQuestionnaire.isLoading,
+  error: adminQuestionnaire.errorMessage
+})
 
 AdminQuestionnaireContainer.propTypes = {
   questionnaireData: PropTypes.shape({

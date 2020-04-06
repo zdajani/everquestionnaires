@@ -1,9 +1,11 @@
 import React from 'react'
 import {shallow} from 'enzyme'
 import toJson from 'enzyme-to-json'
+
 import {NavBar} from '../NavBar'
 
 const logoutSpy = jest.fn()
+
 const isAuthenticatedMock = {
   exp: 1234566,
   sub: 1
@@ -26,30 +28,27 @@ const setup = (isAuthenticated = isAuthenticatedMock) => {
 describe('NavBar', () => {
   describe('when user logged in', () => {
     const {component, logoutSpy} = setup()
-    it('renders self isAuthenticated true props', () => {
-      expect(component.instance().props).toEqual({isAuthenticated: isAuthenticatedMock, logout: logoutSpy})
-      expect(toJson(component)).toMatchSnapshot()
-    })
 
     it('renders self with logout button', () => {
-      expect(toJson(component.find('button').first())).toMatchSnapshot()
+      expect(component.find('button').first()).toMatchSnapshot()
     })
 
     it('calls logout on logout button', () => {
-      const {component, logoutSpy} = setup()
       component.find('button').first().simulate('click')
+
       expect(logoutSpy.mock.calls.length).toBe(1)
     })
   })
 
-  describe('when user logged out', () => {
-    const {component, logoutSpy} = setup(false)
-    it('renders self with isAuthenticated false props', () => {
-      expect(component.instance().props).toEqual({isAuthenticated: false, logout: logoutSpy})
+  describe('when user is logged out', () => {
+    const {component} = setup(false)
+
+    it('renders correctly', () => {
+      expect(component).toMatchSnapshot()
     })
 
-    it('renders self with login link', () => {
-      expect(toJson(component)).toMatchSnapshot()
+    it('renders login link', () => {
+      expect(component).toIncludeText('Login')
     })
   })
 })

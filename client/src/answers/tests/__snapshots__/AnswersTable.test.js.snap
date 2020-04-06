@@ -1,52 +1,71 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AnswersTable component renders self with questions and answers props 1`] = `
-<div>
-  <table
-    className="table table-striped table-bordered table-responsive"
+exports[`AnswersTable component renders correctly 1`] = `
+<table
+  className="table table-striped table-bordered table-responsive"
+>
+  <thead
+    className="thead-inverse"
   >
-    <thead
-      className="thead-inverse"
-    >
-      <tr>
-        <th>
-          #
-        </th>
-        <th>
-          Username
-        </th>
-        <th>
-          Ragdoll traits
-        </th>
-        <th>
-          Persian traits
-        </th>
-        <th>
-          Date
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th
-          scope="row"
-        >
-          1
-        </th>
-        <td>
-          user1
-        </td>
-        <td>
-          Pellentesque in ipsum id orci porta dapibus.
-        </td>
-        <td>
-          Vivamus suscipit tortor eget felis porttitor.
-        </td>
-        <td>
-          Thu Aug 17 2017
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+    <tr>
+      <th>
+        #
+      </th>
+      <th>
+        Username
+      </th>
+      <th
+        key="1"
+      >
+        Ragdoll traits
+      </th>
+      <th
+        key="2"
+      >
+        Persian traits
+      </th>
+      <th>
+        Date
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <UserResponseRows
+      questions={
+        Array [
+          Object {
+            "id": 1,
+            "label": "describe ragdoll traits",
+            "name": "Ragdoll traits",
+          },
+          Object {
+            "id": 2,
+            "label": "describe persian traits",
+            "name": "Persian traits",
+          },
+        ]
+      }
+      usersAnswers={
+        Array [
+          Object {
+            "answers": Array [
+              Object {
+                "id": 1,
+                "question_id": 1,
+                "response": "Pellentesque in ipsum id orci porta dapibus.",
+              },
+              Object {
+                "id": 2,
+                "question_id": 2,
+                "response": "Vivamus suscipit tortor eget felis porttitor.",
+              },
+            ],
+            "date": "2017-08-18T00:02:54.066Z",
+            "username": "user1",
+          },
+        ]
+      }
+    />
+  </tbody>
+</table>
 `;

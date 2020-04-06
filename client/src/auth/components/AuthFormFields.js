@@ -4,7 +4,7 @@ import renderField from '../../shared_components/Field'
 import {required} from '../validations'
 
 const AuthFormFields = () => (
-  <div>
+  <>
     <Field
       label='Username:'
       name='username'
@@ -18,7 +18,7 @@ const AuthFormFields = () => (
       component={renderField}
       validate={required}
     />
-  </div>
+  </>
 )
 
 export default AuthFormFields

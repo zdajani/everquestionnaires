@@ -15,14 +15,7 @@ const setup = (question = formattedData) => {
 }
 
 describe('Question component', () => {
-  it('renders self with question props ', () => {
-    const {component} = setup()
-    expect(component.instance().props).toEqual({ 
-      name: formattedData.name, 
-      label:formattedData.label,
-      id:  formattedData.id
-    }) 
-    
-    expect(toJson(component)).toMatchSnapshot()
+  it('renders correctly', () => {
+    expect(shallow(<Question {...formattedData} />)).toMatchSnapshot()
   })
 })

@@ -5,8 +5,6 @@ import {push} from 'connected-react-router'
 import * as types from './actionTypes'
 
 export function authenticateUser({username, password}, isLogin) {
-
-
   return (dispatch, getState) => {
     const redirectUrl = getRedirectUrl(getState())
 
@@ -28,6 +26,7 @@ export function authenticateUser({username, password}, isLogin) {
 
 export function logout() {
   delete localStorage.authToken
+
   return dispatch => {
     dispatch({type: types.LOGOUT})
     dispatch(push('/questionnaires'))
@@ -36,9 +35,7 @@ export function logout() {
 
 const getRedirectUrl = state => {
   const routerState = state.router.location.state
-  return (
-    routerState ? routerState.from : '/questionnaires'
-  )
+  return routerState ? routerState.from : '/questionnaires'
 }
 
 const getApiResponse = (username, password, isLogin) => {
