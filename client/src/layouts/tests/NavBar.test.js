@@ -13,7 +13,8 @@ const setup = (isAuthenthicated = isAuthenthicatedMock) => {
   const component = shallow(
     <NavBar 
       logout={logoutSpy}
-      isAuthenthicated={isAuthenthicated} />
+      isAuthenthicated={isAuthenthicated}
+    />
   )
     
   return {

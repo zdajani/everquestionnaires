@@ -20,7 +20,8 @@ export class AnswersFormContainer extends Component {
       <div>
         <AnswersForm 
           onSubmit={this.handleFormSubmit} 
-          questionnaire={this.props.questionnaire} />
+          questionnaire={this.props.questionnaire}
+        />
       </div>
     )
   }

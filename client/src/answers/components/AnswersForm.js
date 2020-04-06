@@ -14,7 +14,8 @@ export const AnswersForm = props => {
         <FieldArray 
           name='answers' 
           component={AnswersFieldArray} 
-          questions={questionnaire.questions} />
+          questions={questionnaire.questions}
+        />
         <button type='submit' disabled={submitting} className='btn btn-success btn-lg btn-block'>
           Submit
         </button>

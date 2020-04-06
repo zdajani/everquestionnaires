@@ -21,10 +21,11 @@
     }
   },
   "rules": {
+    "no-dupe-args": [2], // Disallow duplicate arguments in functions
+    "no-unreachable": [2], // Disallow unreachable code (e.g., code right after a return)
     "linebreak-style": ["error", "unix"],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "no-undefined": [2], // "Disallow Use of undefined Variable" because it is a property of the global object
     "comma-dangle": [
       1,
       "never"
@@ -108,6 +109,17 @@
     "semi": [ // Disallow semicolons at the end of lines in favor of automatic semicolon insertion
       2,
       "never"
-    ]
+    ],
+    "react/jsx-closing-bracket-location": [ // Warn about improperly-placed closing tags.
+      1,
+      {
+        "nonEmpty": "after-props", // Keep closing tag on same line as last prop if tag has children.
+        "selfClosing": "tag-aligned" // Align closing tag with opening tag if tag is self-closing.
+      }
+    ],
+    "react/jsx-no-duplicate-props": [2], // Error if duplicate props are passed.
+    "react/jsx-no-undef": [2], // Error if an undeclared variable is used.
+    "react/jsx-pascal-case": [2], // Error if PascalCase is not used for user-defined components.
+
   }
 }

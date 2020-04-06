@@ -8,7 +8,8 @@ const setup = () => {
   const component = shallow(
     <AnswersTable 
       questions={answersTableData.questions} 
-      usersAnswers={answersTableData.usersAnswers} />
+      usersAnswers={answersTableData.usersAnswers}
+    />
   )
     
   return {

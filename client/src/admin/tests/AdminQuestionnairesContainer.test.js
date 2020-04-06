@@ -16,7 +16,8 @@ const setup = (formattedData, isLoading) => {
     <AdminQuestionnairesContainer 
       questionnaires={formattedData} 
       isLoading={isLoading}
-      match={match} />
+      match={match}
+    />
   )
     
   return {
@@ -51,7 +52,8 @@ describe('AdminQuestionnaire container', () => {
       store={store} 
       isLoading={true} 
       fetchAdminQuestionnaires={fetchAdminQuestionnairesSpy} 
-      match={match} />)
+      match={match}
+    />)
     
     expect(toJson(mountedComponent)).toMatchSnapshot()
   })

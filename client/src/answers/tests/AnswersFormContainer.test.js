@@ -13,7 +13,8 @@ const setup = () => {
   const container = shallow(
     <AnswersFormContainer 
       createAnswers={createAnswerSpy} 
-      questionnaire={questionnaireData} />
+      questionnaire={questionnaireData}
+    />
   )
     
   return {
@@ -31,7 +32,8 @@ describe('AnswersForm container', () => {
       <Provider store={store}>
         <ConnectedAnswersFormContainer 
           questionnaire ={questionnaireData}
-          createAnswerSpy={createAnswerSpy} />
+          createAnswerSpy={createAnswerSpy}
+        />
       </Provider>)
 
     expect(mountedContainer).toBePresent()

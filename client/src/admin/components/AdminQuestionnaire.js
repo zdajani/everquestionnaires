@@ -6,10 +6,11 @@ const AdminQuestionnaire = ({questionnaire, questions, usersAnswers}) => {
   return (
     <div className='container-fluid'>
       <h1 className='text-center'>{questionnaire.title}</h1>
-      <AnswersTable   
+      <AnswersTable
         questions={questions}
-        usersAnswers={usersAnswers} />
-    </div> 
+        usersAnswers={usersAnswers}
+      />
+    </div>
   )
 }
 

@@ -9,7 +9,8 @@ describe('Field component', () => {
       input='' 
       label='field testing'
       type='text'
-      meta={{touched: false, error: {}}} />)
+      meta={{touched: false, error: {}}}
+    />)
     
     expect(toJson(component)).toMatchSnapshot()
   })

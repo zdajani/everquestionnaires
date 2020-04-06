@@ -38,7 +38,7 @@ export function fetchAdminQuestionnaire(id) {
         type: types.FETCH_ADMIN_QUESTIONNAIRE_SUCCESS,
         payload: response.data
       })
-    }).catch(error => {
+    }).catch(() => {
       dispatch({type: types.FETCH_ADMIN_QUESTIONNAIRE_FAILURE, payload: 'Bad request'})
     })
   }

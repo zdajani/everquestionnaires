@@ -15,7 +15,7 @@ export function fetchQuestionnaire(id) {
         type: types.FETCH_QUESTIONNAIRE_SUCCESS,
         payload: response.data
       })
-    }).catch(error => {
+    }).catch(() => {
       dispatch({type: types.FETCH_QUESTIONNAIRE_FAILURE, payload: 'Bad request'})
     })
   }
@@ -32,12 +32,12 @@ export function createQuestionnaire({title, questions}) {
   return dispatch => {
     dispatch({type: types.CREATE_QUESTIONNAIRE})
 
-    return request.then(response => {
+    return request.then(() => {
       dispatch({
         type: types.CREATE_QUESTIONNAIRE_SUCCESS
       })
       dispatch(push('/questionnaires'))
-    }).catch(error => {
+    }).catch(() => {
       dispatch({type: types.CREATE_QUESTIONNAIRE_FAILURE, payload: 'Bad request'})
     })
   }

@@ -13,12 +13,12 @@ export function createAnswers({answers}, id) {
   return dispatch => {
     dispatch({type: types.CREATE_ANSWERS})
 
-    return request.then(response => {
+    return request.then(() => {
       dispatch({
         type: types.CREATE_ANSWERS_SUCCESS
       })
       dispatch(push('/questionnaires'))
-    }).catch(error => {
+    }).catch(() => {
       dispatch({type: types.CREATE_ANSWERS_FAILURE, payload: 'Bad request'})
     })
   }

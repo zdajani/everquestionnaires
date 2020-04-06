@@ -1,8 +1,8 @@
 import _ from 'lodash'
 import * as types from './actionTypes'
-  
+
 const initialState = {
-  isLoading: false, 
+  isLoading: false,
   data: null,
   errorMessage: null
 }
@@ -11,17 +11,17 @@ export function fetchQuestionnaireReducer(state = initialState, action) {
   switch (action.type) {
     case types.FETCH_QUESTIONNAIRE:
       return {
-        ...state, 
+        ...state,
         isLoading: true
       }
     case types.FETCH_QUESTIONNAIRE_SUCCESS:
       const questionnaire = () => (
         action.payload.questions ? {
-          ...action.payload, 
+          ...action.payload,
           questions: _.mapKeys(action.payload.questions, 'id')
         } : action.payload
       )
-      
+
       return {
         ...state,
         isLoading: false,
@@ -34,7 +34,7 @@ export function fetchQuestionnaireReducer(state = initialState, action) {
         isLoading: false,
         errorMessage: action.payload
       }
-    default: 
+    default:
       return state
   }
 }
@@ -44,7 +44,7 @@ export function createQuestionnaireReducer(state = initialState, action) {
   switch (action.type) {
     case types.CREATE_QUESTIONNAIRE:
       return {
-        ...state, 
+        ...state,
         isLoading: true
       }
     case types.CREATE_QUESTIONNAIRE_SUCCESS:
@@ -59,7 +59,7 @@ export function createQuestionnaireReducer(state = initialState, action) {
         isLoading: false,
         errorMessage: action.payload
       }
-    default: 
+    default:
       return state
   }
 }

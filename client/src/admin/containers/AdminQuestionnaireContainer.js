@@ -20,7 +20,8 @@ export class AdminQuestionnaireContainer extends Component {
         <Redirect to={{
           pathname: '/admin/questionnaires', 
           state: {from: this.props.location}
-        }} />
+        }}
+        />
       )
     }
     
@@ -30,7 +31,8 @@ export class AdminQuestionnaireContainer extends Component {
           <AdminQuestionnaire 
             questions={data.questions} 
             questionnaire={data.questionnaire}
-            usersAnswers={data.usersAnswers} />  : 
+            usersAnswers={data.usersAnswers}
+          />  : 
           <Loading />
         }
       </div>

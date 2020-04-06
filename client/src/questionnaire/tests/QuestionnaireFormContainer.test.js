@@ -30,7 +30,8 @@ describe('QuestionnairesForm container', () => {
     const mountedContainer = mount(
       <Provider store={store}>
         <ConnectedQuestionnaireFormContainer 
-          createQuestionnaire={createQuestionnaireSpy} />
+          createQuestionnaire={createQuestionnaireSpy}
+        />
       </Provider>)
 
     expect(toJson(mountedContainer)).toMatchSnapshot()

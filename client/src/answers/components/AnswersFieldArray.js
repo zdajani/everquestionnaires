@@ -36,7 +36,8 @@ class AnswersFieldArray extends Component {
             <div className='form-group'>
               <Question 
                 name={questions[(fields.get(index)).question_id].name} 
-                label={questions[(fields.get(index)).question_id].label} />
+                label={questions[(fields.get(index)).question_id].label}
+              />
               <Field
                 name={`${answer}.response`}
                 type='textArea'

@@ -17,7 +17,8 @@ const setup = () => {
       <QuestionnaireForm 
         handleSubmit={handleSubmitSpy}
         reset={resetSpy}
-        submitting={false}  />
+        submitting={false}
+      />
     </Provider>)
     
   return {
