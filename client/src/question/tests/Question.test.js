@@ -6,7 +6,7 @@ import {formattedData} from './testData'
 
 const setup = (question = formattedData) => {
   const component = shallow(
-    <Question {...question}  />
+    <Question {...question} />
   )
 
   return {

@@ -8,7 +8,7 @@ import toJson from 'enzyme-to-json'
 
 const setup = (questionnaires =formattedData, url = '/questionnaires' ) => {
   const component = shallow(
-    <QuestionnairesList questionnaires={questionnaires} url={url}   />
+    <QuestionnairesList questionnaires={questionnaires} url={url} />
   )
   
   return {

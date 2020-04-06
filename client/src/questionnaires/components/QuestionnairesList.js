@@ -23,7 +23,7 @@ const QuestionnairesList = ({questionnaires, url, isAdminPage}) => {
 
 
 
-  const renderQuestionnaires = () =>  {
+  const renderQuestionnaires = () => {
     return _.map(questionnaires, questionnaire => {
       return (
         <div key={questionnaire.id} className='card'>

@@ -32,7 +32,7 @@ export class AdminQuestionnaireContainer extends Component {
             questions={data.questions} 
             questionnaire={data.questionnaire}
             usersAnswers={data.usersAnswers}
-          />  : 
+          /> : 
           <Loading />
         }
       </div>

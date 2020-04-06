@@ -120,6 +120,10 @@
     "react/jsx-no-duplicate-props": [2], // Error if duplicate props are passed.
     "react/jsx-no-undef": [2], // Error if an undeclared variable is used.
     "react/jsx-pascal-case": [2], // Error if PascalCase is not used for user-defined components.
-
+    "multiline-ternary": [
+      2,
+      "always-multiline"
+    ],
+    "no-multi-spaces": [2] // Disallow multiple spaces unnecessarily (see documentation for how to set up exceptions)
   }
 }

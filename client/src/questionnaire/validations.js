@@ -17,7 +17,7 @@ export const validate = values => {
         const dubplicate = values.questions.filter(
           x => x.name && x.name.toLowerCase() === question.name.toLowerCase()
         )
-        if (dubplicate.length > 1)  {
+        if (dubplicate.length > 1) {
           questionErrors.name = 'Name must be unique'
           questionsArrayErrors[questionIndex] = questionErrors
         }
