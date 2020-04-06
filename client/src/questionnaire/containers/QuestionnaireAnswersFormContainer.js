@@ -2,7 +2,9 @@ import React, {useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
+
 import {fetchQuestionnaire} from '../actions'
+
 import Loading from '../../shared_components/Loading'
 import AnswersFormContainer from '../../answers/containers/AnswersFormContainer'
 
@@ -13,14 +15,10 @@ const QuestionnaireAnswersFormContainer = props => {
     props.fetchQuestionnaire(id)
   }, [])
 
-  return (
-    <div>
-      { (props.isLoading || !props.questionnaire) ?
-        <Loading /> :
-        <AnswersFormContainer questionnaire={props.questionnaire} />
-      }
-    </div>
-  )
+  if (props.isLoading || !props.questionnaire)
+    return <Loading />
+  else
+    return <AnswersFormContainer questionnaire={props.questionnaire} />
 }
 
 QuestionnaireAnswersFormContainer.propTypes = {
@@ -33,8 +31,9 @@ QuestionnaireAnswersFormContainer.propTypes = {
   })
 }
 
-function mapStateToProps(state) {
-  return {questionnaire: state.questionnaire.data, isLoading: state.questionnaire.isLoading}
-}
+const mapStateToProps = ({questionnaire}) => ({
+  questionnaire: questionnaire.data,
+  isLoading: questionnaire.isLoading
+})
 
 export default connect(mapStateToProps, {fetchQuestionnaire})(QuestionnaireAnswersFormContainer)
