@@ -1,6 +1,6 @@
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
-import { push } from 'react-router-redux';
+import { push } from 'connected-react-router';
 
 import * as types from './actionTypes'
 
@@ -9,9 +9,9 @@ export function authenticateUser({ username, password }, isLogin) {
 
   return (dispatch, getState) => {
     const redirectUrl = getRedirectUrl(getState())
-    
+
     dispatch({ type: types.LOGIN_REQUEST });
-    
+
     getApiResponse(username, password, isLogin).then(res => {
         localStorage.authToken = res.data.jwt
         dispatch({
@@ -42,11 +42,11 @@ const getRedirectUrl = (state) => {
 }
 
 const getApiResponse = (username, password, isLogin) => {
-  const apiInfo = isLogin ?  
-    { url: '/user_token', data: { auth: {username, password}}} : 
+  const apiInfo = isLogin ?
+    { url: '/user_token', data: { auth: {username, password}}} :
     { url: '/api/users', data: { user: {username, password}}};
-   
-   return( 
+
+   return(
      axios({
      method: 'post',
      url: apiInfo.url,
@@ -54,7 +54,7 @@ const getApiResponse = (username, password, isLogin) => {
    })
  );
 }
- 
+
 const getErrors = (errorsResponseData) => (
   errorsResponseData || {0: ["username or password is incorrect"]}
 );

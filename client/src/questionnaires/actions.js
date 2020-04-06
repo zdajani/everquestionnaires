@@ -9,14 +9,14 @@ export function fetchQuestionnaires() {
 
   return (dispatch) => {
     dispatch({ type: types.FETCH_QUESTIONNAIRES });
-    
+
     return request.then(response => {
-      dispatch({ 
-        type: types.FETCH_QUESTIONNAIRES_SUCCESS, 
+      dispatch({
+        type: types.FETCH_QUESTIONNAIRES_SUCCESS,
         payload: response.data
       });
     }).catch((error) => {
       dispatch({ type: types.FETCH_QUESTIONNAIRES_FAILURE, payload: "Bad request"});
-    })  
+    })
   };
 }

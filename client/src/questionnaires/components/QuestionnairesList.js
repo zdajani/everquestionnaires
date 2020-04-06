@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom'
 import _ from 'lodash';
-import './styles/Questionnaires.css'; 
+import './styles/Questionnaires.css';
 
 const QuestionnairesList = ({ questionnaires, url, isAdminPage }) => {
   const renderViewAnswersButtons = (questionnaire) => (
@@ -12,7 +12,7 @@ const QuestionnairesList = ({ questionnaires, url, isAdminPage }) => {
       </Link>
     </div>
   )
-  
+
   const renderTakeQuestionnaireButton = (questionnaire) => (
     <div className="questionnaires-list-buttons">
       <Link to={`${url}/${questionnaire.id}`} className="btn btn-info btn-lg">
@@ -22,7 +22,7 @@ const QuestionnairesList = ({ questionnaires, url, isAdminPage }) => {
   )
 
 
-  
+
   const renderQuestionnaires = () =>  {
     return _.map(questionnaires, questionnaire => {
       return (
@@ -35,7 +35,7 @@ const QuestionnairesList = ({ questionnaires, url, isAdminPage }) => {
       )
     });
   }
-  
+
   return (
     <div className="album text-muted">
         <div className="container">

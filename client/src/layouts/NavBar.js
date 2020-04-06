@@ -9,18 +9,18 @@ export class NavBar extends Component {
        <button onClick={this.props.logout} className="nav-link logout-button btn btn-link">Logout</button>
      );
    }
-   
+
    renderLoginLink() {
      return (
        <NavLink to="/login" className="nav-link">Login</NavLink>
      );
    }
-   
+
   render() {
     return (
       <div className="container-fluid">
       <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <div className="navbar-brand ttile">
+        <div className="navbar-brand title">
           <h1 className="title">everQuestionnaires</h1>
         </div>
         <div className="nav-item">

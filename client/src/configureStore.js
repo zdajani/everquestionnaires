@@ -1,20 +1,24 @@
-import { createStore, applyMiddleware } from 'redux';
-import { routerMiddleware } from 'react-router-redux'
-import createHistory from 'history/createBrowserHistory'
+
 import reduxThunk from 'redux-thunk';
+import { createBrowserHistory } from 'history'
+import { applyMiddleware, compose, createStore } from 'redux'
+import { routerMiddleware } from 'connected-react-router'
+import createRootReducer from './rootReducer'
 
-import reducers from './rootReducer';
+export const history = createBrowserHistory()
 
-// create browser history 
-const history = createHistory();
+export default function configureStore(preloadedState) {
+  const store = createStore(
+    createRootReducer(history), // root reducer with router state
+    preloadedState,
+    compose(
+      applyMiddleware(
+        routerMiddleware(history), // for dispatching history actions
+        reduxThunk
+        // ... other middlewares ...
+      ),
+    ),
+  )
 
-// add the history to routing middleware
-const middleware = routerMiddleware(history);
-
-// add middleware to store which allows one to dispatch navigation from anywhere
-// usefull for re-routing in actions or components using connect() frome redux 
-const createStoreWithMiddleware = applyMiddleware(middleware, reduxThunk)(createStore);
-
-const store = createStoreWithMiddleware(reducers);
-
-export { store, history };
+  return store
+}

@@ -1,12 +1,12 @@
 import jwtDecode from 'jwt-decode';
 import _ from 'lodash';
-import { LOCATION_CHANGE } from 'react-router-redux';
+import { LOCATION_CHANGE } from 'connected-react-router';
 
-import { 
-  LOGIN_REQUEST, 
-  AUTH_ERROR, 
-  AUTH_SUCCESS, 
-  LOGOUT 
+import {
+  LOGIN_REQUEST,
+  AUTH_ERROR,
+  AUTH_SUCCESS,
+  LOGOUT
 } from './actionTypes';
 
 const checkToken = (token) => {

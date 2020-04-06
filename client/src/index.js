@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
-import { Route } from 'react-router-dom';
-import { ConnectedRouter } from 'react-router-redux'
-
-import { store, history } from './configureStore';
-
+import { Route } from 'react-router' // react-router v4/v5
+import { ConnectedRouter } from 'connected-react-router'
+import configureStore, { history } from './configureStore'
 import PrimaryLayout from './layouts/PrimaryLayout';
+
+const store = configureStore()
 
 
 ReactDOM.render(
@@ -15,7 +15,7 @@ ReactDOM.render(
     <ConnectedRouter history={history}>
       <Route path="/" component={PrimaryLayout} />
     </ConnectedRouter>
-  </Provider>, 
+  </Provider>,
   document.getElementById('root')
 );
 
